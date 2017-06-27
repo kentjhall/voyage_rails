@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
 
+  before_action :check_for_mobile
+
   def home
   end
 
@@ -14,5 +16,5 @@ class PagesController < ApplicationController
 
   def contact
   end
-  
+
 end
