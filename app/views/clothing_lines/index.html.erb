@@ -1,0 +1,5 @@
+<ul>
+  <% @clothing_lines.each do |clothing_line| %>
+    <li><%= clothing_line.available ? link_to(clothing_line.name, clothing_line_path(clothing_line)) : "#{clothing_line.name} (coming soon)" %></li>
+  <% end %>
+</ul>

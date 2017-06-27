@@ -1,0 +1,2 @@
+module ClothingLinesHelper
+end

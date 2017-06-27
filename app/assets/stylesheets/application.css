@@ -1,0 +1,65 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ @import url('https://fonts.googleapis.com/css?family=Cabin');
+
+ @font-face {
+     font-family: 'Cabin', sans-serif;
+ }
+
+ html {
+   background-color: black;
+ }
+
+ #header {
+   font-family: 'Cabin';
+   color: white;
+
+   width: auto;
+   height: 145px;
+
+   position: absolute;
+   top:0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+
+   margin: auto;
+ }
+
+ #header h1 {
+   font-size: 300%;
+
+   text-align: center;
+   width: auto;
+
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+ }
+
+ #header h2 {
+   font-size: 130%;
+
+   text-align: center;
+   width: auto;
+
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   right: 0;
+ }
