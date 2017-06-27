@@ -29,7 +29,7 @@
    color: white;
 
    width: auto;
-   height: 145px;
+   height: 18vh;
 
    position: absolute;
    top:0;
@@ -41,7 +41,7 @@
  }
 
  #header h1 {
-   font-size: 300%;
+   font-size: 3.5vmax;
 
    text-align: center;
    width: auto;
@@ -53,7 +53,7 @@
  }
 
  #header h2 {
-   font-size: 130%;
+   font-size: 1.5vmax;
 
    text-align: center;
    width: auto;
