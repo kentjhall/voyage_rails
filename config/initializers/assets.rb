@@ -14,5 +14,6 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 
 Rails.application.config.assets.precompile += %w( ajax-loader.gif )
+Rails.application.config.assets.precompile += %w( myst_img.png )
 Rails.application.config.assets.precompile += %w( aos/aos.css )
 Rails.application.config.assets.precompile += %w( aos/aos.js )
