@@ -5,11 +5,15 @@
 
 // Home page
 
-// temp for pre-release
-html {
-  background-image: image-url('myst_img.png');
-  background-repeat: no-repeat;
-  background-size: cover;
+#myst_img {
+  width: 100%;
+  height: auto;
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 #main {
