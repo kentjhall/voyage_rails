@@ -1,53 +1,45 @@
-
-<style>
-#header {
-  font-family: 'Cabin';
-  color: white;
-
-  width: auto;
-  height: 145px;
-
-  position: absolute;
-  top:0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-
-  margin: auto;
-}
-
-#header h1 {
-  font-size: 4em;
-
-  text-align: center;
-
-  position: absolute;
-  top: -0.7em;
-  left: 0;
-  right: 0;
-}
-
-#header h2 {
-  font-size: 1.7em;
-
-  text-align: center;
-
-  position: absolute;
-  top: 2.4em;
-  left: 0;
-  right: 0;
-}
-</style>
-
-<div id="header">
-<h1 class="animated fadeIn">Voyage</h1>
-<h2 class="animated fadeIn">coming soon</h2>
+<div id="main">
+  <div id="flowers">
+    <img id="red-flower" class="flower" src="assets/red_flower.png" style="transform:translateX(-5em);">
+    <img id="yellow-flower" class="flower" src="assets/yellow_flower.png">
+    <img id="blue-flower" class="flower" src="assets/blue_flower.png" style="transform:translateX(5em);">
+  </div>
+  <a href="#clothing_lines">
+    <p id="down_arrow_text">store</p>
+    <img id="down_arrow" src="assets/down_arrow.png">
+  </a>
 </div>
 
-<!-- <ul>
-  <li><%= link_to("Store", store_path) %></li>
-  <li><%= link_to("Art", art_path) %></li>
-  <li><%= link_to("About Us", about_us_path) %></li>
-  <li><%= link_to("Journal", journal_path) %></li>
-  <li><%= link_to("Contact", contact_path) %></li>
-</ul> -->
+<div id="clothing_lines" class="colored_section">
+  <div class="trigger" id="store_trigger"></div>
+  <h2 id="store_title">store</h2>
+  <% cl_ordered = @clothing_lines.sort { |cl1, cl2| cl1.index <=> cl2.index } %>
+  <% cl_ordered.each do |clothing_line| %>
+    <% path = "missing_img.png" %>
+    <% if !clothing_line.img_path.nil? && !clothing_line.img_path.empty? %>
+      <% path = "clothing_line_imgs/#{clothing_line.img_path}" %>
+    <% end %>
+    <div class="img_wrapper" data-aos="fade-up">
+      <%= link_to(image_tag(path, :alt => clothing_line.name), clothing_line_path(clothing_line)) %>
+      <p><%= clothing_line.name.downcase %></p>
+    </div>
+  <% end %>
+</div>
+
+<script>
+
+  $('#navbar h1').on('click', function(e){
+      e.preventDefault();
+      $('html, body').stop().animate({
+         scrollTop: $('#main').offset().top
+      }, 500);
+  });
+
+  $('#down_arrow, #down_arrow_text').on('click', function(e){
+      e.preventDefault();
+      $('html, body').stop().animate({
+         scrollTop: $('#clothing_lines').offset().top
+      }, 500);
+  });
+
+</script>

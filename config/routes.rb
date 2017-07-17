@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'team_members/show'
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   mount Piggybak::Engine => '/checkout', as: 'piggybak'
 
@@ -8,7 +10,6 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   get 'home', :to => 'pages#home'
-  get 'store', :to => 'clothing_lines#index'
   get 'art', :to => 'pages#art'
   get 'about_us', :to => 'pages#about_us'
   get 'journal', :to => 'pages#journal'
@@ -20,7 +21,7 @@ Rails.application.routes.draw do
   get 'pages/journal'
   get 'pages/contact'
 
-  resources :clothing_lines
+  resources :clothing_lines, :except => [:index]
   resources :items
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

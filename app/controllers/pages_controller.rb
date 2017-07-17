@@ -1,8 +1,9 @@
 class PagesController < ApplicationController
 
-  before_action :check_for_mobile
+  # before_action :check_for_mobile
 
   def home
+    @clothing_lines = ClothingLine.all
   end
 
   def art

@@ -1,7 +1,0 @@
-<h2><%= @clothing_line.name %></h2>
-<ul>
-  <% @clothing_line.items.each do |item| %>
-    <% text = "#{item.name} – #{number_to_currency(item.price)}" %>
-    <li><%= link_to(text, item_path(item)) %></li>
-  <% end %>
-</ul>

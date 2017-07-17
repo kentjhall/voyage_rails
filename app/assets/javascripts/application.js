@@ -14,3 +14,10 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require pages
+//= require aos/dist/aos
+//= require scrollmagic/scrollmagic/minified/ScrollMagic.min
+//= require scrollmagic/scrollmagic/minified/plugins/animation.gsap.min
+//= require gsap/TweenMax
+//= require gsap/TimelineMax
+//= require gsap/BezierPlugin
