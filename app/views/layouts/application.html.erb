@@ -10,7 +10,40 @@
   </head>
 
   <body>
-    
+    <div id="navbar">
+      <h1><%= link_to("voyage", root_path) %></h1>
+      <ul id="navlinks">
+        <li id="about_us_link"><%= link_to("about us", "#about_us") %></li>
+        <li id="contact_link"><%= link_to("contact", "#contact") %></li>
+      </ul>
+    </div> -->
+    <div id="content">
+      <%= yield %>
+    </div>
+    <div id="footer">
+      <div id="about_us" class="colored_section">
+        <div class="trigger" id="about_us_trigger"></div>
+        <h2 id="about_us_title">about us</h2>
+        <% tm_ordered = TeamMember.all.sort { |tm1, tm2| tm1.index <=> tm2.index } %>
+        <% tm_ordered.each do |team_member| %>
+          <% path = "missing_img.png" %>
+          <% if !team_member.img_path.nil? && !team_member.img_path.empty? %>
+            <% path = "team_member_imgs/#{team_member.img_path}" %>
+          <% end %>
+          <div class="img_wrapper" data-aos="fade-up">
+            <%= link_to(image_tag(path, :alt => team_member.name), team_members_show_path(team_member)) %>
+            <p id="team_member_name"><%= team_member.name.downcase %></p>
+            <p id="team_member_role"><%= team_member.role.downcase %></p>
+          </div>
+        <% end %>
+      </div>
+
+      <div id="contact" class="colored_section">
+        <div class="trigger" id="contact_trigger"></div>
+        <h2 id="contact_title">contact</h2>
+        <a id= "email_link" href="mailto:support@voyagealone.com" data-aos="fade-up">support@voyagealone.com</a>
+      </div>
+    </div>
 
     <script>
       AOS.init();
