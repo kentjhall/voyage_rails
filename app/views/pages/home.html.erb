@@ -1,30 +1,4 @@
-<div id="main">
-  <div id="flowers">
-    <img id="red-flower" class="flower" src="assets/red_flower.png" style="transform:translateX(-5em);">
-    <img id="yellow-flower" class="flower" src="assets/yellow_flower.png">
-    <img id="blue-flower" class="flower" src="assets/blue_flower.png" style="transform:translateX(5em);">
-  </div>
-  <a href="#clothing_lines">
-    <p id="down_arrow_text">store</p>
-    <img id="down_arrow" src="assets/down_arrow.png">
-  </a>
-</div>
 
-<div id="clothing_lines" class="colored_section">
-  <div class="trigger" id="store_trigger"></div>
-  <h2 id="store_title">store</h2>
-  <% cl_ordered = @clothing_lines.sort { |cl1, cl2| cl1.index <=> cl2.index } %>
-  <% cl_ordered.each do |clothing_line| %>
-    <% path = "missing_img.png" %>
-    <% if !clothing_line.img_path.nil? && !clothing_line.img_path.empty? %>
-      <% path = "clothing_line_imgs/#{clothing_line.img_path}" %>
-    <% end %>
-    <div class="img_wrapper" data-aos="fade-up">
-      <%= link_to(image_tag(path, :alt => clothing_line.name), clothing_line_path(clothing_line)) %>
-      <p><%= clothing_line.name.downcase %></p>
-    </div>
-  <% end %>
-</div>
 
 <script>
 
