@@ -26,6 +26,8 @@ class OrderItemsController < ApplicationController
       session[:order_items] = []
     end
 
+    @order_items = session[:order_items]
+
     session[:order_items].each do |order_item|
       order_item_properties.each do |property|
         if order_item[property].nil?
@@ -37,8 +39,6 @@ class OrderItemsController < ApplicationController
     if params[:empty]
       empty_cart
     end
-
-    @order_items = session[:order_items]
   end
 
   private

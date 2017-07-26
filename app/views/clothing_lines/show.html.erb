@@ -5,7 +5,7 @@
   <div class="trigger" id="items_trigger"></div>
   <h2 id="items_title"><%= @clothing_line.name %></h2>
   <div id="back_arrow_wrapper">
-    <% link = "/#clothing_lines" %>
+    <% link = "/home/#clothing_lines" %>
     <%= link_to(image_tag("left_arrow.png"), link) %>
     <%= link_to("store", link, :id => "arrow_text") %>
   </div>
