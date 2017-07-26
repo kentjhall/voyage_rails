@@ -1,3 +1,27 @@
 // Place all the styles related to the items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#navbar {
+  background: lightblue;
+  box-shadow: 0 0.2em 1em black
+}
+
+#navbar a {
+  color: white;
+}
+
+#item {
+  background: lightblue;
+
+  height: calc(100vh - 7rem);
+
+  margin-top: 7rem;
+  padding-top: 0;
+}
+
+#item_content {
+  margin: 0;
+  margin-top: 12em;
+  padding: 0;
+}

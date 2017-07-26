@@ -4,51 +4,57 @@
     <title>Voyage</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', Rails.application.assets.find_asset(params[:controller]) ? params[:controller] : 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', Rails.application.assets.find_asset(params[:controller]) ? params[:controller] : 'application', 'data-turbolinks-track': 'reload' %>
 
   </head>
 
   <body>
-    <% if false %>
-    <div id="navbar">
-      <h1><%= link_to("voyage", root_path) %></h1>
-      <ul id="navlinks">
-        <li id="about_us_link"><%= link_to("about us", "#about_us") %></li>
-        <li id="contact_link"><%= link_to("contact", "#contact") %></li>
-      </ul>
-    </div>
+    <% unapproved_controllers = ["devise/sessions", "order_items"] %>
+    <% if !unapproved_controllers.include? params[:controller] %>
+      <% if flash[:error].present? %>
+        <div id="error_message">
+          <p><%= flash[:error] %></p>
+        </div>
+      <% end %>
+      <div id="navbar">
+        <h1><%= link_to("voyage", root_path) %></h1>
+        <ul id="navlinks">
+          <li id="about_us_link"><%= link_to("about us", "#about_us") %></li>
+          <li id="contact_link"><%= link_to("contact", "#contact") %></li>
+        </ul>
+      </div>
+    <% end %>
     <div id="content">
       <%= yield %>
     </div>
-    <div id="footer">
-      <div id="about_us" class="colored_section">
-        <div class="trigger" id="about_us_trigger"></div>
-        <h2 id="about_us_title">about us</h2>
-        <% tm_ordered = TeamMember.all.sort { |tm1, tm2| tm1.index <=> tm2.index } %>
-        <% tm_ordered.each do |team_member| %>
-          <% path = "missing_img.png" %>
-          <% if !team_member.img_path.nil? && !team_member.img_path.empty? %>
-            <% path = "team_member_imgs/#{team_member.img_path}" %>
+    <% if !unapproved_controllers.include? params[:controller] %>
+      <div id="footer">
+        <div id="about_us" class="colored_section">
+          <div class="trigger" id="about_us_trigger"></div>
+          <h2 id="about_us_title">about us</h2>
+          <% tm_ordered = TeamMember.all.sort { |tm1, tm2| tm1.index <=> tm2.index } %>
+          <% tm_ordered.each_with_index do |team_member, i| %>
+            <% path = "missing_img.png" %>
+            <% if !team_member.img_path.nil? && !team_member.img_path.empty? %>
+              <% path = "team_member_imgs/#{team_member.img_path}" %>
+            <% end %>
+            <div class="img_wrapper <%= "last" if i == tm_ordered.size-1 %>" data-aos="fade-up">
+              <%= link_to(image_tag(path, :alt => team_member.name), team_members_show_path(team_member)) %>
+              <%= link_to(team_member.name.downcase, team_members_show_path(team_member), :class => "img_text main") %>
+              <%= link_to(team_member.role.downcase, team_members_show_path(team_member), :class => "img_text sub") %>
+            </div>
           <% end %>
-          <div class="img_wrapper" data-aos="fade-up">
-            <%= link_to(image_tag(path, :alt => team_member.name), team_members_show_path(team_member)) %>
-            <p id="team_member_name"><%= team_member.name.downcase %></p>
-            <p id="team_member_role"><%= team_member.role.downcase %></p>
-          </div>
-        <% end %>
-      </div>
+          <a id="insta_link" class="special_link" href="https://www.instagram.com/voyagegang/" target="_blank" data-aos="fade-up">@voyagegang</a>
+        </div>
 
-      <div id="contact" class="colored_section">
-        <div class="trigger" id="contact_trigger"></div>
-        <h2 id="contact_title">contact</h2>
-        <a id= "email_link" href="mailto:support@voyagealone.com" data-aos="fade-up">support@voyagealone.com</a>
+        <div id="contact" class="colored_section">
+          <div class="trigger" id="contact_trigger"></div>
+          <h2 id="contact_title">contact</h2>
+          <a id="email_link" class="special_link" href="mailto:support@voyagealone.com" data-aos="fade-up">support@voyagealone.com</a>
+        </div>
       </div>
-    </div>
-
     <% end %>
-
-  <%= image_tag("myst_img.png", :id => "myst_img") %>
 
     <script>
       AOS.init();

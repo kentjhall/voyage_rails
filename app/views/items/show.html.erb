@@ -1,3 +1,28 @@
-<h2><%= @clothing_line.name %></h2>
-<h3><%= @item.name %></h3>
-<%= cart_form(@item) %>
+<div id="item" class="colored_section store">
+  <div class="trigger" id="item_trigger"></div>
+  <h2 id="item_title"><%= @product.name %></h2>
+  <div id="back_arrow_wrapper">
+    <% link = clothing_line_path(@clothing_line) %>
+    <%= link_to(image_tag("left_arrow.png"), link) %>
+    <%= link_to(@clothing_line.name.downcase, link, :id => "arrow_text") %>
+  </div>
+  <div id="item_content">
+    <% price = @product.skus.data.first.price %>
+    <p><%= number_to_currency(price/100) %>
+    <%= form_tag(new_order_item_path, method: "get") do %>
+      <%= hidden_field_tag(:item_id, @item.id) %>
+      <%= hidden_field_tag(:product_id, @product.id) %>
+      <%= hidden_field_tag(:product_name, @product.name) %>
+      <% @product.skus.data.each do |sku| %>
+        <%= label_tag(:sku_id, sku.attributes.size) %>
+        <% unless sku.inventory.quantity.nil? %>
+          <%= label_tag(:sku_id, "#{sku.inventory.quantity} in stock") %>
+        <% end %>
+        <%= radio_button_tag(:sku_info, {:id => sku.id, :quantity => sku.inventory.quantity, :price => sku.price, :size => sku.attributes.size}, sku.attributes.size == 's') %>
+      <% end %>
+      <%= select_tag(:quantity, options_for_select([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])) %>
+      <%= submit_tag("add to cart") %>
+    <% end %>
+
+  </div>
+</div>

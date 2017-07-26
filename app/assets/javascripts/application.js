@@ -12,12 +12,103 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-//= require_tree .
-//= require pages
+
 //= require aos/dist/aos
 //= require scrollmagic/scrollmagic/minified/ScrollMagic.min
 //= require scrollmagic/scrollmagic/minified/plugins/animation.gsap.min
 //= require gsap/TweenMax
 //= require gsap/TimelineMax
 //= require gsap/BezierPlugin
+
+// 'require turbolinks' disabled for JS library compatibility
+
+$(function () {
+  var controller = new ScrollMagic.Controller();
+
+  var nav_tween = new TimelineMax()
+    .add(TweenMax.to($("#navbar"), 0, {css:{"color":"white", "box-shadow":"0 0.2em 1em black"}, ease:Power1.easeInOut}));
+
+  var nav_links_tween = TweenMax.to($("#navbar a"), 0, {css:{"color":"white"}, ease:Power1.easeInOut});
+
+  TweenMax.to($("#navbar"), 0, {css:{"background":"lightblue"}, ease:Power1.easeInOut});
+
+  var about_us_nav_tween = TweenMax.to($("#navbar"), 0, {css:{"background":"lightpink"}, ease:Power1.easeInOut});
+
+  var contact_nav_tween = TweenMax.to($("#navbar"), 0, {css:{"background":"lightgreen"}, ease:Power1.easeInOut});
+
+  TweenMax.to($("#navbar"), 0, {css:{"background":"none"}, ease:Power1.easeInOut});
+
+  var nav_color_transition = TweenMax.to($("#navbar"), 0, {css:{"transition":"background .15s ease-in"}, ease:Power1.easeInOut});
+
+  var about_us_title_tween = new TimelineMax()
+    .add(TweenMax.to($("#about_us_title"), 1, {css:{"opacity":"0"}, ease:Power1.easeInOut}));
+
+  var contact_title_tween = new TimelineMax()
+    .add(TweenMax.to($("#contact_title"), 1, {css:{"opacity":"0"}, ease:Power1.easeInOut}));
+
+  var back_arrow_tween = TweenMax.to($("#back_arrow_wrapper"), 1, {css:{"opacity":"0"}, ease:Power1.easeInOut});
+
+  new ScrollMagic.Scene({
+    triggerElement: ".trigger",
+    duration: 0,
+    offset: 0
+  })
+  .setTween(nav_tween)
+  .addTo(controller);
+
+  new ScrollMagic.Scene({
+    triggerElement: ".trigger",
+    duration: 0,
+    offset: 0
+  })
+  .setTween(nav_links_tween)
+  .addTo(controller);
+
+  new ScrollMagic.Scene({
+    triggerElement: "#about_us_trigger",
+    duration: 0,
+    offset: 0
+  })
+  .setTween(about_us_nav_tween)
+  .addTo(controller);
+
+  new ScrollMagic.Scene({
+    triggerElement: "#contact_trigger",
+    duration: 0,
+    offset: 0
+  })
+  .setTween(contact_nav_tween)
+  .addTo(controller);
+
+  new ScrollMagic.Scene({
+    triggerElement: "#about_us",
+    duration: 0,
+    offset: 0
+  })
+  .setTween(nav_color_transition)
+  .addTo(controller);
+
+  new ScrollMagic.Scene({
+    triggerElement: "#about_us_trigger",
+    duration: $('#navbar').height(),
+    offset: -$('#navbar').height()
+  })
+  .setTween(about_us_title_tween)
+  .addTo(controller);
+
+  new ScrollMagic.Scene({
+    triggerElement: "#contact_trigger",
+    duration: $('#navbar').height(),
+    offset: -$('#navbar').height()
+  })
+  .setTween(contact_title_tween)
+  .addTo(controller);
+
+  new ScrollMagic.Scene({
+    triggerElement: ".trigger",
+    duration: $('#navbar').height(),
+    offset: -$('#navbar').height()
+  })
+  .setTween(back_arrow_tween)
+  .addTo(controller);
+})

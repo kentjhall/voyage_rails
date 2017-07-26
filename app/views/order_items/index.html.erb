@@ -1,0 +1,12 @@
+<% @order_items.each do |order_item| %>
+  <p><%= order_item['name'] %></p>
+  <p>size: <%= order_item['size'] %></p>
+  <p>quantity: <%= order_item['quantity'] %></p>
+<% end %>
+
+<% if !@order_items.nil? && !@order_items.empty? %>
+  <%= link_to("checkout", checkout_path) %>
+  <%= link_to("empty cart", cart_path(:empty => true)) %>
+<% else %>
+  <p>add items to cart</p>
+<% end %>

@@ -35,11 +35,11 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-# Braintree for payments
-gem 'braintree', '~> 2.74.0'
-
-# Piggybak for ecommerce
+# Piggybak for inclusion of RailsAdmin and Devise
 gem 'piggybak'
+
+# Stripe for payments
+gem 'stripe'
 
 # Figaro for environment variables
 gem 'figaro'

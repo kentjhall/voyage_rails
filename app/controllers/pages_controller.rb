@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
 
+  layout :resolve_layout
+
   # before_action :check_for_mobile
 
   def home
@@ -16,6 +18,17 @@ class PagesController < ApplicationController
   end
 
   def contact
+  end
+
+  private
+
+  def resolve_layout
+    case action_name
+    when "myst"
+      "no_layout"
+    else
+      "application"
+    end
   end
 
 end
