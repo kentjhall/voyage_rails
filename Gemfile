@@ -35,8 +35,11 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-# Piggybak for inclusion of RailsAdmin and Devise
-gem 'piggybak'
+# RailsAdmin for website administration
+gem 'rails_admin', '~> 1.2'
+
+# Devise for admin authentication
+gem 'devise'
 
 # Stripe for payments
 gem 'stripe'
