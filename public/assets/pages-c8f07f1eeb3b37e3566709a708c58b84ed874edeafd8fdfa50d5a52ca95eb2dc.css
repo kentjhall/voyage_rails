@@ -1,0 +1,62 @@
+/* line 8, /Users/kenthall/voyage/app/assets/stylesheets/pages.scss */
+#main {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  margin: auto;
+}
+
+/* line 18, /Users/kenthall/voyage/app/assets/stylesheets/pages.scss */
+#flowers {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  height: 80%;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 29, /Users/kenthall/voyage/app/assets/stylesheets/pages.scss */
+#flowers .flower {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+}
+
+/* line 38, /Users/kenthall/voyage/app/assets/stylesheets/pages.scss */
+#down_arrow, #down_arrow_text {
+  position: absolute;
+  bottom: 3em;
+  left: 0;
+  right: 0;
+  width: 3em;
+  height: 3em;
+  animation-name: Floating;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  margin: auto;
+}
+
+/* line 54, /Users/kenthall/voyage/app/assets/stylesheets/pages.scss */
+#down_arrow_text {
+  bottom: 4.7em;
+  text-align: center;
+  color: black;
+  line-height: 3em;
+}
+
+/* line 62, /Users/kenthall/voyage/app/assets/stylesheets/pages.scss */
+#clothing_lines .img_wrapper {
+  width: 38.25em;
+  height: 25.5em;
+  border-radius: 2em;
+}

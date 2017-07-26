@@ -1,0 +1,25 @@
+/* line 5, /Users/kenthall/voyage/app/assets/stylesheets/items.scss */
+#navbar {
+  background: lightblue;
+  box-shadow: 0 0.2em 1em black;
+}
+
+/* line 10, /Users/kenthall/voyage/app/assets/stylesheets/items.scss */
+#navbar a {
+  color: white;
+}
+
+/* line 14, /Users/kenthall/voyage/app/assets/stylesheets/items.scss */
+#item {
+  background: lightblue;
+  height: calc(100vh - 7rem);
+  margin-top: 7rem;
+  padding-top: 0;
+}
+
+/* line 23, /Users/kenthall/voyage/app/assets/stylesheets/items.scss */
+#item_content {
+  margin: 0;
+  margin-top: 12em;
+  padding: 0;
+}
