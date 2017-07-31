@@ -52,13 +52,12 @@ $(function () {
   var bf_tween = new TimelineMax()
     .add(TweenMax.to($("#blue-flower"), 1, {css:{bezier:bf_path.motion}, ease:Power1.easeInOut}));
 
+  TweenMax.to($("#navbar"), 0, {css:{"background":"none"}, ease:Power1.easeInOut});
+
   var store_nav_tween = TweenMax.to($("#navbar"), 0, {css:{"background":"lightblue"}, ease:Power1.easeInOut});
 
   var down_arrow_tween = new TimelineMax()
     .add(TweenMax.to($("#down_arrow, #down_arrow_text"), 1, {css:{"opacity":"0"}, ease:Power1.easeInOut}));
-
-  var store_title_tween = new TimelineMax()
-    .add(TweenMax.to($("#store_title"), 1, {css:{"opacity":"0"}, ease:Power1.easeInOut}));
 
   new ScrollMagic.Scene({
     duration: $('#main').height(),
@@ -94,13 +93,5 @@ $(function () {
     offset: 0
   })
   .setTween(down_arrow_tween)
-  .addTo(controller);
-
-  new ScrollMagic.Scene({
-    triggerElement: "#store_trigger",
-    duration: $('#navbar').height(),
-    offset: -$('#navbar').height()
-  })
-  .setTween(store_title_tween)
   .addTo(controller);
 })

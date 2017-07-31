@@ -1,0 +1,102 @@
+<% if flash[:cart_error].present? %>
+  <div id="cart_error">
+    <p><%= flash[:cart_error] %></p>
+  </div>
+<% end %>
+<% if flash[:cart_notice].present? %>
+  <div id="cart_notice">
+    <p><%= flash[:cart_notice] %></p>
+  </div>
+<% end %>
+<p <%= !@order_items.nil? && !@order_items.empty? ? "hidden" : "" %> id="empty_text">there's nothing here, go get some <%= link_to("stuff", "javascript:void(0);", :onclick => "scroll_to_store();") %>!</p>
+<div <%= @order_items.nil? || @order_items.empty? ? "hidden" : "" %> id="cart_content_stuff">
+  <table id="order_items_table">
+    <tr>
+      <th class="product_col">Product</th>
+      <th class="size_col">Size</th>
+      <th class="qty_col">QTY</th>
+      <th class="price_col">Price</th>
+    </tr>
+    <% order_items.each_with_index do |order_item, i| %>
+      <% unless order_item.nil? %>
+        <% puts "order_item" + order_item.to_s %>
+        <% img_paths = eval(Item.find_by_id(order_item['item_id']).img_paths) %>
+        <tr id="order_item_<%= i %>">
+          <td class="product_col"><%= link_to(order_item['name'], item_path(Item.find_by_id(order_item['item_id']))) %></td>
+          <td class="size_col"><%= order_item['size'] %></td>
+          <% if params[:controller] != "charges" %>
+            <td class="qty_col"><%= select_tag(:quantity, options_for_select([1, 2, 3, 4, 5, 6, 7, 8, 9], order_item['quantity'].to_i), :id => "order_item_#{i}_quantity_select", :onchange => "update_order_item_quantity(#{i})") %></td>
+          <% else %>
+            <td class="qty_col"><%= order_item['quantity'] %></td>
+          <% end %>
+          <td class="price_col"><%= number_to_currency(order_item['price']/100) %></td>
+          <td class="remove_col"><%= link_to("x", "javascript:void(0);", :onclick => "remove_order_item(#{i});", :remote => true) %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
+  <div id="cart_bottom_links">
+    <%= link_to("empty cart", "javascript:void(0);", :id => "empty_cart_link", :onclick => "remove_all_order_items();", :remote => true) %>
+    <%= link_to("checkout", checkout_path, :id => "checkout_link") %>
+  </div>
+</div>
+
+<script>
+  var checkout_link = document.getElementById('checkout_link');
+  var ogHref = checkout_link.href
+
+  function remove_all_order_items() {
+    var data = ""
+
+    checkout_link.href = "javascript:void(0);"
+    checkout_link.className = "disabled_link"
+
+    $.ajax({
+      url: '/remove_all_order_items',
+      data: data,
+      type: 'get'
+    })
+    .done(function(data) {
+      checkout_link.href = ogHref
+      checkout_link.className = ""
+    })
+  }
+
+  function remove_order_item(index) {
+    var data = "index=" + index
+
+    checkout_link.href = "javascript:void(0);"
+    checkout_link.className = "disabled_link"
+
+    $.ajax({
+      url: '/remove_order_item',
+      data: data,
+      type: 'get'
+    })
+    .done(function(data) {
+      checkout_link.href = ogHref
+      checkout_link.className = ""
+    })
+  }
+
+  function update_order_item_quantity(index) {
+    var e = document.getElementById('order_item_' + index + '_quantity_select');
+    var quantity = e.options[e.selectedIndex].text;
+    var data = "index=" + index + "&quantity=" + quantity;
+
+    var checkout_link = document.getElementById('checkout_link');
+    var ogHref = checkout_link.href
+    checkout_link.href = "javascript:void(0);"
+    checkout_link.className = "disabled_link"
+
+    $.ajax({
+      url: '/update_order_item_quantity',
+      data: data,
+      type: 'get'
+    })
+    .done(function(data) {
+      checkout_link.href = ogHref
+      checkout_link.className = ""
+    })
+  }
+</script>

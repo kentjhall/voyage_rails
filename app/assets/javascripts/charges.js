@@ -10,6 +10,6 @@ $(function () {
     offset: 0
   })
   .setTween(new TimelineMax()
-    .add(TweenMax.to($("#navbar"), 0, {css:{"background":"lightblue"}, ease:Power1.easeInOut})))
+    .add(TweenMax.to($("#navbar"), 0, {css:{"background":"lightgreen"}, ease:Power1.easeInOut})))
   .addTo(controller);
 })

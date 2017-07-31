@@ -21,13 +21,16 @@ Rails.application.routes.draw do
   get 'pages/contact'
   get 'pages/myst'
 
-  get 'cart', :to => 'order_items#index'
   get 'checkout', :to => 'charges#new'
+  post 'payment_success', :to => 'charges#create'
+
+  get 'add_order_item', :to => 'order_items#add'
+  get 'remove_order_item', :to => 'order_items#remove'
+  get 'remove_all_order_items', :to => 'order_items#remove_all'
+  get 'update_order_item_quantity', :to => 'order_items#update_quantity'
 
   resources :clothing_lines, :except => [:index]
   resources :items
-  resources :charges, :only => [:new, :create]
-  resources :order_items
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

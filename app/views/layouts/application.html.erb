@@ -10,26 +10,36 @@
   </head>
 
   <body>
-    <% unapproved_controllers = ["devise/sessions", "order_items"] %>
+    <% unapproved_controllers = ["devise/sessions"] %>
     <% if !unapproved_controllers.include? params[:controller] %>
-      <% if flash[:error].present? %>
-        <div id="error_message">
-          <p><%= flash[:error] %></p>
-        </div>
-      <% end %>
       <div id="navbar">
         <h1><%= link_to("voyage", root_path) %></h1>
         <ul id="navlinks">
           <li id="about_us_link"><%= link_to("about us", "#about_us") %></li>
           <li id="contact_link"><%= link_to("contact", "#contact") %></li>
+          <li id="cart_link"><%= link_to("cart", "#cart") %></li>
         </ul>
       </div>
+      <% if flash[:error].present? %>
+        <div id="error_message">
+          <p><%= flash[:error] %></p>
+        </div>
+      <% end %>
     <% end %>
     <div id="content">
       <%= yield %>
     </div>
     <% if !unapproved_controllers.include? params[:controller] %>
       <div id="footer">
+        <% if params[:controller] != "charges" %>
+          <div id="cart" class="colored_section">
+            <div class="trigger" id="cart_trigger"></div>
+            <h2 id="cart_title">cart</h2>
+            <div id="cart_content" data-aos="fade-up">
+              <%= render :partial => 'layouts/cart', :locals => { order_items: @order_items } %>
+            </div>
+          </div>
+        <% end %>
         <div id="about_us" class="colored_section">
           <div class="trigger" id="about_us_trigger"></div>
           <h2 id="about_us_title">about us</h2>
@@ -58,6 +68,19 @@
 
     <script>
       AOS.init();
+
+      function scroll_to_store() {
+        $('html, body').stop().animate({
+           scrollTop: $('.store').offset().top
+        }, 500);
+      }
+
+      $('#cart_link').on('click', function(e){
+          e.preventDefault();
+          $('html, body').stop().animate({
+             scrollTop: $('#cart').offset().top
+          }, 500);
+      });
 
       $('#about_us_link').on('click', function(e){
           e.preventDefault();

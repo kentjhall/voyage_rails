@@ -1,21 +1,30 @@
-<%= form_tag charges_path do %>
-  <article>
-    <% if flash[:error].present? %>
-      <div id="error_explanation">
-        <p><%= flash[:error] %></p>
-      </div>
-    <% end %>
-    <label class="amount">
-      <span>Amount: <%= number_to_currency(@amount/100) %></span>
-    </label>
-  </article>
+<div id="checkout" class="colored_section">
+  <div class="trigger" id="checkout_trigger"></div>
+  <h2 id="checkout_title">checkout</h2>
+    <div id="back_arrow_wrapper">
+      <% link = "/home#cart" %>
+      <%= link_to(image_tag("left_arrow.png"), link) %>
+      <%= link_to("cart", link, :class => "arrow_text") %>
+    </div>
+  <div id="checkout_content">
+    <div id="cart">
+      <div id="cart_content">
+        <%= render :partial => 'layouts/cart', :locals => { order_items: @order_items } %>
 
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="Voyage Store purchase"
-          data-amount="<%= @amount %>"
-          data-locale="auto"
-          data-shippingAddress="true"
-          data-billingAddress="true"
-          data-bitcoin="true"></script>
-<% end %>
+        <% if @amount > 0 %>
+          <%= form_tag payment_success_path do %>
+            <% amount = number_to_currency(@amount/100) %>
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                    data-description="Voyage Store purchase"
+                    data-amount="<%= @amount %>"
+                    data-locale="auto"
+                    data-shippingAddress="true"
+                    data-billingAddress="true"
+                    data-bitcoin="true"></script>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

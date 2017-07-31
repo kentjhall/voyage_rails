@@ -4,12 +4,12 @@
   <div id="back_arrow_wrapper">
     <% link = clothing_line_path(@clothing_line) %>
     <%= link_to(image_tag("left_arrow.png"), link) %>
-    <%= link_to(@clothing_line.name.downcase, link, :id => "arrow_text") %>
+    <%= link_to(@clothing_line.name.downcase, link, :class => "arrow_text") %>
   </div>
   <div id="item_content">
     <% price = @product.skus.data.first.price %>
     <p><%= number_to_currency(price/100) %>
-    <%= form_tag(new_order_item_path, method: "get") do %>
+    <%= form_tag(add_order_item_path, method: "get", remote: true) do %>
       <%= hidden_field_tag(:item_id, @item.id) %>
       <%= hidden_field_tag(:product_id, @product.id) %>
       <%= hidden_field_tag(:product_name, @product.name) %>
@@ -18,11 +18,18 @@
         <% unless sku.inventory.quantity.nil? %>
           <%= label_tag(:sku_id, "#{sku.inventory.quantity} in stock") %>
         <% end %>
-        <%= radio_button_tag(:sku_info, {:id => sku.id, :quantity => sku.inventory.quantity, :price => sku.price, :size => sku.attributes.size}, sku.attributes.size == 's') %>
+        <%= radio_button_tag(:sku_info, {:id => sku.id, :quantity_available => sku.inventory.quantity, :price => sku.price, :size => sku.attributes.size}, sku.attributes.size == 's') %>
       <% end %>
-      <%= select_tag(:quantity, options_for_select([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])) %>
-      <%= submit_tag("add to cart") %>
+      <%= select_tag(:quantity, options_for_select([1, 2, 3, 4, 5, 6, 7, 8, 9])) %>
+      <%= submit_tag("add to cart", :onclick => "scroll_to_cart();") %>
     <% end %>
-
   </div>
 </div>
+
+<script>
+function scroll_to_cart() {
+    $('html, body').stop().animate({
+       scrollTop: $('#cart').offset().top
+    }, 500);
+};
+</script>

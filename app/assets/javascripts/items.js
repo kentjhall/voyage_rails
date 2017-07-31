@@ -5,16 +5,6 @@
 $(function () {
   var controller = new ScrollMagic.Controller();
 
-  var item_title_tween = TweenMax.to($("#item_title"), 1, {css:{"opacity":"0"}, ease:Power1.easeInOut});
-
-  new ScrollMagic.Scene({
-    triggerElement: "#item_trigger",
-    duration: $('#navbar').height(),
-    offset: -$('#navbar').height()
-  })
-  .setTween(item_title_tween)
-  .addTo(controller);
-
   new ScrollMagic.Scene({
     duration: 0,
     offset: 0

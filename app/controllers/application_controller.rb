@@ -2,6 +2,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   http_basic_authenticate_with :name => ENV['DEV_USER'], :password => ENV['DEV_PASS'], except: :myst
 
+  before_action :set_cache_headers
+  before_action :set_cart
+
   def check_for_mobile
     session[:mobile_override] = params[:mobile] if params[:mobile]
     prepare_for_mobile if mobile_device?
@@ -21,5 +24,31 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :mobile_device?
+
+  def set_cache_headers
+    response.headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"
+    response.headers["Pragma"] = "no-cache"
+    response.headers["Expires"] = "Fri, 01 Jan 1990 00:00:00 GMT"
+  end
+
+  def set_cart
+    order_item_properties = [ 'item_id', 'product_id', 'name', 'sku_id', 'price', 'size', 'quantity' ]
+
+    if session[:order_items].nil?
+      session[:order_items] = []
+    end
+
+    session[:order_items].compact!
+
+    session[:order_items].each do |order_item|
+      order_item_properties.each do |property|
+        if order_item[property].nil?
+          session[:order_items] = []
+        end
+      end
+    end
+
+    @order_items = session[:order_items]
+  end
 
 end

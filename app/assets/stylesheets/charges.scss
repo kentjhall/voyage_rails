@@ -1,3 +1,37 @@
 // Place all the styles related to the charges controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#navbar {
+  background: lightgreen;
+  box-shadow: 0 0.2em 1em black;
+}
+
+#navbar a {
+  color: white;
+}
+
+#checkout {
+  background: lightgreen;
+
+  height: auto;
+
+  margin-top: 7rem;
+  padding-top: 0;
+}
+
+#cart {
+  background: none;
+}
+
+#cart #cart_content_stuff {
+  padding: 2rem;
+}
+
+#cart #cart_bottom_links {
+  display: none;
+}
+
+#cart .remove_col {
+  display: none;
+}

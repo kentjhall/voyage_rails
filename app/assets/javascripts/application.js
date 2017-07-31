@@ -32,21 +32,19 @@ $(function () {
 
   TweenMax.to($("#navbar"), 0, {css:{"background":"lightblue"}, ease:Power1.easeInOut});
 
+  var cart_nav_tween = TweenMax.to($("#navbar"), 0, {css:{"background":"lightgreen"}, ease:Power1.easeInOut});
+
   var about_us_nav_tween = TweenMax.to($("#navbar"), 0, {css:{"background":"lightpink"}, ease:Power1.easeInOut});
 
-  var contact_nav_tween = TweenMax.to($("#navbar"), 0, {css:{"background":"lightgreen"}, ease:Power1.easeInOut});
+  var contact_nav_tween = TweenMax.to($("#navbar"), 0, {css:{"background":"lightsalmon"}, ease:Power1.easeInOut});
 
-  TweenMax.to($("#navbar"), 0, {css:{"background":"none"}, ease:Power1.easeInOut});
+  TweenMax.to($("#navbar"), 0, {css:{"background":document.querySelector('.colored_section').style.backgroundColor}, ease:Power1.easeInOut});
 
   var nav_color_transition = TweenMax.to($("#navbar"), 0, {css:{"transition":"background .15s ease-in"}, ease:Power1.easeInOut});
 
-  var about_us_title_tween = new TimelineMax()
-    .add(TweenMax.to($("#about_us_title"), 1, {css:{"opacity":"0"}, ease:Power1.easeInOut}));
-
-  var contact_title_tween = new TimelineMax()
-    .add(TweenMax.to($("#contact_title"), 1, {css:{"opacity":"0"}, ease:Power1.easeInOut}));
-
   var back_arrow_tween = TweenMax.to($("#back_arrow_wrapper"), 1, {css:{"opacity":"0"}, ease:Power1.easeInOut});
+
+  // var forward_arrow_tween = TweenMax.to($("#forward_arrow_wrapper"), 1, {css:{"opacity":"0"}, ease:Power1.easeInOut});
 
   new ScrollMagic.Scene({
     triggerElement: ".trigger",
@@ -62,6 +60,14 @@ $(function () {
     offset: 0
   })
   .setTween(nav_links_tween)
+  .addTo(controller);
+
+  new ScrollMagic.Scene({
+    triggerElement: "#cart_trigger",
+    duration: 0,
+    offset: 0
+  })
+  .setTween(cart_nav_tween)
   .addTo(controller);
 
   new ScrollMagic.Scene({
@@ -81,27 +87,11 @@ $(function () {
   .addTo(controller);
 
   new ScrollMagic.Scene({
-    triggerElement: "#about_us",
+    triggerElement: "#cart",
     duration: 0,
     offset: 0
   })
   .setTween(nav_color_transition)
-  .addTo(controller);
-
-  new ScrollMagic.Scene({
-    triggerElement: "#about_us_trigger",
-    duration: $('#navbar').height(),
-    offset: -$('#navbar').height()
-  })
-  .setTween(about_us_title_tween)
-  .addTo(controller);
-
-  new ScrollMagic.Scene({
-    triggerElement: "#contact_trigger",
-    duration: $('#navbar').height(),
-    offset: -$('#navbar').height()
-  })
-  .setTween(contact_title_tween)
   .addTo(controller);
 
   new ScrollMagic.Scene({
@@ -111,4 +101,15 @@ $(function () {
   })
   .setTween(back_arrow_tween)
   .addTo(controller);
+
+  var titles = document.getElementsByTagName('h2');
+  for (var i=0; i<titles.length; i++) {
+    new ScrollMagic.Scene({
+      triggerElement: document.getElementById(titles[i].id.replace('_title','_trigger')),
+      duration: $('#navbar').height(),
+      offset: -$('#navbar').height()
+    })
+    .setTween(TweenMax.to($(titles[i]), 1, {css:{"opacity":"0"}, ease:Power1.easeInOut}))
+    .addTo(controller);
+  }
 })
