@@ -90,13 +90,15 @@ class ChargesController < ApplicationController
       sku = Stripe::SKU.retrieve(order_item['sku_id'])
       quantity_available = sku.inventory.quantity.to_i
 
-      if order_item['quantity'].to_i > quantity_available
-        if quantity_available == 0
-          session[:order_items].delete_at(i)
-        else
-          order_item['quantity'] = quantity_available
+      unless quantity_available.nil?
+        if order_item['quantity'].to_i > quantity_available
+          if quantity_available == 0
+            session[:order_items].delete_at(i)
+          else
+            order_item['quantity'] = quantity_available
+          end
+          unavailable_quantity_items << "#{order_item['name']} #{order_item['size'].upcase}"
         end
-        unavailable_quantity_items << "#{order_item['name']} #{order_item['size'].upcase}"
       end
     end
 
