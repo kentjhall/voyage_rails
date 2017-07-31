@@ -88,9 +88,10 @@ class ChargesController < ApplicationController
 
     session[:order_items].each_with_index do |order_item, i|
       sku = Stripe::SKU.retrieve(order_item['sku_id'])
+
+      unless sku.inventory.quantity.nil?
       quantity_available = sku.inventory.quantity.to_i
 
-      unless quantity_available.nil?
         if order_item['quantity'].to_i > quantity_available
           if quantity_available == 0
             session[:order_items].delete_at(i)
