@@ -1,0 +1,38 @@
+/* line 5, /Users/kenthall/voyage/app/assets/stylesheets/charges.scss */
+#navbar {
+  background: lightgreen;
+  box-shadow: 0 0.2em 1em black;
+}
+
+/* line 10, /Users/kenthall/voyage/app/assets/stylesheets/charges.scss */
+#navbar a {
+  color: white;
+}
+
+/* line 14, /Users/kenthall/voyage/app/assets/stylesheets/charges.scss */
+#checkout {
+  background: lightgreen;
+  height: auto;
+  margin-top: 7rem;
+  padding-top: 0;
+}
+
+/* line 23, /Users/kenthall/voyage/app/assets/stylesheets/charges.scss */
+#cart {
+  background: none;
+}
+
+/* line 27, /Users/kenthall/voyage/app/assets/stylesheets/charges.scss */
+#cart #cart_content_stuff {
+  padding: 2rem;
+}
+
+/* line 31, /Users/kenthall/voyage/app/assets/stylesheets/charges.scss */
+#cart #cart_bottom_links {
+  display: none;
+}
+
+/* line 35, /Users/kenthall/voyage/app/assets/stylesheets/charges.scss */
+#cart .remove_col {
+  display: none;
+}

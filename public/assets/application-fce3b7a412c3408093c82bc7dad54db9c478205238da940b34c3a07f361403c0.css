@@ -1,0 +1,1696 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+@import url("https://fonts.googleapis.com/css?family=Cabin");
+@font-face {
+  font-family: 'Cabin', sans-serif;
+}
+@keyframes Floating {
+  from {
+    transform: translate(0, 0px);
+  }
+  65% {
+    transform: translate(0, 15px);
+  }
+  to {
+    transform: translate(0, 0px);
+  }
+}
+/* line 30, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+html {
+  background-color: white;
+  color: black;
+  font-family: 'Cabin', sans-serif;
+}
+
+/* line 36, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+h1, h2 {
+  font-weight: bold;
+  letter-spacing: 0.05em;
+}
+
+/* line 41, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+h1 {
+  font-size: 3em;
+}
+
+/* line 45, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+h2 {
+  font-size: 2.5em;
+}
+
+/* line 49, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+a {
+  text-decoration: none;
+  color: black;
+  transition: color 0.2s ease-in;
+}
+
+/* line 55, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+a:hover {
+  text-transform: uppercase;
+}
+
+/* line 59, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+.colored_section {
+  width: auto;
+  position: relative;
+  left: 0;
+  right: 0;
+  margin: 0;
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
+  padding: 0;
+}
+
+/* line 72, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+.colored_section h2 {
+  position: absolute;
+  top: 0;
+  left: 20%;
+  color: white;
+  line-height: 12rem;
+  text-align: center;
+  text-transform: uppercase;
+  margin: auto;
+}
+
+/* line 85, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+.colored_section p {
+  color: white;
+}
+
+/* line 89, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+.colored_section .img_wrapper .img_text.main {
+  bottom: 2rem;
+  font-size: 1.7rem;
+}
+
+/* line 95, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+.colored_section .img_wrapper .img_text.sub {
+  bottom: 0.7rem;
+  font-size: 1.2rem;
+}
+
+/* line 101, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+.colored_section .img_wrapper {
+  display: inline-block;
+  overflow: hidden;
+  margin-bottom: 5rem;
+  margin-right: 3rem;
+  padding: 0;
+}
+
+/* line 110, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+.colored_section.store .img_wrapper:hover {
+  transform: scale(1.01);
+}
+
+/* line 114, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+.colored_section.store .img_wrapper.unavailable:hover {
+  transform: scale(0.99);
+}
+
+/* line 118, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+.colored_section.store .img_wrapper.unavailable .img_text.sub {
+  transition: color .2s ease-in;
+}
+
+/* line 122, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+.colored_section.store .img_wrapper.unavailable:hover .img_text.sub {
+  color: lightpink;
+}
+
+/* line 126, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+.store {
+  background: lightblue;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  position: relative;
+  left: 0;
+  right: 0;
+  padding-top: 12rem;
+  padding-left: 3rem;
+}
+
+/* line 141, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+.img_wrapper img {
+  height: 100%;
+}
+
+/* line 145, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+.img_wrapper .img_text {
+  position: absolute;
+  bottom: 1em;
+  left: 0;
+  right: 0;
+  color: white;
+  font-size: 2em;
+  font-weight: bolder;
+  text-align: center;
+  text-transform: none;
+  margin: auto;
+}
+
+/* line 160, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+.special_link {
+  text-align: center;
+  position: absolute;
+  left: 18%;
+  right: 18%;
+  font-size: 2em;
+  background: white;
+  border-radius: 1em;
+  margin: auto;
+  padding: 0.5em;
+}
+
+/* line 175, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+.trigger {
+  position: absolute;
+  top: 49.9vh;
+  right: 0;
+  margin: auto;
+}
+
+/* line 183, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#error_message {
+  position: fixed;
+  top: 7rem;
+  left: 0;
+  right: 0;
+  width: inherit;
+  z-index: 12;
+  line-height: 1.5rem;
+  text-align: center;
+  background: red;
+  color: white;
+  font-size: 1rem;
+  padding: 0 1rem;
+}
+
+/* line 202, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  width: auto;
+  height: 7rem;
+  line-height: 7rem;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 218, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#navbar h1 {
+  position: absolute;
+  left: 20%;
+  transition: color 0.2s ease-in;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 228, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#navbar h1 a:hover {
+  text-transform: none;
+}
+
+/* line 232, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#navlinks {
+  list-style: none;
+  position: absolute;
+  right: 20%;
+  font-size: 1em;
+  width: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 246, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#navlinks li {
+  float: left;
+}
+
+/* line 250, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#navlinks a {
+  display: block;
+  padding-left: 1rem;
+}
+
+/* line 255, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#cart_link {
+  padding-left: 1.2rem;
+}
+
+/* line 259, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#content {
+  width: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 271, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#footer {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  padding: 0;
+}
+
+/* line 281, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#about_us {
+  background: lightpink;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  position: relative;
+  left: 0;
+  right: 0;
+  padding-top: 12em;
+  padding-left: 3em;
+}
+
+/* line 296, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#about_us p {
+  font-size: 75%;
+}
+
+/* line 300, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#about_us .img_wrapper {
+  width: 20em;
+  height: 20em;
+  border-radius: 100%;
+}
+
+/* line 307, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#about_us .img_wrapper.last {
+  margin-bottom: 15rem;
+}
+
+/* line 311, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#about_us .img_wrapper:hover {
+  transform: scale(1.01);
+}
+
+/* line 315, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#about_us .special_link {
+  color: lightpink;
+}
+
+/* line 319, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#cart {
+  background: lightgreen;
+  position: relative;
+  left: 0;
+  right: 0;
+  padding: 12rem 3rem 5rem;
+}
+
+/* line 329, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#cart p {
+  width: auto;
+  text-align: center;
+  text-transform: lowercase;
+  border-radius: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem;
+}
+
+/* line 342, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#cart #cart_error p {
+  display: block;
+  font-size: 1.5rem;
+  background: crimson;
+  color: white;
+}
+
+/* line 350, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#cart #cart_notice p {
+  display: block;
+  font-size: 1.5rem;
+  background: gray;
+  color: white;
+}
+
+/* line 358, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#cart #cart_content {
+  width: 100%;
+  height: 100%;
+}
+
+/* line 363, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#cart #cart_content_stuff {
+  width: auto;
+  height: auto;
+  background: white;
+  border-radius: 1rem;
+  overflow: scroll;
+  margin: auto;
+  padding: 2rem;
+  padding-bottom: 6rem;
+}
+
+/* line 377, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#cart #cart_content_stuff #cart_bottom_links a {
+  position: absolute;
+  bottom: 0;
+  height: 4rem;
+  background: white;
+  color: lightgreen;
+  border-top: solid lightgreen thick;
+  font-size: 1.5rem;
+  text-align: center;
+  line-height: 4rem;
+}
+
+/* line 392, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#cart #cart_content_stuff #empty_cart_link {
+  left: 0;
+  width: 30%;
+  border-right: solid lightgreen thick;
+  border-radius: 1rem;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-right-radius: 0;
+  z-index: 5;
+}
+
+/* line 407, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#cart #cart_content_stuff #checkout_link {
+  right: 0;
+  width: 70%;
+  border-left: solid lightgreen thick;
+  border-radius: 1rem;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  z-index: 5;
+}
+
+/* line 422, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#cart #cart_content_stuff #empty_cart_link:hover {
+  text-transform: none;
+  border-color: red;
+  background: red;
+  color: white;
+  z-index: 4;
+}
+
+/* line 432, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#cart #cart_content_stuff #checkout_link:hover {
+  text-transform: none;
+  border-color: limegreen;
+  background: limegreen;
+  color: white;
+  z-index: 4;
+}
+
+/* line 442, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#cart #cart_content_stuff #checkout_link.disabled_link:hover {
+  text-transform: none;
+  cursor: default;
+  border-color: lightgray;
+  background: lightgray;
+  color: white;
+}
+
+/* line 452, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#cart_content_stuff #forward_arrow_wrapper {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  margin: auto;
+}
+
+/* line 460, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#cart #forward_arrow_wrapper:hover {
+  transform: none;
+}
+
+/* line 464, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#cart #forward_arrow_wrapper:hover .cover {
+  opacity: 0;
+}
+
+/* line 468, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#cart #forward_arrow_wrapper:hover .arrow_text {
+  right: 2rem;
+  text-transform: none;
+  color: limegreen;
+}
+
+/* line 475, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#cart #forward_arrow_wrapper .arrow_text {
+  right: 2rem;
+  color: lightgreen;
+}
+
+/* line 481, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#cart a {
+  transition: none;
+}
+
+/* line 485, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#cart #forward_arrow_wrapper img {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 30%;
+  height: 60%;
+  margin: auto;
+}
+
+/* line 497, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#cart p, #cart table {
+  color: lightgreen;
+}
+
+/* line 501, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#cart td a {
+  color: lightgreen;
+}
+
+/* line 505, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#cart select {
+  background: linear-gradient(45deg, transparent 50%, lightgreen 50%), linear-gradient(135deg, lightgreen 50%, transparent 50%);
+  background-position: calc(100% - 21px) calc(1em + 2px), calc(100% - 16px) calc(1em + 2px), 100% 0;
+  background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
+  background-repeat: no-repeat;
+  color: lightgreen;
+  border: none;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  font-size: 1.4rem;
+  padding: 0.5em 1.5em 0.5em 1em;
+}
+
+/* line 534, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#cart select:hover {
+  color: limegreen;
+  background: linear-gradient(45deg, transparent 50%, limegreen 50%), linear-gradient(135deg, limegreen 50%, transparent 50%);
+  background-position: calc(100% - 21px) calc(1em + 2px), calc(100% - 16px) calc(1em + 2px), 100% 0;
+  background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+/* line 551, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#cart table {
+  position: relative;
+  width: auto;
+  height: auto;
+  table-layout: fixed;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* line 563, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#cart table img {
+  width: 3rem;
+  height: 3rem;
+}
+
+/* line 568, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#cart th, #cart td {
+  text-align: center;
+  overflow: hidden;
+  padding-right: 2rem;
+}
+
+/* line 575, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#cart th {
+  font-size: 2rem;
+  text-transform: uppercase;
+  padding-bottom: 0.5rem;
+}
+
+/* line 582, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#cart td {
+  font-size: 1.4em;
+  text-transform: lowercase;
+}
+
+/* line 587, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#cart .product_col {
+  text-align: left;
+  padding-right: 5rem;
+}
+
+/* line 593, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#cart .product_col a:hover {
+  color: limegreen;
+  text-transform: lowercase;
+}
+
+/* line 598, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#cart .remove_col {
+  text-transform: uppercase;
+  padding-right: 2rem;
+}
+
+/* line 604, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#cart .remove_col a {
+  color: lightpink;
+}
+
+/* line 608, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#cart .remove_col a:hover {
+  color: red;
+  text-transform: uppercase;
+}
+
+/* line 613, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#cart td.size_col {
+  text-transform: uppercase;
+}
+
+/* line 617, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#cart #empty_text {
+  color: lightgreen;
+  background: white;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+/* line 625, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#cart #empty_text a {
+  color: lightgreen;
+}
+
+/* line 629, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#contact {
+  background: lightsalmon;
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: 12rem 3rem;
+}
+
+/* line 639, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#contact .special_link {
+  color: lightsalmon;
+}
+
+/* line 643, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#email_link:hover, #insta_link:hover {
+  text-transform: none;
+  transform: scale(1.01);
+}
+
+/* line 648, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#insta_link {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 5rem;
+}
+
+/* line 655, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#back_arrow_wrapper, #forward_arrow_wrapper {
+  position: absolute;
+  top: 4.55rem;
+  z-index: 11;
+  width: 6rem;
+  height: 3rem;
+}
+
+/* line 665, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#back_arrow_wrapper {
+  left: 0;
+  margin-left: 3rem;
+}
+
+/* line 671, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#back_arrow_wrapper:hover, #forward_arrow_wrapper:hover {
+  transform: scale(1.1);
+}
+
+/* line 675, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#back_arrow_wrapper:hover .arrow_text, #forward_arrow_wrapper:hover .arrow_text {
+  text-transform: uppercase;
+  transform: scale(1);
+}
+
+/* line 681, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#back_arrow_wrapper:hover .arrow_text {
+  left: 3em;
+}
+
+/* line 685, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+.arrow_text {
+  position: absolute;
+  line-height: 3rem;
+  font-size: 1rem;
+  transition-property: all .2s linear;
+}
+
+/* line 693, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#back_arrow_wrapper .arrow_text {
+  left: 2.2rem;
+  color: white;
+  transform: rotate(90deg);
+}
+
+/* line 701, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#back_arrow_wrapper img {
+  position: relative;
+  width: 50%;
+  height: 100%;
+}
+
+/* line 708, /Users/kenthall/voyage/app/assets/stylesheets/application.scss */
+#myst_img {
+  width: 100%;
+  height: auto;
+  margin: auto;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='50'] [data-aos], [data-aos][data-aos][data-aos-duration='50'] {
+  transition-duration: 50ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='50'] [data-aos], [data-aos][data-aos][data-aos-delay='50'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='50'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='50'].aos-animate {
+  transition-delay: 50ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='100'] [data-aos], [data-aos][data-aos][data-aos-duration='100'] {
+  transition-duration: 100ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='100'] [data-aos], [data-aos][data-aos][data-aos-delay='100'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='100'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='100'].aos-animate {
+  transition-delay: 100ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='150'] [data-aos], [data-aos][data-aos][data-aos-duration='150'] {
+  transition-duration: 150ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='150'] [data-aos], [data-aos][data-aos][data-aos-delay='150'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='150'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='150'].aos-animate {
+  transition-delay: 150ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='200'] [data-aos], [data-aos][data-aos][data-aos-duration='200'] {
+  transition-duration: 200ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='200'] [data-aos], [data-aos][data-aos][data-aos-delay='200'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='200'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='200'].aos-animate {
+  transition-delay: 200ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='250'] [data-aos], [data-aos][data-aos][data-aos-duration='250'] {
+  transition-duration: 250ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='250'] [data-aos], [data-aos][data-aos][data-aos-delay='250'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='250'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='250'].aos-animate {
+  transition-delay: 250ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='300'] [data-aos], [data-aos][data-aos][data-aos-duration='300'] {
+  transition-duration: 300ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='300'] [data-aos], [data-aos][data-aos][data-aos-delay='300'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='300'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='300'].aos-animate {
+  transition-delay: 300ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='350'] [data-aos], [data-aos][data-aos][data-aos-duration='350'] {
+  transition-duration: 350ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='350'] [data-aos], [data-aos][data-aos][data-aos-delay='350'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='350'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='350'].aos-animate {
+  transition-delay: 350ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='400'] [data-aos], [data-aos][data-aos][data-aos-duration='400'] {
+  transition-duration: 400ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='400'] [data-aos], [data-aos][data-aos][data-aos-delay='400'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='400'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='400'].aos-animate {
+  transition-delay: 400ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='450'] [data-aos], [data-aos][data-aos][data-aos-duration='450'] {
+  transition-duration: 450ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='450'] [data-aos], [data-aos][data-aos][data-aos-delay='450'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='450'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='450'].aos-animate {
+  transition-delay: 450ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='500'] [data-aos], [data-aos][data-aos][data-aos-duration='500'] {
+  transition-duration: 500ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='500'] [data-aos], [data-aos][data-aos][data-aos-delay='500'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='500'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='500'].aos-animate {
+  transition-delay: 500ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='550'] [data-aos], [data-aos][data-aos][data-aos-duration='550'] {
+  transition-duration: 550ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='550'] [data-aos], [data-aos][data-aos][data-aos-delay='550'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='550'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='550'].aos-animate {
+  transition-delay: 550ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='600'] [data-aos], [data-aos][data-aos][data-aos-duration='600'] {
+  transition-duration: 600ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='600'] [data-aos], [data-aos][data-aos][data-aos-delay='600'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='600'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='600'].aos-animate {
+  transition-delay: 600ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='650'] [data-aos], [data-aos][data-aos][data-aos-duration='650'] {
+  transition-duration: 650ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='650'] [data-aos], [data-aos][data-aos][data-aos-delay='650'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='650'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='650'].aos-animate {
+  transition-delay: 650ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='700'] [data-aos], [data-aos][data-aos][data-aos-duration='700'] {
+  transition-duration: 700ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='700'] [data-aos], [data-aos][data-aos][data-aos-delay='700'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='700'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='700'].aos-animate {
+  transition-delay: 700ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='750'] [data-aos], [data-aos][data-aos][data-aos-duration='750'] {
+  transition-duration: 750ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='750'] [data-aos], [data-aos][data-aos][data-aos-delay='750'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='750'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='750'].aos-animate {
+  transition-delay: 750ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='800'] [data-aos], [data-aos][data-aos][data-aos-duration='800'] {
+  transition-duration: 800ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='800'] [data-aos], [data-aos][data-aos][data-aos-delay='800'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='800'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='800'].aos-animate {
+  transition-delay: 800ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='850'] [data-aos], [data-aos][data-aos][data-aos-duration='850'] {
+  transition-duration: 850ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='850'] [data-aos], [data-aos][data-aos][data-aos-delay='850'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='850'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='850'].aos-animate {
+  transition-delay: 850ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='900'] [data-aos], [data-aos][data-aos][data-aos-duration='900'] {
+  transition-duration: 900ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='900'] [data-aos], [data-aos][data-aos][data-aos-delay='900'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='900'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='900'].aos-animate {
+  transition-delay: 900ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='950'] [data-aos], [data-aos][data-aos][data-aos-duration='950'] {
+  transition-duration: 950ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='950'] [data-aos], [data-aos][data-aos][data-aos-delay='950'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='950'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='950'].aos-animate {
+  transition-delay: 950ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='1000'] [data-aos], [data-aos][data-aos][data-aos-duration='1000'] {
+  transition-duration: 1000ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='1000'] [data-aos], [data-aos][data-aos][data-aos-delay='1000'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='1000'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='1000'].aos-animate {
+  transition-delay: 1000ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='1050'] [data-aos], [data-aos][data-aos][data-aos-duration='1050'] {
+  transition-duration: 1050ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='1050'] [data-aos], [data-aos][data-aos][data-aos-delay='1050'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='1050'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='1050'].aos-animate {
+  transition-delay: 1050ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='1100'] [data-aos], [data-aos][data-aos][data-aos-duration='1100'] {
+  transition-duration: 1100ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='1100'] [data-aos], [data-aos][data-aos][data-aos-delay='1100'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='1100'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='1100'].aos-animate {
+  transition-delay: 1100ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='1150'] [data-aos], [data-aos][data-aos][data-aos-duration='1150'] {
+  transition-duration: 1150ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='1150'] [data-aos], [data-aos][data-aos][data-aos-delay='1150'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='1150'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='1150'].aos-animate {
+  transition-delay: 1150ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='1200'] [data-aos], [data-aos][data-aos][data-aos-duration='1200'] {
+  transition-duration: 1200ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='1200'] [data-aos], [data-aos][data-aos][data-aos-delay='1200'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='1200'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='1200'].aos-animate {
+  transition-delay: 1200ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='1250'] [data-aos], [data-aos][data-aos][data-aos-duration='1250'] {
+  transition-duration: 1250ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='1250'] [data-aos], [data-aos][data-aos][data-aos-delay='1250'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='1250'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='1250'].aos-animate {
+  transition-delay: 1250ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='1300'] [data-aos], [data-aos][data-aos][data-aos-duration='1300'] {
+  transition-duration: 1300ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='1300'] [data-aos], [data-aos][data-aos][data-aos-delay='1300'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='1300'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='1300'].aos-animate {
+  transition-delay: 1300ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='1350'] [data-aos], [data-aos][data-aos][data-aos-duration='1350'] {
+  transition-duration: 1350ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='1350'] [data-aos], [data-aos][data-aos][data-aos-delay='1350'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='1350'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='1350'].aos-animate {
+  transition-delay: 1350ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='1400'] [data-aos], [data-aos][data-aos][data-aos-duration='1400'] {
+  transition-duration: 1400ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='1400'] [data-aos], [data-aos][data-aos][data-aos-delay='1400'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='1400'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='1400'].aos-animate {
+  transition-delay: 1400ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='1450'] [data-aos], [data-aos][data-aos][data-aos-duration='1450'] {
+  transition-duration: 1450ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='1450'] [data-aos], [data-aos][data-aos][data-aos-delay='1450'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='1450'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='1450'].aos-animate {
+  transition-delay: 1450ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='1500'] [data-aos], [data-aos][data-aos][data-aos-duration='1500'] {
+  transition-duration: 1500ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='1500'] [data-aos], [data-aos][data-aos][data-aos-delay='1500'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='1500'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='1500'].aos-animate {
+  transition-delay: 1500ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='1550'] [data-aos], [data-aos][data-aos][data-aos-duration='1550'] {
+  transition-duration: 1550ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='1550'] [data-aos], [data-aos][data-aos][data-aos-delay='1550'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='1550'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='1550'].aos-animate {
+  transition-delay: 1550ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='1600'] [data-aos], [data-aos][data-aos][data-aos-duration='1600'] {
+  transition-duration: 1600ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='1600'] [data-aos], [data-aos][data-aos][data-aos-delay='1600'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='1600'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='1600'].aos-animate {
+  transition-delay: 1600ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='1650'] [data-aos], [data-aos][data-aos][data-aos-duration='1650'] {
+  transition-duration: 1650ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='1650'] [data-aos], [data-aos][data-aos][data-aos-delay='1650'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='1650'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='1650'].aos-animate {
+  transition-delay: 1650ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='1700'] [data-aos], [data-aos][data-aos][data-aos-duration='1700'] {
+  transition-duration: 1700ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='1700'] [data-aos], [data-aos][data-aos][data-aos-delay='1700'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='1700'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='1700'].aos-animate {
+  transition-delay: 1700ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='1750'] [data-aos], [data-aos][data-aos][data-aos-duration='1750'] {
+  transition-duration: 1750ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='1750'] [data-aos], [data-aos][data-aos][data-aos-delay='1750'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='1750'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='1750'].aos-animate {
+  transition-delay: 1750ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='1800'] [data-aos], [data-aos][data-aos][data-aos-duration='1800'] {
+  transition-duration: 1800ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='1800'] [data-aos], [data-aos][data-aos][data-aos-delay='1800'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='1800'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='1800'].aos-animate {
+  transition-delay: 1800ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='1850'] [data-aos], [data-aos][data-aos][data-aos-duration='1850'] {
+  transition-duration: 1850ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='1850'] [data-aos], [data-aos][data-aos][data-aos-delay='1850'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='1850'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='1850'].aos-animate {
+  transition-delay: 1850ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='1900'] [data-aos], [data-aos][data-aos][data-aos-duration='1900'] {
+  transition-duration: 1900ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='1900'] [data-aos], [data-aos][data-aos][data-aos-delay='1900'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='1900'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='1900'].aos-animate {
+  transition-delay: 1900ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='1950'] [data-aos], [data-aos][data-aos][data-aos-duration='1950'] {
+  transition-duration: 1950ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='1950'] [data-aos], [data-aos][data-aos][data-aos-delay='1950'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='1950'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='1950'].aos-animate {
+  transition-delay: 1950ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='2000'] [data-aos], [data-aos][data-aos][data-aos-duration='2000'] {
+  transition-duration: 2000ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='2000'] [data-aos], [data-aos][data-aos][data-aos-delay='2000'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='2000'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='2000'].aos-animate {
+  transition-delay: 2000ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='2050'] [data-aos], [data-aos][data-aos][data-aos-duration='2050'] {
+  transition-duration: 2050ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='2050'] [data-aos], [data-aos][data-aos][data-aos-delay='2050'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='2050'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='2050'].aos-animate {
+  transition-delay: 2050ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='2100'] [data-aos], [data-aos][data-aos][data-aos-duration='2100'] {
+  transition-duration: 2100ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='2100'] [data-aos], [data-aos][data-aos][data-aos-delay='2100'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='2100'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='2100'].aos-animate {
+  transition-delay: 2100ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='2150'] [data-aos], [data-aos][data-aos][data-aos-duration='2150'] {
+  transition-duration: 2150ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='2150'] [data-aos], [data-aos][data-aos][data-aos-delay='2150'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='2150'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='2150'].aos-animate {
+  transition-delay: 2150ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='2200'] [data-aos], [data-aos][data-aos][data-aos-duration='2200'] {
+  transition-duration: 2200ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='2200'] [data-aos], [data-aos][data-aos][data-aos-delay='2200'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='2200'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='2200'].aos-animate {
+  transition-delay: 2200ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='2250'] [data-aos], [data-aos][data-aos][data-aos-duration='2250'] {
+  transition-duration: 2250ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='2250'] [data-aos], [data-aos][data-aos][data-aos-delay='2250'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='2250'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='2250'].aos-animate {
+  transition-delay: 2250ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='2300'] [data-aos], [data-aos][data-aos][data-aos-duration='2300'] {
+  transition-duration: 2300ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='2300'] [data-aos], [data-aos][data-aos][data-aos-delay='2300'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='2300'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='2300'].aos-animate {
+  transition-delay: 2300ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='2350'] [data-aos], [data-aos][data-aos][data-aos-duration='2350'] {
+  transition-duration: 2350ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='2350'] [data-aos], [data-aos][data-aos][data-aos-delay='2350'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='2350'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='2350'].aos-animate {
+  transition-delay: 2350ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='2400'] [data-aos], [data-aos][data-aos][data-aos-duration='2400'] {
+  transition-duration: 2400ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='2400'] [data-aos], [data-aos][data-aos][data-aos-delay='2400'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='2400'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='2400'].aos-animate {
+  transition-delay: 2400ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='2450'] [data-aos], [data-aos][data-aos][data-aos-duration='2450'] {
+  transition-duration: 2450ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='2450'] [data-aos], [data-aos][data-aos][data-aos-delay='2450'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='2450'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='2450'].aos-animate {
+  transition-delay: 2450ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='2500'] [data-aos], [data-aos][data-aos][data-aos-duration='2500'] {
+  transition-duration: 2500ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='2500'] [data-aos], [data-aos][data-aos][data-aos-delay='2500'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='2500'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='2500'].aos-animate {
+  transition-delay: 2500ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='2550'] [data-aos], [data-aos][data-aos][data-aos-duration='2550'] {
+  transition-duration: 2550ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='2550'] [data-aos], [data-aos][data-aos][data-aos-delay='2550'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='2550'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='2550'].aos-animate {
+  transition-delay: 2550ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='2600'] [data-aos], [data-aos][data-aos][data-aos-duration='2600'] {
+  transition-duration: 2600ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='2600'] [data-aos], [data-aos][data-aos][data-aos-delay='2600'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='2600'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='2600'].aos-animate {
+  transition-delay: 2600ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='2650'] [data-aos], [data-aos][data-aos][data-aos-duration='2650'] {
+  transition-duration: 2650ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='2650'] [data-aos], [data-aos][data-aos][data-aos-delay='2650'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='2650'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='2650'].aos-animate {
+  transition-delay: 2650ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='2700'] [data-aos], [data-aos][data-aos][data-aos-duration='2700'] {
+  transition-duration: 2700ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='2700'] [data-aos], [data-aos][data-aos][data-aos-delay='2700'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='2700'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='2700'].aos-animate {
+  transition-delay: 2700ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='2750'] [data-aos], [data-aos][data-aos][data-aos-duration='2750'] {
+  transition-duration: 2750ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='2750'] [data-aos], [data-aos][data-aos][data-aos-delay='2750'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='2750'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='2750'].aos-animate {
+  transition-delay: 2750ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='2800'] [data-aos], [data-aos][data-aos][data-aos-duration='2800'] {
+  transition-duration: 2800ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='2800'] [data-aos], [data-aos][data-aos][data-aos-delay='2800'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='2800'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='2800'].aos-animate {
+  transition-delay: 2800ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='2850'] [data-aos], [data-aos][data-aos][data-aos-duration='2850'] {
+  transition-duration: 2850ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='2850'] [data-aos], [data-aos][data-aos][data-aos-delay='2850'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='2850'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='2850'].aos-animate {
+  transition-delay: 2850ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='2900'] [data-aos], [data-aos][data-aos][data-aos-duration='2900'] {
+  transition-duration: 2900ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='2900'] [data-aos], [data-aos][data-aos][data-aos-delay='2900'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='2900'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='2900'].aos-animate {
+  transition-delay: 2900ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='2950'] [data-aos], [data-aos][data-aos][data-aos-duration='2950'] {
+  transition-duration: 2950ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='2950'] [data-aos], [data-aos][data-aos][data-aos-delay='2950'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='2950'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='2950'].aos-animate {
+  transition-delay: 2950ms;
+}
+/* line 4, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-duration='3000'] [data-aos], [data-aos][data-aos][data-aos-duration='3000'] {
+  transition-duration: 3000ms;
+}
+/* line 9, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='3000'] [data-aos], [data-aos][data-aos][data-aos-delay='3000'] {
+  transition-delay: 0;
+}
+/* line 13, /Users/kenthall/voyage/node_modules/aos/src/sass/_core.scss */
+body[data-aos-delay='3000'] [data-aos].aos-animate, [data-aos][data-aos][data-aos-delay='3000'].aos-animate {
+  transition-delay: 3000ms;
+}
+
+/* line 35, /Users/kenthall/voyage/node_modules/aos/src/sass/_easing.scss */
+body[data-aos-easing="linear"] [data-aos], [data-aos][data-aos][data-aos-easing="linear"] {
+  transition-timing-function: cubic-bezier(0.25, 0.25, 0.75, 0.75);
+}
+/* line 35, /Users/kenthall/voyage/node_modules/aos/src/sass/_easing.scss */
+body[data-aos-easing="ease"] [data-aos], [data-aos][data-aos][data-aos-easing="ease"] {
+  transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+/* line 35, /Users/kenthall/voyage/node_modules/aos/src/sass/_easing.scss */
+body[data-aos-easing="ease-in"] [data-aos], [data-aos][data-aos][data-aos-easing="ease-in"] {
+  transition-timing-function: cubic-bezier(0.42, 0, 1, 1);
+}
+/* line 35, /Users/kenthall/voyage/node_modules/aos/src/sass/_easing.scss */
+body[data-aos-easing="ease-out"] [data-aos], [data-aos][data-aos][data-aos-easing="ease-out"] {
+  transition-timing-function: cubic-bezier(0, 0, 0.58, 1);
+}
+/* line 35, /Users/kenthall/voyage/node_modules/aos/src/sass/_easing.scss */
+body[data-aos-easing="ease-in-out"] [data-aos], [data-aos][data-aos][data-aos-easing="ease-in-out"] {
+  transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+}
+/* line 35, /Users/kenthall/voyage/node_modules/aos/src/sass/_easing.scss */
+body[data-aos-easing="ease-in-back"] [data-aos], [data-aos][data-aos][data-aos-easing="ease-in-back"] {
+  transition-timing-function: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
+/* line 35, /Users/kenthall/voyage/node_modules/aos/src/sass/_easing.scss */
+body[data-aos-easing="ease-out-back"] [data-aos], [data-aos][data-aos][data-aos-easing="ease-out-back"] {
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+/* line 35, /Users/kenthall/voyage/node_modules/aos/src/sass/_easing.scss */
+body[data-aos-easing="ease-in-out-back"] [data-aos], [data-aos][data-aos][data-aos-easing="ease-in-out-back"] {
+  transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+/* line 35, /Users/kenthall/voyage/node_modules/aos/src/sass/_easing.scss */
+body[data-aos-easing="ease-in-sine"] [data-aos], [data-aos][data-aos][data-aos-easing="ease-in-sine"] {
+  transition-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
+}
+/* line 35, /Users/kenthall/voyage/node_modules/aos/src/sass/_easing.scss */
+body[data-aos-easing="ease-out-sine"] [data-aos], [data-aos][data-aos][data-aos-easing="ease-out-sine"] {
+  transition-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+/* line 35, /Users/kenthall/voyage/node_modules/aos/src/sass/_easing.scss */
+body[data-aos-easing="ease-in-out-sine"] [data-aos], [data-aos][data-aos][data-aos-easing="ease-in-out-sine"] {
+  transition-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+/* line 35, /Users/kenthall/voyage/node_modules/aos/src/sass/_easing.scss */
+body[data-aos-easing="ease-in-quad"] [data-aos], [data-aos][data-aos][data-aos-easing="ease-in-quad"] {
+  transition-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+}
+/* line 35, /Users/kenthall/voyage/node_modules/aos/src/sass/_easing.scss */
+body[data-aos-easing="ease-out-quad"] [data-aos], [data-aos][data-aos][data-aos-easing="ease-out-quad"] {
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+/* line 35, /Users/kenthall/voyage/node_modules/aos/src/sass/_easing.scss */
+body[data-aos-easing="ease-in-out-quad"] [data-aos], [data-aos][data-aos][data-aos-easing="ease-in-out-quad"] {
+  transition-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+/* line 35, /Users/kenthall/voyage/node_modules/aos/src/sass/_easing.scss */
+body[data-aos-easing="ease-in-cubic"] [data-aos], [data-aos][data-aos][data-aos-easing="ease-in-cubic"] {
+  transition-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+}
+/* line 35, /Users/kenthall/voyage/node_modules/aos/src/sass/_easing.scss */
+body[data-aos-easing="ease-out-cubic"] [data-aos], [data-aos][data-aos][data-aos-easing="ease-out-cubic"] {
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+/* line 35, /Users/kenthall/voyage/node_modules/aos/src/sass/_easing.scss */
+body[data-aos-easing="ease-in-out-cubic"] [data-aos], [data-aos][data-aos][data-aos-easing="ease-in-out-cubic"] {
+  transition-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+/* line 35, /Users/kenthall/voyage/node_modules/aos/src/sass/_easing.scss */
+body[data-aos-easing="ease-in-quart"] [data-aos], [data-aos][data-aos][data-aos-easing="ease-in-quart"] {
+  transition-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+}
+/* line 35, /Users/kenthall/voyage/node_modules/aos/src/sass/_easing.scss */
+body[data-aos-easing="ease-out-quart"] [data-aos], [data-aos][data-aos][data-aos-easing="ease-out-quart"] {
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+/* line 35, /Users/kenthall/voyage/node_modules/aos/src/sass/_easing.scss */
+body[data-aos-easing="ease-in-out-quart"] [data-aos], [data-aos][data-aos][data-aos-easing="ease-in-out-quart"] {
+  transition-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+
+/**
+ * Fade animations:
+ * fade
+ * fade-up, fade-down, fade-left, fade-right
+ * fade-up-right, fade-up-left, fade-down-right, fade-down-left
+ */
+/* line 14, /Users/kenthall/voyage/node_modules/aos/src/sass/_animations.scss */
+[data-aos^='fade'][data-aos^='fade'] {
+  opacity: 0;
+  transition-property: opacity, transform;
+}
+/* line 18, /Users/kenthall/voyage/node_modules/aos/src/sass/_animations.scss */
+[data-aos^='fade'][data-aos^='fade'].aos-animate {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* line 24, /Users/kenthall/voyage/node_modules/aos/src/sass/_animations.scss */
+[data-aos='fade-up'] {
+  transform: translate(0, 100px);
+}
+
+/* line 28, /Users/kenthall/voyage/node_modules/aos/src/sass/_animations.scss */
+[data-aos='fade-down'] {
+  transform: translate(0, -100px);
+}
+
+/* line 32, /Users/kenthall/voyage/node_modules/aos/src/sass/_animations.scss */
+[data-aos='fade-right'] {
+  transform: translate(-100px, 0);
+}
+
+/* line 36, /Users/kenthall/voyage/node_modules/aos/src/sass/_animations.scss */
+[data-aos='fade-left'] {
+  transform: translate(100px, 0);
+}
+
+/* line 40, /Users/kenthall/voyage/node_modules/aos/src/sass/_animations.scss */
+[data-aos='fade-up-right'] {
+  transform: translate(-100px, 100px);
+}
+
+/* line 44, /Users/kenthall/voyage/node_modules/aos/src/sass/_animations.scss */
+[data-aos='fade-up-left'] {
+  transform: translate(100px, 100px);
+}
+
+/* line 48, /Users/kenthall/voyage/node_modules/aos/src/sass/_animations.scss */
+[data-aos='fade-down-right'] {
+  transform: translate(-100px, -100px);
+}
+
+/* line 52, /Users/kenthall/voyage/node_modules/aos/src/sass/_animations.scss */
+[data-aos='fade-down-left'] {
+  transform: translate(100px, -100px);
+}
+
+/**
+ * Zoom animations:
+ * zoom-in, zoom-in-up, zoom-in-down, zoom-in-left, zoom-in-right
+ * zoom-out, zoom-out-up, zoom-out-down, zoom-out-left, zoom-out-right
+ */
+/* line 65, /Users/kenthall/voyage/node_modules/aos/src/sass/_animations.scss */
+[data-aos^='zoom'][data-aos^='zoom'] {
+  opacity: 0;
+  transition-property: opacity, transform;
+}
+/* line 69, /Users/kenthall/voyage/node_modules/aos/src/sass/_animations.scss */
+[data-aos^='zoom'][data-aos^='zoom'].aos-animate {
+  opacity: 1;
+  transform: translate(0, 0) scale(1);
+}
+
+/* line 75, /Users/kenthall/voyage/node_modules/aos/src/sass/_animations.scss */
+[data-aos='zoom-in'] {
+  transform: scale(0.6);
+}
+
+/* line 79, /Users/kenthall/voyage/node_modules/aos/src/sass/_animations.scss */
+[data-aos='zoom-in-up'] {
+  transform: translate(0, 100px) scale(0.6);
+}
+
+/* line 83, /Users/kenthall/voyage/node_modules/aos/src/sass/_animations.scss */
+[data-aos='zoom-in-down'] {
+  transform: translate(0, -100px) scale(0.6);
+}
+
+/* line 87, /Users/kenthall/voyage/node_modules/aos/src/sass/_animations.scss */
+[data-aos='zoom-in-right'] {
+  transform: translate(-100px, 0) scale(0.6);
+}
+
+/* line 91, /Users/kenthall/voyage/node_modules/aos/src/sass/_animations.scss */
+[data-aos='zoom-in-left'] {
+  transform: translate(100px, 0) scale(0.6);
+}
+
+/* line 95, /Users/kenthall/voyage/node_modules/aos/src/sass/_animations.scss */
+[data-aos='zoom-out'] {
+  transform: scale(1.2);
+}
+
+/* line 99, /Users/kenthall/voyage/node_modules/aos/src/sass/_animations.scss */
+[data-aos='zoom-out-up'] {
+  transform: translate(0, 100px) scale(1.2);
+}
+
+/* line 103, /Users/kenthall/voyage/node_modules/aos/src/sass/_animations.scss */
+[data-aos='zoom-out-down'] {
+  transform: translate(0, -100px) scale(1.2);
+}
+
+/* line 107, /Users/kenthall/voyage/node_modules/aos/src/sass/_animations.scss */
+[data-aos='zoom-out-right'] {
+  transform: translate(-100px, 0) scale(1.2);
+}
+
+/* line 111, /Users/kenthall/voyage/node_modules/aos/src/sass/_animations.scss */
+[data-aos='zoom-out-left'] {
+  transform: translate(100px, 0) scale(1.2);
+}
+
+/**
+ * Slide animations
+ */
+/* line 122, /Users/kenthall/voyage/node_modules/aos/src/sass/_animations.scss */
+[data-aos^='slide'][data-aos^='slide'] {
+  transition-property: transform;
+}
+/* line 125, /Users/kenthall/voyage/node_modules/aos/src/sass/_animations.scss */
+[data-aos^='slide'][data-aos^='slide'].aos-animate {
+  transform: translate(0, 0);
+}
+
+/* line 130, /Users/kenthall/voyage/node_modules/aos/src/sass/_animations.scss */
+[data-aos='slide-up'] {
+  transform: translateY(100%);
+}
+
+/* line 134, /Users/kenthall/voyage/node_modules/aos/src/sass/_animations.scss */
+[data-aos='slide-down'] {
+  transform: translateY(-100%);
+}
+
+/* line 138, /Users/kenthall/voyage/node_modules/aos/src/sass/_animations.scss */
+[data-aos='slide-right'] {
+  transform: translateX(-100%);
+}
+
+/* line 142, /Users/kenthall/voyage/node_modules/aos/src/sass/_animations.scss */
+[data-aos='slide-left'] {
+  transform: translateX(100%);
+}
+
+/**
+ * Flip animations:
+ * flip-left, flip-right, flip-up, flip-down
+ */
+/* line 154, /Users/kenthall/voyage/node_modules/aos/src/sass/_animations.scss */
+[data-aos^='flip'][data-aos^='flip'] {
+  backface-visibility: hidden;
+  transition-property: transform;
+}
+
+/* line 159, /Users/kenthall/voyage/node_modules/aos/src/sass/_animations.scss */
+[data-aos='flip-left'] {
+  transform: perspective(2500px) rotateY(-100deg);
+}
+/* line 161, /Users/kenthall/voyage/node_modules/aos/src/sass/_animations.scss */
+[data-aos='flip-left'].aos-animate {
+  transform: perspective(2500px) rotateY(0);
+}
+
+/* line 164, /Users/kenthall/voyage/node_modules/aos/src/sass/_animations.scss */
+[data-aos='flip-right'] {
+  transform: perspective(2500px) rotateY(100deg);
+}
+/* line 166, /Users/kenthall/voyage/node_modules/aos/src/sass/_animations.scss */
+[data-aos='flip-right'].aos-animate {
+  transform: perspective(2500px) rotateY(0);
+}
+
+/* line 169, /Users/kenthall/voyage/node_modules/aos/src/sass/_animations.scss */
+[data-aos='flip-up'] {
+  transform: perspective(2500px) rotateX(-100deg);
+}
+/* line 171, /Users/kenthall/voyage/node_modules/aos/src/sass/_animations.scss */
+[data-aos='flip-up'].aos-animate {
+  transform: perspective(2500px) rotateX(0);
+}
+
+/* line 174, /Users/kenthall/voyage/node_modules/aos/src/sass/_animations.scss */
+[data-aos='flip-down'] {
+  transform: perspective(2500px) rotateX(100deg);
+}
+/* line 176, /Users/kenthall/voyage/node_modules/aos/src/sass/_animations.scss */
+[data-aos='flip-down'].aos-animate {
+  transform: perspective(2500px) rotateX(0);
+}
