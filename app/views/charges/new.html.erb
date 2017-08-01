@@ -17,6 +17,7 @@
             <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                     data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
                     data-description="Voyage Store purchase"
+                    data-label="pay"
                     data-amount="<%= @amount %>"
                     data-locale="auto"
                     data-shippingAddress="true"

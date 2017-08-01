@@ -13,7 +13,7 @@ class OrderItemsController < ApplicationController
     session[:order_items].each do |order_item|
       if order_item['sku_id'] == sku_info[:id]
         already_in_cart = true
-        flash.now[:cart_notice] = "item already in cart"
+        flash.now[:cart_notice] = "item/size already in cart"
       end
     end
 

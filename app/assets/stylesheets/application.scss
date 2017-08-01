@@ -373,6 +373,20 @@
    padding-bottom: 6rem;
  }
 
+ #cart #cart_content_stuff #total {
+   width: 100%;
+
+   border-top: solid lightgreen medium;
+   border-radius: 0;
+
+   font-size: 2rem;
+
+   padding: 0;
+   padding-top: 1rem;
+   margin: 0;
+   margin-top: 2rem;
+ }
+
  #cart #cart_content_stuff #cart_bottom_links a {
    position: absolute;
    bottom: 0;

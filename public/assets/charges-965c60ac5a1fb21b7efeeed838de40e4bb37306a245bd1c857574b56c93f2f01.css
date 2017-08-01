@@ -1,77 +1,74 @@
-// Place all the styles related to the charges controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
+/* line 5, /Users/kenthall/voyage/app/assets/stylesheets/charges.scss */
 #navbar {
   background: lightgreen;
   box-shadow: 0 0.2em 1em black;
 }
 
+/* line 10, /Users/kenthall/voyage/app/assets/stylesheets/charges.scss */
 #navbar a {
   color: white;
 }
 
+/* line 14, /Users/kenthall/voyage/app/assets/stylesheets/charges.scss */
 #checkout {
   background: lightgreen;
-
   height: auto;
-
   margin-top: 7rem;
   padding-top: 0;
 }
 
+/* line 23, /Users/kenthall/voyage/app/assets/stylesheets/charges.scss */
 #cart {
   background: none;
 }
 
+/* line 27, /Users/kenthall/voyage/app/assets/stylesheets/charges.scss */
 #cart #cart_content_stuff {
   padding: 2rem;
   padding-bottom: 1rem;
 }
 
+/* line 32, /Users/kenthall/voyage/app/assets/stylesheets/charges.scss */
 #cart #cart_bottom_links {
   display: none;
 }
 
+/* line 36, /Users/kenthall/voyage/app/assets/stylesheets/charges.scss */
 #cart .remove_col {
   display: none;
 }
 
-.stripe-button-el  {
+/* line 40, /Users/kenthall/voyage/app/assets/stylesheets/charges.scss */
+.stripe-button-el {
   width: 100% !important;
   height: 3rem !important;
-
   border: none !important;
   border-radius: 1rem !important;
   background: none !important;
-
   -webkit-font-smoothing: none !important;
-
   margin-top: 1rem !important;
   padding: 0 !important;
 }
 
+/* line 54, /Users/kenthall/voyage/app/assets/stylesheets/charges.scss */
 .stripe-button-el span {
   width: 100% !important;
   height: inherit !important;
-
   background: white !important;
   color: lightgreen !important;
-
   font-family: 'Cabin', sans-serif !important;
   font-weight: bold !important;
   font-size: 1.5rem !important;
   text-shadow: none !important;
   text-transform: lowercase !important;
   line-height: 3rem !important;
-
   box-shadow: none !important;
   border: none !important;
   border-radius: 0 !important;
-
   padding: 0 !important;
 }
 
+/* line 75, /Users/kenthall/voyage/app/assets/stylesheets/charges.scss */
 .stripe-button-el:hover span {
   background: limegreen !important;
   color: white !important;

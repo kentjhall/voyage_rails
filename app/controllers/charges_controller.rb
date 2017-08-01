@@ -4,10 +4,6 @@ class ChargesController < ApplicationController
   before_action :check_quantities_create_charge, :only => [:create]
 
   def new
-    @amount = 0
-    session[:order_items].each do |order_item|
-      @amount += order_item['price'].to_i * order_item['quantity'].to_i
-    end
   end
 
   def create

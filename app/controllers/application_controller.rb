@@ -40,12 +40,9 @@ class ApplicationController < ActionController::Base
 
     session[:order_items].compact!
 
+    @amount = 0
     session[:order_items].each do |order_item|
-      order_item_properties.each do |property|
-        if order_item[property].nil?
-          session[:order_items] = []
-        end
-      end
+      @amount += order_item['price'].to_i * order_item['quantity'].to_i
     end
 
     @order_items = session[:order_items]
