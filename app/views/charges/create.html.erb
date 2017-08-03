@@ -1,1 +1,13 @@
-<h2>Thanks, you paid <strong><%= number_to_currency(@amount/100) %></strong>!</h2>
+<div id="payment_success" class="colored_section top">
+  <div id="cart"></div>
+  <div class="trigger" id="payment_success_trigger"></div>
+  <h2 id="payment_success_title">Payment Success!</h2>
+  <div id="back_arrow_wrapper">
+    <% link = "/home" %>
+    <%= link_to(image_tag("left_arrow.png"), link) %>
+    <%= link_to("home", link, :class => "arrow_text") %>
+  </div>
+  <div id="payment_success_content" data-aos="fade-up">
+    <p>Thanks, you paid <strong><%= number_to_currency(@amount/100) %></strong>!<br>You will receive a confirmation email for order '<%= @order_id %>' shortly.</p>
+  </div>
+</div>

@@ -1,10 +1,10 @@
 <% if flash[:cart_error].present? %>
-  <div id="cart_error">
+  <div id="cart_error" data-aos="fade-up">
     <p><%= flash[:cart_error] %></p>
   </div>
 <% end %>
 <% if flash[:cart_notice].present? %>
-  <div id="cart_notice">
+  <div id="cart_notice" data-aos="fade-up">
     <p><%= flash[:cart_notice] %></p>
   </div>
 <% end %>

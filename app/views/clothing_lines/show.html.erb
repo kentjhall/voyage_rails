@@ -13,7 +13,7 @@
   <% items_ordered.each do |item| %>
     <% path = "missing_img.png" %>
     <% img_paths = eval(item.img_paths) %>
-    <% path = "item_imgs/#{img_paths[0]}" if !img_paths.nil? %>
+    <% path = "item_imgs/#{img_paths[0]}" unless img_paths.empty?  %>
     <div class="img_wrapper" data-aos="fade-up">
       <%= link_to(image_tag(path, :alt => item.name), item_path(item)) %>
       <%= link_to(item.name.downcase, item_path(item), :class => "img_text main") %>

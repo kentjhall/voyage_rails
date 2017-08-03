@@ -3,8 +3,10 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @img_paths = eval(@item.img_paths)
     @product = Stripe::Product.retrieve(@item.product_id)
     @clothing_line = @item.clothing_line
+
 
     # check that item name and retrieved product name match
     if @product.name.downcase != @item.name.downcase

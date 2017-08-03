@@ -68,6 +68,10 @@
    padding: 0;
  }
 
+ .colored_section.top {
+   margin-top: 7rem;
+ }
+
  .colored_section h2 {
    position: absolute;
    top: 0;
@@ -204,7 +208,7 @@
    left: 0;
    right: 0;
 
-   z-index: 10;
+   z-index: 20;
 
    width: auto;
    height: 7rem;
@@ -515,7 +519,7 @@
    color: lightgreen;
  }
 
- #cart select {
+ select {
    background:
     linear-gradient(45deg, transparent 50%, lightgreen 50%),
     linear-gradient(135deg, lightgreen 50%, transparent 50%);
@@ -544,7 +548,7 @@
    padding: 0.5em 1.5em 0.5em 1em;
  }
 
- #cart select:hover {
+ select:hover {
    color: limegreen;
    background:
     linear-gradient(45deg, transparent 50%, limegreen 50%),

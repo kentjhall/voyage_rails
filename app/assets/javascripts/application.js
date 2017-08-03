@@ -102,6 +102,7 @@ $(function () {
   .setTween(back_arrow_tween)
   .addTo(controller);
 
+
   var titles = document.getElementsByTagName('h2');
   for (var i=0; i<titles.length; i++) {
     new ScrollMagic.Scene({

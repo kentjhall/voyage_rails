@@ -1,4 +1,4 @@
-<div id="item" class="colored_section store">
+<div id="item" class="colored_section top store">
   <div class="trigger" id="item_trigger"></div>
   <h2 id="item_title"><%= @product.name %></h2>
   <div id="back_arrow_wrapper">
@@ -6,27 +6,58 @@
     <%= link_to(image_tag("left_arrow.png"), link) %>
     <%= link_to(@clothing_line.name.downcase, link, :class => "arrow_text") %>
   </div>
-  <div id="item_content">
+  <div id="imgs_wrapper" class=<%= "more_than_one" if @img_paths.length > 1 %>>
+    <% if @img_paths.length > 1 %>
+      <div id="img_previews">
+        <% @img_paths.each_with_index do |img_path, i| %>
+          <% img_asset_path = asset_path("item_imgs/#{img_path}") %>
+          <label for=<%= "img_preview_selection_#{i}" %> id=<%= i == @img_paths.length-1 ? "label_last" : "label_#{i}" %> onmouseover="update_main_image('<%= img_asset_path %>', 'img_preview_selection_<%= i %>');">
+            <%= radio_button_tag(:preview_img_selection, nil, i == 0, :id => "img_preview_selection_#{i}") %>
+            <div class="img_preview">
+              <%= image_tag("item_imgs/#{img_path}") %>
+            </div>
+          </label>
+        <% end %>
+      </div>
+    <% end %>
+    <% path = !@img_paths.empty? ? "item_imgs/#{@img_paths[0]}" : "missing_img.png" %>
+    <div id="img_main">
+      <%= image_tag(path) %>
+    </div>
+  </div>
+  <div id="item_info">
     <% price = @product.skus.data.first.price %>
-    <p><%= number_to_currency(price/100) %>
+    <p id="item_price"><%= number_to_currency(price/100) %></p>
     <%= form_tag(add_order_item_path, method: "get", remote: true) do %>
       <%= hidden_field_tag(:item_id, @item.id) %>
       <%= hidden_field_tag(:product_id, @product.id) %>
       <%= hidden_field_tag(:product_name, @product.name) %>
-      <% @product.skus.data.each do |sku| %>
-        <%= label_tag(:sku_id, sku.attributes.size) %>
-        <% unless sku.inventory.quantity.nil? %>
-          <%= label_tag(:sku_id, "#{sku.inventory.quantity} in stock") %>
+      <div id="size_radio_buttons">
+        <% @product.skus.data.each_with_index do |sku, i| %>
+          <label for=<%= "size_radio_button_#{i}" %>>
+            <%= radio_button_tag(:sku_info, {:id => sku.id, :quantity_available => sku.inventory.quantity, :price => sku.price, :size => sku.attributes.size}, sku.attributes.size == 's', :id => "size_radio_button_#{i}") %>
+            <span><p><%= sku.attributes.size %></p></span>
+            <% unless sku.inventory.quantity.nil? %>
+              <%= label_tag(:sku_id, "#{sku.inventory.quantity} in stock", :class => "quantity_available_label") %>
+            <% end %>
+          </label>
         <% end %>
-        <%= radio_button_tag(:sku_info, {:id => sku.id, :quantity_available => sku.inventory.quantity, :price => sku.price, :size => sku.attributes.size}, sku.attributes.size == 's') %>
-      <% end %>
-      <%= select_tag(:quantity, options_for_select([1, 2, 3, 4, 5, 6, 7, 8, 9])) %>
-      <%= submit_tag("add to cart", :onclick => "scroll_to_cart();") %>
+      </div>
+      <div id="quantity_select_wrapper">
+        <%= label_tag(:quantity, "QTY") %>
+        <%= select_tag(:quantity, options_for_select([1, 2, 3, 4, 5, 6, 7, 8, 9]), :id => "quantity_select") %>
+      </div>
+      <%= submit_tag("add to cart", :onclick => "scroll_to_cart();", :id => "item_submit") %>
     <% end %>
   </div>
 </div>
 
 <script>
+function update_main_image(img_path, rb_id) {
+    document.querySelector('#img_main img').src = img_path;
+    document.getElementById(rb_id).checked = true;
+}
+
 function scroll_to_cart() {
     $('html, body').stop().animate({
        scrollTop: $('#cart').offset().top

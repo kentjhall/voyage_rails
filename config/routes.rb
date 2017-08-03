@@ -29,8 +29,8 @@ Rails.application.routes.draw do
   get 'remove_all_order_items', :to => 'order_items#remove_all'
   get 'update_order_item_quantity', :to => 'order_items#update_quantity'
 
-  resources :clothing_lines, :except => [:index]
-  resources :items
+  resources :clothing_lines, :only => [:show]
+  resources :items, :only => [:show]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

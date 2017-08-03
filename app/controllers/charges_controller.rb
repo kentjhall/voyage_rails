@@ -12,6 +12,10 @@ class ChargesController < ApplicationController
       items << { :type => 'sku', :parent => order_item['sku_id'], :quantity => order_item['quantity'] }
     end
 
+    if items.empty?
+      return redirect_to "/home"
+    end
+
     order = Stripe::Order.create(
       :currency => 'usd',
       :items => items,
@@ -32,6 +36,7 @@ class ChargesController < ApplicationController
       :source  => params[:stripeToken]
     )
 
+    @order_id = order.id
     @amount = order.amount
 
     session[:order_items] = nil

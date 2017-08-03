@@ -5,5 +5,6 @@ class Item < ApplicationRecord
   validates_presence_of :product_id
   validates_presence_of :name
   validates_presence_of :price
+  validates_presence_of :img_paths
 
 end
