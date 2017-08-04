@@ -45,7 +45,7 @@ $(function () {
   var nav_color_transition = TweenMax.to($("#navbar"), 0, {css:{"transition":"background .15s ease-in"}, ease:Power1.easeInOut});
 
   new ScrollMagic.Scene({
-    triggerElement: ".trigger",
+    triggerElement: document.querySelector(".trigger"),
     duration: 0,
     offset: 0
   })
@@ -53,7 +53,7 @@ $(function () {
   .addTo(controller);
 
   new ScrollMagic.Scene({
-    triggerElement: ".trigger",
+    triggerElement: document.querySelector(".trigger"),
     duration: 0,
     offset: 0
   })
