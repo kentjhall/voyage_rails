@@ -2,9 +2,7 @@
   <div class="trigger" id="item_trigger"></div>
   <h2 id="item_title"><%= @product.name %></h2>
   <div id="back_arrow_wrapper">
-    <% link = clothing_line_path(@clothing_line) %>
-    <%= link_to(image_tag("left_arrow.png"), link) %>
-    <%= link_to(@clothing_line.name.downcase, link, :class => "arrow_text") %>
+    <%= render :partial => 'layouts/back_arrow', :locals => { name: @back_arrow_info[:name], link: @back_arrow_info[:link] } %>
   </div>
   <div id="imgs_wrapper" class=<%= "more_than_one" if @img_paths.length > 1 %>>
     <% if @img_paths.length > 1 %>
@@ -14,7 +12,7 @@
           <label for=<%= "img_preview_selection_#{i}" %> id=<%= i == @img_paths.length-1 ? "label_last" : "label_#{i}" %> onmouseover="update_main_image('<%= img_asset_path %>', 'img_preview_selection_<%= i %>');">
             <%= radio_button_tag(:preview_img_selection, nil, i == 0, :id => "img_preview_selection_#{i}") %>
             <div class="img_preview">
-              <%= image_tag("item_imgs/#{img_path}") %>
+              <%= image_tag("item_imgs/#{img_path}", :alt => @product.name) %>
             </div>
           </label>
         <% end %>
@@ -22,7 +20,7 @@
     <% end %>
     <% path = !@img_paths.empty? ? "item_imgs/#{@img_paths[0]}" : "missing_img.png" %>
     <div id="img_main">
-      <%= image_tag(path) %>
+      <%= image_tag(path, :alt => @product.name) %>
     </div>
   </div>
   <div id="item_info">

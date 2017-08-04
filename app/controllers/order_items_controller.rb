@@ -13,7 +13,7 @@ class OrderItemsController < ApplicationController
     session[:order_items].each do |order_item|
       if order_item['sku_id'] == sku_info[:id]
         already_in_cart = true
-        flash.now[:cart_notice] = "item/size already in cart"
+        flash.now[:cart_notice] = "'#{order_item['name']} #{order_item['size'].upcase}' is already in cart"
       end
     end
 
@@ -21,7 +21,7 @@ class OrderItemsController < ApplicationController
       if sku_info[:quantity_available].nil? || sku_info[:quantity_available] >= params[:quantity].to_i
         session[:order_items] << { 'item_id' => params[:item_id], 'product_id' => params[:product_id], 'name' => params[:product_name], 'sku_id' => sku_info[:id], 'price' => sku_info[:price], 'size' => sku_info[:size], 'quantity' => params[:quantity] }
       else
-        flash.now[:cart_error] = quantity_error_message
+        flash.now[:cart_error] = quantity_error_message("#{params[:product_name]} #{sku_info[:size].upcase}", sku_info[:quantity_available])
       end
     end
 
@@ -50,13 +50,14 @@ class OrderItemsController < ApplicationController
   end
 
   def update_quantity
-    sku = Stripe::SKU.retrieve(session[:order_items][params[:index].to_i]['sku_id'])
+    order_item = session[:order_items][params[:index].to_i]
+    sku = Stripe::SKU.retrieve(order_item['sku_id'])
     quantity_available = sku.inventory.quantity.to_i
 
     if quantity_available.nil? || quantity_available >= params[:quantity].to_i
       session[:order_items][params[:index].to_i]['quantity'] = params[:quantity]
     else
-      flash.now[:cart_error] = quantity_error_message
+      flash.now[:cart_error] = quantity_error_message("#{order_item['name']} #{order_item['size'].upcase}", sku.inventory.quantity)
     end
 
     @order_items = session[:order_items]
@@ -67,8 +68,8 @@ class OrderItemsController < ApplicationController
 
   private
 
-  def quantity_error_message
-    "sorry, we don't have that quantity of the requested item/size available"
+  def quantity_error_message(item, quantity_available)
+    "sorry, we only have #{quantity_available} of '#{item}' remaining in stock"
   end
 
 end

@@ -2,21 +2,19 @@
   <div class="trigger" id="checkout_trigger"></div>
   <h2 id="checkout_title">checkout</h2>
     <div id="back_arrow_wrapper">
-      <% link = "/home#cart" %>
-      <%= link_to(image_tag("left_arrow.png"), link) %>
-      <%= link_to("cart", link, :class => "arrow_text") %>
+      <%= render :partial => 'layouts/back_arrow', :locals => { name: @back_arrow_info[:name], link: @back_arrow_info[:link] } %>
     </div>
-  <div id="checkout_content">
+  <div id="checkout_content" data-aos="fade-up">
     <div id="cart">
       <div id="cart_content">
         <%= render :partial => 'layouts/cart', :locals => { order_items: @order_items } %>
-
         <% if @amount > 0 %>
           <%= form_tag payment_success_path do %>
             <% amount = number_to_currency(@amount/100) %>
             <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                     data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
                     data-description="Voyage Store purchase"
+                    data-image=<%= asset_path("icon.png") %>
                     data-label="pay"
                     data-amount="<%= @amount %>"
                     data-locale="auto"

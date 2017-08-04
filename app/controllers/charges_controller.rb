@@ -1,9 +1,19 @@
 class ChargesController < ApplicationController
 
-  before_action :check_quantities_new_charge, :only => [:new]
-  before_action :check_quantities_create_charge, :only => [:create]
+  before_action only: [:new] do
+    check_quantities(false)
+  end
+  before_action only: [:create] do
+    check_quantities(true)
+  end
+
+  def cart
+    flash[:scroll_to_cart] = true
+    redirect_to params[:url]
+  end
 
   def new
+    @back_arrow_info = { :name => "cart", :link => cart_path(:url => URI(!request.referer.nil? ? request.referer : '/home').path) }
   end
 
   def create
@@ -49,7 +59,7 @@ class ChargesController < ApplicationController
 
   private
 
-  def check_quantities_new_charge
+  def check_quantities(order_created)
     unavailable_quantity_items = []
 
     session[:order_items].each_with_index do |order_item, i|
@@ -63,78 +73,45 @@ class ChargesController < ApplicationController
           else
             order_item['quantity'] = quantity_available
           end
-          unavailable_quantity_items << "#{order_item['name']} #{order_item['size'].upcase}"
-        end
-      end
-    end
-
-    if !unavailable_quantity_items.empty?
-      error_message = ""
-      if unavailable_quantity_items.length == 1
-        error_message = new_singular_error
-      else
-        error_message = new_plural_error
-      end
-      unavailable_quantity_items.each_with_index do |item_info, i|
-        error_message += " " + item_info
-        if i < unavailable_quantity_items.length-1
-          error_message += ","
-        end
-      end
-      flash[:error] = error_message
-      redirect_to checkout_path
-    end
-  end
-
-  def check_quantities_create_charge
-    unavailable_quantity_items = []
-
-    session[:order_items].each_with_index do |order_item, i|
-      sku = Stripe::SKU.retrieve(order_item['sku_id'])
-
-      unless sku.inventory.quantity.nil?
-      quantity_available = sku.inventory.quantity.to_i
-        if order_item['quantity'].to_i > quantity_available
-          if quantity_available == 0
-            session[:order_items].delete_at(i)
-          else
-            order_item['quantity'] = quantity_available
+          item_listing = "'#{order_item['name']} #{order_item['size'].upcase}'"
+          if i > 0 && i == session[:order_items].length-1
+            item_listing.prepend("and ")
           end
-          unavailable_quantity_items << "#{order_item['name']} #{order_item['size'].upcase}"
+          unavailable_quantity_items << item_listing
         end
       end
     end
 
     if !unavailable_quantity_items.empty?
-      error_message = ""
-      if unavailable_quantity_items.length == 1
-        error_message = create_singular_error
+      error_message_lines = ["", ""]
+
+      error_message_lines[0] = "#{quantity_error_beg(order_created)}  #{order_cancel_error}" if order_created
+      error_message_lines[1] = quantity_error_end(unavailable_quantity_items)
+
+      if order_created
+        flash[:order_error_line1] = error_message_lines[0]
+        flash[:order_error_line2] = error_message_lines[1]
       else
-        error_message = create_plural_error
+        flash[:error] = error_message_lines[1]
       end
-      unavailable_quantity_items.each_with_index do |item_info, i|
-        error_message += " " + item_info
-        if i < unavailable_quantity_items.length-1
-          error_message += ","
-        end
-      end
-      flash[:error] = error_message
+
       redirect_to checkout_path
     end
   end
 
-  def new_singular_error
-    "Order adjusted due to quantity issue.  The requested quantity for the following item is no longer available, and has been adjusted in cart:"
+  def quantity_error_beg
+    "Order canceled due to quantity issue."
   end
 
-  def new_plural_error
-    "Order adjusted due to quantity issue.  The requested quantities for the following items are no longer available, and have been adjusted in cart:"
+  def quantity_error_end(unavailable_quantity_items)
+    if unavailable_quantity_items.length == 1
+      "The requested quantity for #{unavailable_quantity_items[0]} is no longer available, and has been adjusted in cart."
+    elsif unavailable_quantity_items.length > 1
+      uq_items_list = unavailable_quantity_items.length > 2 ? unavailable_quantity_items.join(", ") : unavailable_quantity_items.join(" ")
+      "The requested quantities for #{uq_items_list} are no longer available, and have been adjusted in cart."
+    end
   end
 
-  def create_singular_error
-    "Order canceled due to quantity issue.  Your card was not charged.  If paid in Bitcoin, you should receive a refund email within a day.  Please contact support with any questions.  The requested quantity for the following item is no longer available, and has been adjusted in cart:"
-  end
-
-  def create_plural_error
-    "Order canceled due to quantity issue.  Your card was not charged.  If paid in Bitcoin, you should receive a refund email within a day.  Please contact support with any questions.  The requested quantities for the following items is are longer available, and have been adjusted in cart:"
+  def order_cancel_error
+    "Your card was not charged.  If paid in Bitcoin, you will receive a refund email within a few days.  Please contact support with any questions."
   end

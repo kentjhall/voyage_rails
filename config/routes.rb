@@ -10,17 +10,8 @@ Rails.application.routes.draw do
 
   get 'home', :to => 'pages#home'
   get 'art', :to => 'pages#art'
-  get 'about_us', :to => 'pages#about_us'
-  get 'journal', :to => 'pages#journal'
-  get 'contact', :to => 'pages#contact'
 
-  get 'pages/home'
-  get 'pages/art'
-  get 'pages/about_us'
-  get 'pages/journal'
-  get 'pages/contact'
-  get 'pages/myst'
-
+  get 'cart', :to => 'charges#cart'
   get 'checkout', :to => 'charges#new'
   post 'payment_success', :to => 'charges#create'
 

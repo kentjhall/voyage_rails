@@ -4,7 +4,7 @@
     <%= image_tag("yellow_flower.png", :id => "yellow-flower", :class => "flower") %>
     <%= image_tag("blue_flower.png", :id => "blue-flower", :class => "flower", :style => "transform:translateX(5em);") %>
   </div>
-  <a href="#clothing_lines">
+  <a href="javascript:void(0);", onclick="scroll_to_store();">
     <p id="down_arrow_text" class="store_arrow_text">store</p>
     <%= image_tag("down_arrow.png", :id => "down_arrow", :class => "store_arrow") %>
   </a>
@@ -28,8 +28,11 @@
         <%= link_to(name, link, :class => "img_text") %>
       <% else %>
         <%= img %>
-        <p class="img_text main"><%= name %></p>
-        <p class="img_text sub">coming soon</p>
+
+        <div class="img_text_wrapper">
+          <p class="img_text main"><%= name %></p>
+          <p class="img_text sub">coming soon</p>
+        </div>
       <% end %>
     </div>
   <% end %>
@@ -41,13 +44,6 @@
       e.preventDefault();
       $('html, body').stop().animate({
          scrollTop: $('#main').offset().top
-      }, 500);
-  });
-
-  $('#down_arrow, #down_arrow_text').on('click', function(e){
-      e.preventDefault();
-      $('html, body').stop().animate({
-         scrollTop: $('#clothing_lines').offset().top
       }, 500);
   });
 

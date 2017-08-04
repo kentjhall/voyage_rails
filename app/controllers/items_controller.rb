@@ -24,6 +24,8 @@ class ItemsController < ApplicationController
         return error
       end
     end
+
+    @back_arrow_info = { :name => @clothing_line.name, :link => clothing_line_path(@clothing_line) }
   end
 
   private

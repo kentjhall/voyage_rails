@@ -4,8 +4,23 @@
     <title>Voyage</title>
     <%= csrf_meta_tags %>
 
+    <% if error_present %>
+      <style>
+        #navbar {
+          box-shadow: none !important;
+        }
+      </style>
+    <% end %>
+
     <%= stylesheet_link_tag    'application', Rails.application.assets.find_asset(params[:controller]) ? params[:controller] : 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', Rails.application.assets.find_asset(params[:controller]) ? params[:controller] : 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
 
   </head>
 
@@ -13,15 +28,24 @@
     <% unapproved_controllers = ["devise/sessions"] %>
     <% if !unapproved_controllers.include? params[:controller] %>
       <div id="navbar">
+        <% unless @back_arrow_info.nil? %>
+          <div id="back_arrow_nav_wrapper">
+            <%= render :partial => 'layouts/back_arrow', :locals => { name: @back_arrow_info[:name], link: @back_arrow_info[:link] } %>
+          </div>
+        <% end %>
         <h1><%= link_to("voyage", root_path) %></h1>
         <ul id="navlinks">
-          <li id="about_us_link"><%= link_to("about us", "#about_us") %></li>
-          <li id="contact_link"><%= link_to("contact", "#contact") %></li>
-          <li id="cart_link"><%= link_to("cart", "#cart") %></li>
+          <li id="about_us_link"><%= link_to("about us", "javascript:void(0);", :onclick => "scroll_to_element('#about_us');") %></li>
+          <li id="contact_link"><%= link_to("contact", "javascript:void(0);", :onclick => "scroll_to_element('#contact');") %></li>
+          <li id="cart_link"><%= link_to("cart", "javascript:void(0);", :onclick => "scroll_to_element('#cart');") %></li>
         </ul>
       </div>
-      <% if flash[:error].present? %>
-        <div id="error_message">
+      <% if flash[:order_error_line1].present? && flash[:order_error_line2].present? %>
+        <div class="error_message">
+          <p><%= flash[:order_error_line1] %><br><%= flash[:order_error_line2] %></p>
+        </div>
+      <% elsif flash[:error].present? %>
+        <div class="error_message">
           <p><%= flash[:error] %></p>
         </div>
       <% end %>
@@ -55,13 +79,12 @@
               <%= link_to(team_member.role.downcase, team_members_show_path(team_member), :class => "img_text sub") %>
             </div>
           <% end %>
-          <a id="insta_link" class="special_link" href="https://www.instagram.com/voyagegang/" target="_blank" data-aos="fade-up">@voyagegang</a>
+          <a href="https://www.instagram.com/voyagegang/" id="insta_link" class="special_link" target="_blank" data-aos="fade-up">@voyagegang</a>
         </div>
-
         <div id="contact" class="colored_section">
           <div class="trigger" id="contact_trigger"></div>
           <h2 id="contact_title">contact</h2>
-          <a id="email_link" class="special_link" href="mailto:support@voyagealone.com" data-aos="fade-up">support@voyagealone.com</a>
+          <a href="mailto:support@voyagealone.com" id="email_link" class="special_link" data-aos="fade-up">support@voyagealone.com</a>
         </div>
       </div>
     <% end %>
@@ -69,32 +92,21 @@
     <script>
       AOS.init();
 
+      function scroll_to_element(element, time) {
+        $('html, body').stop().animate({
+           scrollTop: $(element).offset().top
+        }, time == null ? 500 : time);
+      }
+
       function scroll_to_store() {
         $('html, body').stop().animate({
            scrollTop: $('.store').offset().top
         }, 500);
       }
-
-      $('#cart_link').on('click', function(e){
-          e.preventDefault();
-          $('html, body').stop().animate({
-             scrollTop: $('#cart').offset().top
-          }, 500);
-      });
-
-      $('#about_us_link').on('click', function(e){
-          e.preventDefault();
-          $('html, body').stop().animate({
-             scrollTop: $('#about_us').offset().top
-          }, 500);
-      });
-
-      $('#contact_link').on('click', function(e){
-          e.preventDefault();
-          $('html, body').stop().animate({
-             scrollTop: $('#contact').offset().top
-          }, 500);
-      });
     </script>
+
+    <% if flash[:scroll_to_cart] %>
+      <script>scroll_to_element(document.getElementById('cart'));</script>
+    <% end %>
   </body>
 </html>

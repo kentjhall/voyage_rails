@@ -42,10 +42,6 @@ $(function () {
 
   var nav_color_transition = TweenMax.to($("#navbar"), 0, {css:{"transition":"background .15s ease-in"}, ease:Power1.easeInOut});
 
-  var back_arrow_tween = TweenMax.to($("#back_arrow_wrapper"), 1, {css:{"opacity":"0"}, ease:Power1.easeInOut});
-
-  // var forward_arrow_tween = TweenMax.to($("#forward_arrow_wrapper"), 1, {css:{"opacity":"0"}, ease:Power1.easeInOut});
-
   new ScrollMagic.Scene({
     triggerElement: ".trigger",
     duration: 0,
@@ -95,13 +91,19 @@ $(function () {
   .addTo(controller);
 
   new ScrollMagic.Scene({
-    triggerElement: ".trigger",
+    triggerElement: document.querySelector(".trigger"),
     duration: $('#navbar').height(),
     offset: -$('#navbar').height()
   })
-  .setTween(back_arrow_tween)
+  .setTween(TweenMax.to($("#back_arrow_wrapper"), 1, {css:{"opacity":"0"}, ease:Power1.easeInOut}))
   .addTo(controller);
 
+  new ScrollMagic.Scene({
+    triggerElement: document.querySelector(".trigger"),
+    offset: 0
+  })
+  .setTween(TweenMax.to($("#back_arrow_nav_wrapper"), 0, {css:{"opacity":"1"}, ease:Power1.easeInOut}))
+  .addTo(controller);
 
   var titles = document.getElementsByTagName('h2');
   for (var i=0; i<titles.length; i++) {
