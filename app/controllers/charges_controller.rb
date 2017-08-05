@@ -24,7 +24,6 @@ class ChargesController < ApplicationController
     order = Stripe::Order.create(
       :currency => 'usd',
       :items => items,
-      :email => params[:stripeEmail],
       :shipping => {
         :name => params[:stripeShippingName],
         :address => {
@@ -34,11 +33,13 @@ class ChargesController < ApplicationController
           :country => params[:stripeShippingAddressCountry],
           :postal_code => params[:stripeShippingAddressZip]
         }
-      }
+      },
+      :email => params[:stripeEmail]
     )
 
     order.pay(
-      :source  => params[:stripeToken]
+      :source  => params[:stripeToken],
+      :email => params[:stripeEmail]
     )
 
     @order_id = order.id
