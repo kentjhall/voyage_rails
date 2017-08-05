@@ -71,6 +71,7 @@
     var session = Stripe.applePay.buildSession(paymentRequest,
         function(result, completion) {
       });
+    session._stripeSkipTokenizationForDemo = true
 
     session.oncancel = function() {
       console.log("User hit the cancel button in the payment window");
