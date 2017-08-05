@@ -50,7 +50,7 @@
       currencyCode: 'USD',
       total: {
         label: 'Voyage Store',
-        amount: <%= @amount/100 %>
+        amount: '<%= @amount/100 %>'
       }
     };
 
@@ -72,6 +72,8 @@
         completion(ApplePaySession.STATUS_FAILURE);
       });
 
+    }, function(error) {
+    console.log(error.message);
     });
 
     session.oncancel = function() {
