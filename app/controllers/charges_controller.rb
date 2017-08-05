@@ -44,14 +44,14 @@ class ChargesController < ApplicationController
     @order_id = order.id
     @amount = order.amount
 
+    @back_arrow_info = { :name => "home", :link => '/home' }
+
     session[:order_items] = nil
 
     rescue Stripe::CardError => e
       flash[:error] = e.message
       redirect_to checkout_path
     end
-
-    @back_arrow_info = { :name => "home", :link => '/home' }
   end
 
   private
