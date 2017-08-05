@@ -20,7 +20,7 @@
 //= require gsap/TimelineMax
 //= require gsap/BezierPlugin
 
-// 'require turbolinks' disabled for JS library compatibility
+// 'require turbolinks'
 
 $(function () {
   var controller = new ScrollMagic.Controller();

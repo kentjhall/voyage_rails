@@ -42,6 +42,21 @@
 
   document.getElementById('apple-pay-button').addEventListener('click', beginApplePay);
 
+  // $.post('/payment_success', {
+  //   stripeToken: result.token.id,
+  //   stripeEmail: result.shippingContact.emailAddress,
+  //   stripeShippingName: result.shippingContact.givenName + result.shippingContact.familyName,
+  //   stripeShippingAddressLine1: result.shippingContact.address_line1,
+  //   stripeShippingAddressCity: result.shippingContact.locality,
+  //   stripeShippingAddressState: result.shippingContact.administrativeArea,
+  //   stripeShippingAddressCountry: result.shippingContact.country,
+  //   stripeShippingAddressZip: result.shippingContact.postalCode
+  // }).done(function() {
+  //   completion(ApplePaySession.STATUS_SUCCESS);
+  // }).fail(function() {
+  //   completion(ApplePaySession.STATUS_FAILURE);
+  // });
+
   function beginApplePay() {
     var paymentRequest = {
       requiredShippingContactFields: ['postalAddress', 'emailAddress', 'givenName', 'familyName'],
@@ -54,24 +69,8 @@
     };
 
     var session = Stripe.applePay.buildSession(paymentRequest,
-    function(result, completion) {
-
-      $.post('/payment_success', {
-        stripeToken: result.token.id,
-        stripeEmail: result.shippingContact.emailAddress,
-        stripeShippingName: result.shippingContact.givenName + result.shippingContact.familyName,
-        stripeShippingAddressLine1: result.shippingContact.address_line1,
-        stripeShippingAddressCity: result.shippingContact.locality,
-        stripeShippingAddressState: result.shippingContact.administrativeArea,
-        stripeShippingAddressCountry: result.shippingContact.country,
-        stripeShippingAddressZip: result.shippingContact.postalCode
-      }).done(function() {
-        completion(ApplePaySession.STATUS_SUCCESS);
-      }).fail(function() {
-        completion(ApplePaySession.STATUS_FAILURE);
+        function(result, completion) {
       });
-
-    });
 
     session.oncancel = function() {
       console.log("User hit the cancel button in the payment window");
