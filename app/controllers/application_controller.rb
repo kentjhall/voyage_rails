@@ -5,6 +5,11 @@ class ApplicationController < ActionController::Base
   before_action :set_cache_headers
   before_action :set_cart
 
+  def flash_exec
+    flash[:exec] = params[:exec]
+    redirect_to params[:url]
+  end
+
   def check_for_mobile
     session[:mobile_override] = params[:mobile] if params[:mobile]
     prepare_for_mobile if mobile_device?

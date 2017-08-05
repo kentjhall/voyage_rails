@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   root 'pages#myst'
 
+  get 'flash_exec', :to => 'application#flash_exec'
+
   get 'home', :to => 'pages#home'
   get 'art', :to => 'pages#art'
 

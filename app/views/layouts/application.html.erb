@@ -105,8 +105,12 @@
       }
     </script>
 
-    <% if flash[:scroll_to_cart] %>
+    <% if flash[:exec] == "scroll_to_cart" %>
       <script>scroll_to_element(document.getElementById('cart'));</script>
+    <% end %>
+
+    <% if flash[:exec] == "scroll_to_store" %>
+      <script>scroll_to_store();</script>
     <% end %>
   </body>
 </html>

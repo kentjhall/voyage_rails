@@ -7,13 +7,8 @@ class ChargesController < ApplicationController
     check_quantities(true)
   end
 
-  def cart
-    flash[:scroll_to_cart] = true
-    redirect_to params[:url]
-  end
-
   def new
-    @back_arrow_info = { :name => "cart", :link => cart_path(:url => URI(!request.referer.nil? ? request.referer : '/home').path) }
+    @back_arrow_info = { :name => "cart", :link => flash_exec_path(:exec => "scroll_to_cart", :url => URI(!request.referer.nil? ? request.referer : '/home').path) }
   end
 
   def create
@@ -55,6 +50,8 @@ class ChargesController < ApplicationController
       flash[:error] = e.message
       redirect_to checkout_path
     end
+
+    @back_arrow_info = { :name => "home", :link => '/home' }
   end
 
   private
