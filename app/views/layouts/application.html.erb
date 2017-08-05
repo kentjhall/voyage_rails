@@ -21,7 +21,6 @@
     <link rel="manifest" href="/manifest.json">
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="theme-color" content="#ffffff">
-
   </head>
 
   <body>
@@ -91,6 +90,10 @@
 
     <script>
       AOS.init();
+
+      $(document).on('turbolinks:load read', function() {
+        // window.scrollTo(0,0);
+      })
 
       function scroll_to_element(element, time) {
         $('html, body').stop().animate({

@@ -20,12 +20,12 @@
 //= require gsap/TimelineMax
 //= require gsap/BezierPlugin
 
-// 'require turbolinks'
+// 'require turbolinks' (disabled)
 
 $(function () {
   var controller = new ScrollMagic.Controller();
 
-  TweenMax.to($("#navbar"), 0, {css:{"color":"black", "box-shadow":"none"}, ease:Power1.easeInOut})
+  TweenMax.to($("#navbar"), 0, {css:{"background":"none", "color":"black", "box-shadow":"none"}, ease:Power1.easeInOut})
 
   var nav_tween = new TimelineMax()
     .add(TweenMax.to($("#navbar"), 0, {css:{"color":"white", "box-shadow":"0 0.2em 1em black"}, ease:Power1.easeInOut}));
