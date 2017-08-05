@@ -44,8 +44,7 @@
 
   function beginApplePay() {
     var paymentRequest = {
-      requiredBillingContactFields: ['postalAddress'],
-      requiredShippingContactFields: ['emailAddress', 'givenName', 'familyName'],
+      requiredShippingContactFields: ['postalAddress', 'emailAddress', 'givenName', 'familyName'],
       countryCode: 'US',
       currencyCode: 'USD',
       total: {
@@ -54,53 +53,14 @@
       }
     };
 
-    // var session = Stripe.applePay.buildSession(paymentRequest,
-    // function(result, completion) {
-    //
-    //   $.post('/payment_success', {
-    //     stripeToken: result.token.id,
-    //     stripeEmail: result.shippingContact.emailAddress,
-    //     stripeShippingName: result.shippingContact.givenName + result.shippingContact.familyName,
-    //     stripeShippingAddressLine1: result.token.card.address_line1,
-    //     stripeShippingAddressCity: result.token.card.locality,
-    //     stripeShippingAddressState: result.token.card.administrativeArea,
-    //     stripeShippingAddressCountry: result.token.card.country,
-    //     stripeShippingAddressZip: result.token.card.postalCode
-    //   }).done(function() {
-    //     completion(ApplePaySession.STATUS_SUCCESS);
-    //   }).fail(function() {
-    //     completion(ApplePaySession.STATUS_FAILURE);
-    //   });
-    //
-    // }, function(error) {
-    // console.log(error.message);
-    // });
-    //
-    // session.oncancel = function() {
-    //   console.log("User hit the cancel button in the payment window");
-    // };
-    //
-    // session.begin();
-
     var session = Stripe.applePay.buildSession(paymentRequest,
     function(result, completion) {
-
-    $.post('/charges', { token: result.token.id }).done(function() {
-      completion(ApplePaySession.STATUS_SUCCESS);
-      // You can now redirect the user to a receipt page, etc.
-      window.location.href = '/success.html';
-    }).fail(function() {
-      completion(ApplePaySession.STATUS_FAILURE);
     });
 
-  }, function(error) {
-    console.log(error.message);
-  });
+    session.oncancel = function() {
+      console.log("User hit the cancel button in the payment window");
+    };
 
-  session.oncancel = function() {
-    console.log("User hit the cancel button in the payment window");
-  };
-
-  session.begin();
+    session.begin();
   }
 </script>
