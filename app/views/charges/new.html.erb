@@ -14,18 +14,18 @@
           <div id="pay_buttons">
             <%= form_tag payment_success_path do %>
               <% amount = number_to_currency(@amount/100) %>
-              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button pay_button"
+              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                       data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
                       data-description="Voyage Store purchase"
                       data-image=<%= asset_path("icon.png") %>
-                      data-label="pay with card or bitcoin"
+                      data-label="pay with credit card or bitcoin"
                       data-amount="<%= @amount %>"
                       data-locale="auto"
                       data-shipping-address="true"
                       data-billing-address="true"
                       data-bitcoin="true"></script>
             <% end %>
-            <%= button_tag("pay with apple pay", :id => "apple-pay-button", :class => "pay_button") %>
+            <%= button_tag("pay with apple pay", :id => "apple-pay-button") %>
           </div>
         <% end %>
       </div>
@@ -39,4 +39,45 @@
       document.getElementById('apple-pay-button').style.display = 'block';
     }
   });
+
+  document.getElementById('apple-pay-button').addEventListener('click', beginApplePay);
+
+  function beginApplePay() {
+    var paymentRequest = {
+      requiredBillingContactFields: ['postalAddress'],
+      requiredShippingContactFields: ['emailAddress', 'givenName', 'familyName'],
+      countryCode: 'US',
+      currencyCode: 'USD',
+      total: {
+        label: 'Voyage Store',
+        amount: <%= '#{@amount/100}' %>
+      }
+    };
+
+    var session = Stripe.applePay.buildSession(paymentRequest,
+    function(result, completion) {
+
+      $.post('/payment_success', {
+        stripeToken: result.token.id,
+        stripeEmail: result.shippingContact.emailAddress,
+        stripeShippingName: result.shippingContact.givenName + result.shippingContact.familyName,
+        stripeShippingAddressLine1: result.token.card.address_line1,
+        stripeShippingAddressCity: result.token.card.locality,
+        stripeShippingAddressState: result.token.card.administrativeArea,
+        stripeShippingAddressCountry: result.token.card.country,
+        stripeShippingAddressZip: result.token.card.postalCode
+      }).done(function() {
+        completion(ApplePaySession.STATUS_SUCCESS);
+      }).fail(function() {
+        completion(ApplePaySession.STATUS_FAILURE);
+      });
+
+    });
+
+    session.oncancel = function() {
+      console.log("User hit the cancel button in the payment window");
+    };
+
+    session.begin();
+  }
 </script>
