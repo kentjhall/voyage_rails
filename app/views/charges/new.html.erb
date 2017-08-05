@@ -33,7 +33,7 @@
   </div>
 </div>
 
-<script>
+<script type="text/javascript">
   Stripe.applePay.checkAvailability(function(available) {
     if (available) {
       document.getElementById('apple-pay-button').style.display = 'block';
@@ -55,6 +55,22 @@
 
     var session = Stripe.applePay.buildSession(paymentRequest,
     function(result, completion) {
+
+      $.post('/payment_success', {
+        stripeToken: result.token.id,
+        stripeEmail: result.shippingContact.emailAddress,
+        stripeShippingName: result.shippingContact.givenName + result.shippingContact.familyName,
+        stripeShippingAddressLine1: result.shippingContact.address_line1,
+        stripeShippingAddressCity: result.shippingContact.locality,
+        stripeShippingAddressState: result.shippingContact.administrativeArea,
+        stripeShippingAddressCountry: result.shippingContact.country,
+        stripeShippingAddressZip: result.shippingContact.postalCode
+      }).done(function() {
+        completion(ApplePaySession.STATUS_SUCCESS);
+      }).fail(function() {
+        completion(ApplePaySession.STATUS_FAILURE);
+      });
+
     });
 
     session.oncancel = function() {
