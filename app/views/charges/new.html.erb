@@ -1,3 +1,5 @@
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+
 <div id="checkout" class="colored_section top">
   <div class="trigger" id="checkout_trigger"></div>
   <h2 id="checkout_title">checkout</h2>
@@ -9,21 +11,32 @@
       <div id="cart_content">
         <%= render :partial => 'layouts/cart', :locals => { order_items: @order_items } %>
         <% if @amount > 0 %>
-          <%= form_tag payment_success_path do %>
-            <% amount = number_to_currency(@amount/100) %>
-            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                    data-description="Voyage Store purchase"
-                    data-image=<%= asset_path("icon.png") %>
-                    data-label="pay"
-                    data-amount="<%= @amount %>"
-                    data-locale="auto"
-                    data-shippingAddress="true"
-                    data-billingAddress="true"
-                    data-bitcoin="true"></script>
-          <% end %>
+          <div id="pay_buttons">
+            <%= form_tag payment_success_path do %>
+              <% amount = number_to_currency(@amount/100) %>
+              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button pay_button"
+                      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                      data-description="Voyage Store purchase"
+                      data-image=<%= asset_path("icon.png") %>
+                      data-label="pay with card or bitcoin"
+                      data-amount="<%= @amount %>"
+                      data-locale="auto"
+                      data-shipping-address="true"
+                      data-billing-address="true"
+                      data-bitcoin="true"></script>
+            <% end %>
+            <%= button_tag("pay with apple pay", :id => "apple-pay-button", :class => "pay_button") %>
+          </div>
         <% end %>
       </div>
     </div>
   </div>
 </div>
+
+<script>
+  Stripe.applePay.checkAvailability(function(available) {
+    if (available) {
+      document.getElementById('apple-pay-button').style.display = 'block';
+    }
+  });
+</script>
