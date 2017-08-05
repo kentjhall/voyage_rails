@@ -21,9 +21,8 @@ class ChargesController < ApplicationController
       return redirect_to "/home"
     end
 
-    order = Stripe::Order.create(
-      :currency => 'usd',
-      :items => items,
+    customer = Stripe::Customer.create(
+      :email => params[:stripeEmail],
       :shipping => {
         :name => params[:stripeShippingName],
         :address => {
@@ -34,13 +33,20 @@ class ChargesController < ApplicationController
           :postal_code => params[:stripeShippingAddressZip]
         }
       },
-      :email => params[:stripeEmail]
+      :source => params[:stripeToken]
+    )
+
+    order = Stripe::Order.create(
+      :currency => 'usd',
+      :items => items,
+      :customer => customer.id
     )
 
     order.pay(
-      :source  => params[:stripeToken],
-      :email => params[:stripeEmail]
+      :customer  => customer.id
     )
+
+    customer.delete
 
     @order_id = order.id
     @amount = order.amount
