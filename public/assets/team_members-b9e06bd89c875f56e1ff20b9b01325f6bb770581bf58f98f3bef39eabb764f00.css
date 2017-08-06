@@ -1,93 +1,93 @@
-// Place all the styles related to the TeamMembers controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
+/* line 5, /Users/kenthall/voyage/app/assets/stylesheets/team_members.scss */
 html {
   background: lightpink;
 }
 
+/* line 9, /Users/kenthall/voyage/app/assets/stylesheets/team_members.scss */
 #navbar {
   background: lightpink;
   box-shadow: 0 0.2em 1em black !important;
   color: white !important;
 }
 
+/* line 15, /Users/kenthall/voyage/app/assets/stylesheets/team_members.scss */
 #navbar a {
   color: white !important;
 }
 
+/* line 19, /Users/kenthall/voyage/app/assets/stylesheets/team_members.scss */
 #team_member {
   height: auto;
-
   background: lightpink;
 }
 
+/* line 25, /Users/kenthall/voyage/app/assets/stylesheets/team_members.scss */
 #team_member_content {
   width: auto;
   height: 100%;
-
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-
   padding-top: 0;
   padding-left: 3rem;
 }
 
+/* line 37, /Users/kenthall/voyage/app/assets/stylesheets/team_members.scss */
 #team_member_content #team_member_info, #team_member_content #img_main {
   margin-right: 3rem;
   margin-bottom: 5rem;
 }
 
+/* line 42, /Users/kenthall/voyage/app/assets/stylesheets/team_members.scss */
 #img_main {
   width: 25rem;
   height: 25rem;
-
   border-radius: 100%;
-
   padding: 0;
 }
 
+/* line 51, /Users/kenthall/voyage/app/assets/stylesheets/team_members.scss */
 #team_member_info {
   width: 50%;
   min-width: 25rem;
   height: 21rem;
-
   background: white;
-
   border-radius: 1rem;
-
   padding: 2rem;
 }
 
+/* line 63, /Users/kenthall/voyage/app/assets/stylesheets/team_members.scss */
 #team_member_info h3, #team_member_info p {
   width: 100%;
-
   text-align: left;
   line-height: 1.85rem;
   color: lightpink;
-
   margin: 0;
 }
 
+/* line 73, /Users/kenthall/voyage/app/assets/stylesheets/team_members.scss */
 #team_member_info h3 {
   text-transform: uppercase;
   font-size: 1.5rem;
   font-weight: bold;
 }
 
+/* line 79, /Users/kenthall/voyage/app/assets/stylesheets/team_members.scss */
 #team_member_info p {
   font-size: 1.2rem;
 }
 
+/* line 83, /Users/kenthall/voyage/app/assets/stylesheets/team_members.scss */
 #team_member_info .info_tidbit {
   margin-bottom: 0.75rem;
 }
 
+/* line 87, /Users/kenthall/voyage/app/assets/stylesheets/team_members.scss */
 #team_member_info .info_tidbit.last {
   margin-bottom: 0;
 }
 
+/* line 91, /Users/kenthall/voyage/app/assets/stylesheets/team_members.scss */
 #back_arrow_wrapper .arrow_text, #back_arrow_nav_wrapper .arrow_text {
   left: 1.5rem;
 }
