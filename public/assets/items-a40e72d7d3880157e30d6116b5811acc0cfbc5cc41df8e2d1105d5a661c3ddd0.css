@@ -1,314 +1,284 @@
-// Place all the styles related to the items controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
+/* line 5, /Users/kenthall/voyage/app/assets/stylesheets/items.scss */
 html {
   background: lightblue;
 }
 
+/* line 9, /Users/kenthall/voyage/app/assets/stylesheets/items.scss */
 #navbar {
   background: lightblue;
   box-shadow: 0 0.2em 1em black !important;
   color: white !important;
 }
 
+/* line 15, /Users/kenthall/voyage/app/assets/stylesheets/items.scss */
 #navbar a {
   color: white !important;
 }
 
+/* line 19, /Users/kenthall/voyage/app/assets/stylesheets/items.scss */
 #item_content {
   width: auto;
-
   background: lightblue;
-
   margin: 0;
   padding: 0;
   padding-left: 3rem;
 }
 
+/* line 29, /Users/kenthall/voyage/app/assets/stylesheets/items.scss */
 #item #imgs_wrapper, #item #item_info {
   margin-bottom: 5rem;
   margin-right: 3rem;
 }
 
+/* line 34, /Users/kenthall/voyage/app/assets/stylesheets/items.scss */
 #item #imgs_wrapper {
   position: relative;
-
   width: 25rem;
   height: 25rem;
-
   display: inline-block;
 }
 
+/* line 43, /Users/kenthall/voyage/app/assets/stylesheets/items.scss */
 #item #imgs_wrapper.more_than_one {
   width: 31.75rem;
 }
 
+/* line 47, /Users/kenthall/voyage/app/assets/stylesheets/items.scss */
 #imgs_wrapper #img_main {
   position: absolute;
-
   width: 100%;
   height: 100%;
 }
 
+/* line 54, /Users/kenthall/voyage/app/assets/stylesheets/items.scss */
 #imgs_wrapper.more_than_one #img_main {
   position: absolute;
   right: 0;
-
   background: lightblue;
-
   width: 25rem;
   height: 25rem;
 }
 
+/* line 64, /Users/kenthall/voyage/app/assets/stylesheets/items.scss */
 #imgs_wrapper #img_main img {
   width: 100%;
   height: 100%;
-
   border-radius: 1rem;
 }
 
+/* line 71, /Users/kenthall/voyage/app/assets/stylesheets/items.scss */
 #imgs_wrapper #img_previews {
   position: absolute;
   left: 0;
-
   display: inline-block;
-
   width: 5.68rem;
   height: 25rem;
-
   padding: 0;
   margin: 0;
 }
 
+/* line 84, /Users/kenthall/voyage/app/assets/stylesheets/items.scss */
 #imgs_wrapper #img_previews [type="radio"] {
   display: none;
 }
 
+/* line 88, /Users/kenthall/voyage/app/assets/stylesheets/items.scss */
 #imgs_wrapper #img_previews [type="radio"]:checked + .img_preview img {
   border: solid white thick;
   box-sizing: border-box;
 }
 
+/* line 93, /Users/kenthall/voyage/app/assets/stylesheets/items.scss */
 #imgs_wrapper #img_previews .img_preview {
   width: 5.68rem;
   height: 5.68rem;
-
   border-radius: 1rem;
   box-sizing: border-box;
-
   margin-bottom: 0.75rem;
 }
 
+/* line 103, /Users/kenthall/voyage/app/assets/stylesheets/items.scss */
 #imgs_wrapper #img_previews .img_preview img {
   position: absolute;
-
   width: 5.68rem;
   height: 5.68rem;
-
   border-radius: 1rem;
-
   transition: transform .2s ease-in-out 0s;
 }
 
+/* line 114, /Users/kenthall/voyage/app/assets/stylesheets/items.scss */
 #imgs_wrapper #img_previews #label_last .img_preview {
   margin: 0;
 }
 
+/* line 118, /Users/kenthall/voyage/app/assets/stylesheets/items.scss */
 #imgs_wrapper #img_previews .img_preview img:hover {
   cursor: pointer;
-
 }
 
+/* line 123, /Users/kenthall/voyage/app/assets/stylesheets/items.scss */
 #item #item_info {
   position: relative;
-
   width: 50%;
   min-width: 25rem;
   height: 25rem;
-
   display: inline-block;
-
   background: white;
   color: lightblue;
   border-radius: 1rem;
 }
 
+/* line 137, /Users/kenthall/voyage/app/assets/stylesheets/items.scss */
 #item #imgs_wrapper.more_than_one + #item_info {
   min-width: 31.75rem;
 }
 
+/* line 141, /Users/kenthall/voyage/app/assets/stylesheets/items.scss */
 #item #item_info #item_price {
   position: relative;
-
   width: 100%;
-
   line-height: normal;
   text-align: center;
   font-size: 2.5rem;
   font-weight: bold;
   color: lightblue;
-
   padding: 0;
   margin: 2.5rem 0 2.25rem;
 }
 
+/* line 156, /Users/kenthall/voyage/app/assets/stylesheets/items.scss */
 #item #item_info #size_radio_buttons {
   position: relative;
   top: 0;
-
   display: table;
-
   margin: 0 auto;
 }
 
+/* line 165, /Users/kenthall/voyage/app/assets/stylesheets/items.scss */
 #item #item_info #size_radio_buttons [type="radio"] {
   display: none;
 }
 
+/* line 169, /Users/kenthall/voyage/app/assets/stylesheets/items.scss */
 #item #item_info #size_radio_buttons [type="radio"] + span {
   content: '';
-
   width: 2rem;
   height: 2rem;
-
   display: inline-block;
-
   vertical-align: -0.25em;
   border-radius: 0.75rem;
   border: solid lightblue medium;
-
   margin: 0 0.375rem;
 }
 
+/* line 184, /Users/kenthall/voyage/app/assets/stylesheets/items.scss */
 #item #item_info #size_radio_buttons [type="radio"] + span + label {
   display: none;
 }
 
+/* line 188, /Users/kenthall/voyage/app/assets/stylesheets/items.scss */
 #item #item_info #size_radio_buttons [type="radio"] + span > p {
   width: 100%;
-
   color: lightblue;
   text-transform: uppercase;
   text-align: center;
   line-height: 2rem;
-
   margin-top: 0rem;
 }
 
+/* line 199, /Users/kenthall/voyage/app/assets/stylesheets/items.scss */
 #item #item_info #size_radio_buttons [type="radio"]:hover + span {
   cursor: pointer;
   background: ghostwhite;
 }
 
+/* line 204, /Users/kenthall/voyage/app/assets/stylesheets/items.scss */
 #item #item_info #size_radio_buttons [type="radio"]:checked + span {
   background: lightblue;
 }
 
+/* line 208, /Users/kenthall/voyage/app/assets/stylesheets/items.scss */
 #item #item_info #size_radio_buttons [type="radio"]:checked + span > p {
   color: white;
 }
 
+/* line 212, /Users/kenthall/voyage/app/assets/stylesheets/items.scss */
 #item #item_info #size_radio_buttons [type="radio"]:checked + span + label {
   position: absolute;
   top: 0;
   left: -150%;
-
   width: 400%;
-
   display: table;
-
   text-align: center;
   font-size: 1.5rem;
-
   padding: 0;
   margin: 3rem 0 auto;
 }
 
+/* line 228, /Users/kenthall/voyage/app/assets/stylesheets/items.scss */
 #item #item_info #quantity_select_wrapper {
   position: relative;
   top: 0;
-
   width: 7.2rem;
-
   border: solid lightblue medium;
   border-radius: 1rem;
-
   display: table;
   cursor: pointer;
-
   margin: 4.5rem auto 0;
 }
 
+/* line 243, /Users/kenthall/voyage/app/assets/stylesheets/items.scss */
 #item #item_info #quantity_select_wrapper label {
   position: absolute;
   left: 0;
-
   font-size: 1.5rem;
   line-height: 3.6rem;
-
   pointer-events: none;
-
   padding-left: 1rem;
 }
 
+/* line 255, /Users/kenthall/voyage/app/assets/stylesheets/items.scss */
 #item #item_info #quantity_select_wrapper #quantity_select {
   font-size: 1.5rem;
-
   width: 100%;
-
   border-radius: inherit;
-
   color: lightblue;
-  background:
-   linear-gradient(45deg, transparent 50%, lightblue 50%),
-   linear-gradient(135deg, lightblue 50%, transparent 50%);
-  background-position:
-   calc(100% - 21px) calc(1em + 2px),
-   calc(100% - 16px) calc(1em + 2px),
-   100% 0;
-  background-size:
-   5px 5px,
-   5px 5px,
-   2.5em 2.5em;
+  background: linear-gradient(45deg, transparent 50%, lightblue 50%), linear-gradient(135deg, lightblue 50%, transparent 50%);
+  background-position: calc(100% - 21px) calc(1em + 2px), calc(100% - 16px) calc(1em + 2px), 100% 0;
+  background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
   background-repeat: no-repeat;
-
   padding: 0.84rem 2rem 0.84rem 4.37rem;
 }
 
+/* line 279, /Users/kenthall/voyage/app/assets/stylesheets/items.scss */
 #item #item_info #quantity_select_wrapper:hover #quantity_select {
   background-color: ghostwhite;
 }
 
+/* line 283, /Users/kenthall/voyage/app/assets/stylesheets/items.scss */
 #item #item_info #item_submit {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-
   width: 100%;
   height: 4rem;
-
   border: none;
   border-radius: 0;
   border-top: solid lightblue thick;
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
-
   background: white;
   color: lightblue;
-
   font-size: 1.5rem;
-
   margin: 0;
   padding: 0;
 }
 
+/* line 307, /Users/kenthall/voyage/app/assets/stylesheets/items.scss */
 #item #item_info #item_submit:hover {
   border-top-color: cornflowerblue;
-
   background: cornflowerblue;
   color: white;
-
   cursor: pointer;
 }

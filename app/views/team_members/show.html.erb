@@ -1,2 +1,17 @@
-<h1>TeamMembers#show</h1>
-<p>Find me in app/views/team_members/show.html.erb</p>
+<div id="team_member" class="colored_section top">
+  <div id="about_us"></div>
+  <div class="trigger" id="team_member_trigger"></div>
+  <h2 id="team_member_title"><%= @team_member.name %> - <%= @team_member.role %></h2>
+  <div id="back_arrow_wrapper">
+    <%= render :partial => 'layouts/back_arrow', :locals => { name: @back_arrow_info[:name], link: @back_arrow_info[:link] } %>
+  </div>
+  <div id="team_member_content">
+    <%= image_tag("team_member_imgs/#{@team_member.img_path}") %>
+    <div id="team_member_info">
+      <h3>dob: </h3>
+      <p><%= @team_member.dob %></p>
+      <h3>from: </h3>
+      <p><%= @team_member.city %></p>
+    </div>
+  </div>
+</div>

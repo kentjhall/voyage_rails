@@ -1,43 +1,40 @@
-// Place all the styles related to the ClothingLines controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
+/* line 5, /Users/kenthall/voyage/app/assets/stylesheets/clothing_lines.scss */
 html {
   background: lightblue;
 }
 
+/* line 9, /Users/kenthall/voyage/app/assets/stylesheets/clothing_lines.scss */
 #navbar {
   background: lightblue;
   box-shadow: 0 0.2em 1em black !important;
   color: white !important;
 }
 
+/* line 15, /Users/kenthall/voyage/app/assets/stylesheets/clothing_lines.scss */
 #navbar a {
   color: white !important;
 }
 
+/* line 19, /Users/kenthall/voyage/app/assets/stylesheets/clothing_lines.scss */
 #items .img_wrapper {
   width: 18.7rem;
   height: 18.7rem;
-
   border-radius: 1rem;
 }
 
+/* line 26, /Users/kenthall/voyage/app/assets/stylesheets/clothing_lines.scss */
 #banner_img {
   width: 100%;
   margin-top: -25%;
 }
 
+/* line 31, /Users/kenthall/voyage/app/assets/stylesheets/clothing_lines.scss */
 #banner_img_wrapper {
   width: auto;
   height: 20rem;
-
   background: lightblue;
-
   position: relative;
-
   overflow-y: hidden;
-
   margin: 0;
   margin-top: 6.5rem;
   margin-left: -0.5rem;

@@ -2,6 +2,7 @@
 // All this logic will automatically be available in application.js.
 // You can use CoffeeScript in this file: http://coffeescript.org/
 
+
 $(function () {
   var controller = new ScrollMagic.Controller();
 
@@ -10,6 +11,7 @@ $(function () {
     offset: 0
   })
   .setTween(new TimelineMax()
-    .add(TweenMax.to($("#navbar"), 0, {css:{"background":"lightgreen"}, ease:Power1.easeInOut})))
+    .add(TweenMax.to($("#navbar"), 0, {css:{"background":"lightpink"}, ease:Power1.easeInOut})))
   .addTo(controller);
 })
+;

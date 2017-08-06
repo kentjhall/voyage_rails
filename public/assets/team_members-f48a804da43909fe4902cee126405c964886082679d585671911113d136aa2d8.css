@@ -1,72 +1,74 @@
-// Place all the styles related to the TeamMembers controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
+/* line 5, /Users/kenthall/voyage/app/assets/stylesheets/team_members.scss */
 html {
   background: lightpink;
 }
 
+/* line 9, /Users/kenthall/voyage/app/assets/stylesheets/team_members.scss */
 #navbar {
   background: lightpink;
   box-shadow: 0 0.2em 1em black !important;
   color: white !important;
 }
 
+/* line 15, /Users/kenthall/voyage/app/assets/stylesheets/team_members.scss */
 #navbar a {
   color: white !important;
 }
 
+/* line 19, /Users/kenthall/voyage/app/assets/stylesheets/team_members.scss */
 #team_member {
   height: auto;
-
   background: lightpink;
 }
 
+/* line 25, /Users/kenthall/voyage/app/assets/stylesheets/team_members.scss */
 #team_member_content {
   width: auto;
   height: 100%;
-
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-
   padding-top: 0;
   padding-left: 3rem;
 }
 
+/* line 37, /Users/kenthall/voyage/app/assets/stylesheets/team_members.scss */
 #team_member_content #team_member_info, #team_member_content img {
   margin-right: 3rem;
   margin-bottom: 5rem;
 }
 
+/* line 42, /Users/kenthall/voyage/app/assets/stylesheets/team_members.scss */
 #team_member_content img {
   border-radius: 100%;
 }
 
+/* line 46, /Users/kenthall/voyage/app/assets/stylesheets/team_members.scss */
 #team_member_info {
   width: 50%;
-
   background: white;
-
   border-radius: 1rem;
-
   padding: 0 2rem;
 }
 
+/* line 56, /Users/kenthall/voyage/app/assets/stylesheets/team_members.scss */
 #team_member_info h3, #team_member_info p {
   color: lightpink;
 }
 
+/* line 60, /Users/kenthall/voyage/app/assets/stylesheets/team_members.scss */
 #team_member_info h3 {
   text-transform: uppercase;
   font-size: 1.5rem;
   font-weight: bold;
 }
 
+/* line 66, /Users/kenthall/voyage/app/assets/stylesheets/team_members.scss */
 #team_member_info p {
   line-height: 0.1rem;
 }
 
+/* line 70, /Users/kenthall/voyage/app/assets/stylesheets/team_members.scss */
 #back_arrow_wrapper .arrow_text, #back_arrow_nav_wrapper .arrow_text {
   left: 1.5rem;
 }

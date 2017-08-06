@@ -36,7 +36,7 @@
         <ul id="navlinks">
           <li id="about_us_link"><%= link_to("about us", "javascript:void(0);", :onclick => "scroll_to_element('#about_us');") %></li>
           <li id="contact_link"><%= link_to("contact", "javascript:void(0);", :onclick => "scroll_to_element('#contact');") %></li>
-          <li id="cart_link"><%= link_to("cart", "javascript:void(0);", :onclick => "scroll_to_element('#cart');") %></li>
+          <li id="cart_link"><%= link_to("cart", "javascript:void(0);", :onclick => "scroll_to_element('#cart');") if params[:controller] != "team_members" %></li>
         </ul>
       </div>
       <% if flash[:order_error_line1].present? && flash[:order_error_line2].present? %>
@@ -54,7 +54,7 @@
     </div>
     <% if !unapproved_controllers.include? params[:controller] %>
       <div id="footer">
-        <% if params[:controller] != "charges" %>
+        <% if params[:controller] != "charges" && params[:controller] != "team_members" %>
           <div id="cart" class="colored_section">
             <div class="trigger" id="cart_trigger"></div>
             <h2 id="cart_title">cart</h2>
@@ -63,23 +63,25 @@
             </div>
           </div>
         <% end %>
-        <div id="about_us" class="colored_section">
-          <div class="trigger" id="about_us_trigger"></div>
-          <h2 id="about_us_title">about us</h2>
-          <% tm_ordered = TeamMember.all.sort { |tm1, tm2| tm1.index <=> tm2.index } %>
-          <% tm_ordered.each_with_index do |team_member, i| %>
-            <% path = "missing_img.png" %>
-            <% if !team_member.img_path.nil? && !team_member.img_path.empty? %>
-              <% path = "team_member_imgs/#{team_member.img_path}" %>
+        <% if params[:controller] != "team_members" %>
+          <div id="about_us" class="colored_section">
+            <div class="trigger" id="about_us_trigger"></div>
+            <h2 id="about_us_title">about us</h2>
+            <% tm_ordered = TeamMember.all.sort { |tm1, tm2| tm1.index <=> tm2.index } %>
+            <% tm_ordered.each_with_index do |team_member, i| %>
+              <% path = "missing_img.png" %>
+              <% if !team_member.img_path.nil? && !team_member.img_path.empty? %>
+                <% path = "team_member_imgs/#{team_member.img_path}" %>
+              <% end %>
+              <div class="img_wrapper <%= "last" if i == tm_ordered.size-1 %>" data-aos="fade-up">
+                <%= link_to(image_tag(path, :alt => team_member.name), team_member_path(team_member)) %>
+                <%= link_to(team_member.name.downcase, team_member_path(team_member), :class => "img_text main") %>
+                <%= link_to(team_member.role.downcase, team_member_path(team_member), :class => "img_text sub") %>
+              </div>
             <% end %>
-            <div class="img_wrapper <%= "last" if i == tm_ordered.size-1 %>" data-aos="fade-up">
-              <%= link_to(image_tag(path, :alt => team_member.name), team_members_show_path(team_member)) %>
-              <%= link_to(team_member.name.downcase, team_members_show_path(team_member), :class => "img_text main") %>
-              <%= link_to(team_member.role.downcase, team_members_show_path(team_member), :class => "img_text sub") %>
-            </div>
-          <% end %>
-          <a href="https://www.instagram.com/voyagegang/" id="insta_link" class="special_link" target="_blank" data-aos="fade-up">@voyagegang</a>
-        </div>
+            <a href="https://www.instagram.com/voyagegang/" id="insta_link" class="special_link" target="_blank" data-aos="fade-up">@voyagegang</a>
+          </div>
+        <% end %>
         <div id="contact" class="colored_section">
           <div class="trigger" id="contact_trigger"></div>
           <h2 id="contact_title">contact</h2>
@@ -108,12 +110,16 @@
       }
     </script>
 
+    <% if flash[:exec] == "scroll_to_store" %>
+      <script>scroll_to_store();</script>
+    <% end %>
+
     <% if flash[:exec] == "scroll_to_cart" %>
       <script>scroll_to_element(document.getElementById('cart'));</script>
     <% end %>
 
-    <% if flash[:exec] == "scroll_to_store" %>
-      <script>scroll_to_store();</script>
+    <% if flash[:exec] == "scroll_to_about_us" %>
+      <script>scroll_to_element(document.getElementById('about_us'));</script>
     <% end %>
   </body>
 </html>
