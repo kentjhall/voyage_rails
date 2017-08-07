@@ -8,7 +8,7 @@ class ChargesController < ApplicationController
   end
 
   def new
-    @back_arrow_info = { :name => "cart", :link => flash_exec_path(:exec => "scroll_to_cart", :url => URI(!request.referer.nil? ? request.referer : '/home').path) }
+    @back_arrow_info = { :name => "cart", :link => flash_exec_path(:exec => "scroll_to_cart", :url => URI((!request.referer.nil? && !request.referer.include?("team_members")) ? request.referer : '/home').path) }
   end
 
   def create
