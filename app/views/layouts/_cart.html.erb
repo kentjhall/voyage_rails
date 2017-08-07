@@ -45,7 +45,7 @@
 </div>
 
 <script>
-  var checkout_link = document.getElementById('checkout_link');
+  var checkout_link = document.getElementById('checkout_link')
   var ogHref = checkout_link.href
 
   function remove_all_order_items() {
@@ -53,6 +53,8 @@
 
     checkout_link.href = "javascript:void(0);"
     checkout_link.className = "disabled_link"
+
+    show_loading_wheel()
 
     $.ajax({
       url: '/remove_all_order_items',
@@ -62,6 +64,7 @@
     .done(function(data) {
       checkout_link.href = ogHref
       checkout_link.className = ""
+      hide_loading_wheel()
     })
   }
 
@@ -71,6 +74,8 @@
     checkout_link.href = "javascript:void(0);"
     checkout_link.className = "disabled_link"
 
+    show_loading_wheel()
+
     $.ajax({
       url: '/remove_order_item',
       data: data,
@@ -79,6 +84,7 @@
     .done(function(data) {
       checkout_link.href = ogHref
       checkout_link.className = ""
+      hide_loading_wheel()
     })
   }
 
@@ -92,6 +98,8 @@
     checkout_link.href = "javascript:void(0);"
     checkout_link.className = "disabled_link"
 
+    show_loading_wheel()
+
     $.ajax({
       url: '/update_order_item_quantity',
       data: data,
@@ -100,6 +108,7 @@
     .done(function(data) {
       checkout_link.href = ogHref
       checkout_link.className = ""
+      hide_loading_wheel()
     })
   }
 </script>

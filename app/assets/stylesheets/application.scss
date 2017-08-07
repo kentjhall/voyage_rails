@@ -107,6 +107,8 @@
    display: inline-block;
    overflow: hidden;
 
+   cursor: pointer;
+
    margin-bottom: 5rem;
    margin-right: 3rem;
    padding: 0;
@@ -257,6 +259,20 @@
  #navlinks a {
    display: block;
    padding-left: 1rem;
+ }
+
+ #navbar #loading_wheel {
+   position: absolute;
+   right: 10%;
+   top: 0;
+   bottom: 0;
+
+   width: 2rem;
+   height: 2rem;
+
+   display: none;
+
+   margin: auto;
  }
 
  #cart_link {
@@ -612,6 +628,8 @@
    position: absolute;
    left: 0;
    right: 0;
+
+   height: auto;
 
    background: lightsalmon;
 

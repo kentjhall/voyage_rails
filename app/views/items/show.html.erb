@@ -26,7 +26,7 @@
   <div id="item_info" data-aos="fade-up">
     <% price = @product.skus.data.first.price %>
     <p id="item_price"><%= number_to_currency(price/100) %></p>
-    <%= form_tag(add_order_item_path, method: "get", remote: true) do %>
+    <%= form_tag(add_order_item_path, id: "add_item_form", method: "get", remote: true) do %>
       <%= hidden_field_tag(:item_id, @item.id) %>
       <%= hidden_field_tag(:product_id, @product.id) %>
       <%= hidden_field_tag(:product_name, @product.name) %>
@@ -45,20 +45,26 @@
         <%= label_tag(:quantity, "QTY") %>
         <%= select_tag(:quantity, options_for_select([1, 2, 3, 4, 5, 6, 7, 8, 9]), :id => "quantity_select") %>
       </div>
-      <%= submit_tag("add to cart", :onclick => "scroll_to_cart();", :id => "item_submit") %>
+      <%= submit_tag("add to cart", :onclick => "scroll_to_cart(); show_loading_wheel();", :id => "item_submit") %>
     <% end %>
   </div>
 </div>
 
 <script>
-function update_main_image(img_path, rb_id) {
-    document.querySelector('#img_main img').src = img_path;
-    document.getElementById(rb_id).checked = true;
-}
+  $(document).ready(function(){
+    $('#add_item_form').on('ajax:success', function(e, data, status, xhr){
+      hide_loading_wheel();
+    });
+  });
 
-function scroll_to_cart() {
-    $('html, body').stop().animate({
-       scrollTop: $('#cart').offset().top
-    }, 500);
-};
+  function update_main_image(img_path, rb_id) {
+      document.querySelector('#img_main img').src = img_path;
+      document.getElementById(rb_id).checked = true;
+  }
+
+  function scroll_to_cart() {
+      $('html, body').stop().animate({
+         scrollTop: $('#cart').offset().top
+      }, 500);
+  };
 </script>

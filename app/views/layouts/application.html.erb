@@ -38,6 +38,7 @@
           <li id="contact_link"><%= link_to("contact", "javascript:void(0);", :onclick => "scroll_to_element('#contact');") %></li>
           <li id="cart_link"><%= link_to("cart", "javascript:void(0);", :onclick => "scroll_to_element('#cart');") if params[:controller] != "team_members" %></li>
         </ul>
+        <%= image_tag("loading.svg", :id => "loading_wheel") %>
       </div>
       <% if flash[:order_error_line1].present? && flash[:order_error_line2].present? %>
         <div class="error_message">
@@ -93,9 +94,18 @@
     <script>
       AOS.init();
 
-      $(document).on('turbolinks:load read', function() {
-        // window.scrollTo(0,0);
-      })
+      var loading_wheel_timer;
+
+      function show_loading_wheel() {
+        loading_wheel_timer = setTimeout(function() {
+          document.getElementById('loading_wheel').style.display = "block";
+        }, 500);
+      }
+
+      function hide_loading_wheel() {
+        clearTimeout(loading_wheel_timer);
+        document.getElementById('loading_wheel').style.display = "none";
+      }
 
       function scroll_to_element(element, time) {
         $('html, body').stop().animate({

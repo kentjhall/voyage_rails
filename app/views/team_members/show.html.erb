@@ -8,26 +8,38 @@
   <div id="team_member_content">
     <%= image_tag("team_member_imgs/#{@team_member.img_path}", :id => "img_main", :data => { :aos => "fade-up" }) %>
     <div id="team_member_info" data-aos="fade-up">
-      <div class="info_tidbit">
-        <h3>from</h3>
-        <p><%= @team_member.city %></p>
+      <div id="info_tidbits">
+        <div class="info_tidbit">
+          <h3>from</h3>
+          <p><%= @team_member.city %></p>
+        </div>
+        <div class="info_tidbit">
+          <h3>dob</h3>
+          <p><%= @team_member.dob %></p>
+        </div>
+        <div class="info_tidbit">
+          <h3>hobbies</h3>
+          <p><%= @team_member.hobbies %></p>
+        </div>
+        <div class="info_tidbit">
+          <h3>favorite movie</h3>
+          <p><%= @team_member.fav_movie %></p>
+        </div>
+        <div class="info_tidbit last">
+          <h3>favorite album</h3>
+          <p><%= @team_member.fav_album %></p>
+        </div>
       </div>
-      <div class="info_tidbit">
-        <h3>dob</h3>
-        <p><%= @team_member.dob %></p>
-      </div>
-      <div class="info_tidbit">
-        <h3>hobbies</h3>
-        <p><%= @team_member.hobbies %></p>
-      </div>
-      <div class="info_tidbit">
-        <h3>favorite movie</h3>
-        <p><%= @team_member.fav_movie %></p>
-      </div>
-      <div class="info_tidbit last">
-        <h3>favorite album</h3>
-        <p><%= @team_member.fav_album %></p>
-      </div>
+      <% if @team_member.num_works_imgs > 0 %>
+        <div id="works">
+          <h3>artwork</h3>
+          <div id="works_imgs">
+            <% for i in 1..@team_member.num_works_imgs %>
+              <%= image_tag("team_member_imgs/works/#{@team_member.img_path}/#{i}", :class => i==@team_member.num_works_imgs ? "last" : "") %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
