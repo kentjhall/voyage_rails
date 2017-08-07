@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170806234804) do
+ActiveRecord::Schema.define(version: 20170807015836) do
 
   create_table "clothing_lines", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -27,8 +27,9 @@ ActiveRecord::Schema.define(version: 20170806234804) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.decimal "price", precision: 6, scale: 2
-    t.string "img_paths"
     t.string "product_id"
+    t.integer "num_imgs"
+    t.string "img_path"
     t.index ["clothing_line_id"], name: "index_items_on_clothing_line_id"
   end
 

@@ -18,7 +18,7 @@
         <% end %>
       </div>
     <% end %>
-    <% path = !@img_paths.empty? ? "item_imgs/#{@img_paths[0]}" : "missing_img.png" %>
+    <% path = !@img_paths.empty? ? "item_imgs/#{@img_paths[0]}" : "missing_img" %>
     <div id="img_main">
       <%= image_tag(path, :alt => @product.name) %>
     </div>
