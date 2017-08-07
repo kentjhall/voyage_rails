@@ -38,7 +38,7 @@
  }
 
  h1 {
-   font-size: 3em;
+   font-size: 3rem;
  }
 
  h2 {
@@ -103,17 +103,6 @@
    font-size: 1.2rem;
  }
 
- .colored_section .img_wrapper {
-   display: inline-block;
-   overflow: hidden;
-
-   cursor: pointer;
-
-   margin-bottom: 5rem;
-   margin-right: 3rem;
-   padding: 0;
- }
-
  .colored_section.store .img_wrapper:hover {
    transform: scale(1.01);
  }
@@ -129,6 +118,17 @@
  .colored_section.store .img_wrapper.unavailable:hover .img_text.sub {
    color: cornflowerblue;
  }
+
+.colored_section .img_wrapper {
+  display: inline-block;
+  overflow: hidden;
+
+  cursor: pointer;
+
+  margin-bottom: 5rem;
+  margin-right: 3rem;
+  padding: 0;
+}
 
  .store {
    background: lightblue;
@@ -244,7 +244,7 @@
    position: absolute;
    right: 20%;
 
-   font-size: 1em;
+   font-size: 1rem;
 
    width: inherit;
 

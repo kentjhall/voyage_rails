@@ -20,7 +20,6 @@
     <% order_items.each_with_index do |order_item, i| %>
       <% unless order_item.nil? %>
         <% puts "order_item" + order_item.to_s %>
-        <% img_paths = eval(Item.find_by_id(order_item['item_id']).img_paths) %>
         <tr id="order_item_<%= i %>">
           <td class="product_col"><%= link_to(order_item['name'], item_path(Item.find_by_id(order_item['item_id']))) %></td>
           <td class="size_col"><%= order_item['size'] %></td>
