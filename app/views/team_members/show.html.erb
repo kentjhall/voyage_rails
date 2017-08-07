@@ -7,7 +7,7 @@
   </div>
   <div id="team_member_content">
     <%= image_tag("team_member_imgs/#{@team_member.img_path}", :id => "img_main", :data => { :aos => "fade-up" }) %>
-    <div id="team_member_info" data-aos="fade-up">
+    <div data-aos="fade-up" id="team_member_info" class=<%= @team_member.num_works_imgs <= 0 ? "no_artwork" : "" %>>
       <div id="info_tidbits">
         <div class="info_tidbit">
           <h3>from</h3>
