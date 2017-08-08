@@ -69,7 +69,11 @@ class OrderItemsController < ApplicationController
   private
 
   def quantity_error_message(item, quantity_available)
-    "sorry, we only have #{quantity_available} of '#{item}' remaining in stock"
+    if quantity_available > 0
+      "sorry, we only have #{quantity_available} of '#{item}' remaining in stock"
+    else
+      "sorry, we're all out of '#{item}'"
+    end
   end
 
 end

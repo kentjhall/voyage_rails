@@ -17,7 +17,6 @@
 //= require scrollmagic/scrollmagic/minified/ScrollMagic.min
 //= require scrollmagic/scrollmagic/minified/plugins/animation.gsap.min
 //= require gsap/TweenMax
-//= require gsap/TimelineMax
 //= require gsap/BezierPlugin
 
 // 'require turbolinks' (disabled)
@@ -27,8 +26,7 @@ $(function () {
 
   TweenMax.to($("#navbar"), 0, {css:{"background":"none", "color":"black", "box-shadow":"none"}, ease:Power1.easeInOut})
 
-  var nav_tween = new TimelineMax()
-    .add(TweenMax.to($("#navbar"), 0, {css:{"color":"white", "box-shadow":"0 0.2em 1em black"}, ease:Power1.easeInOut}));
+  var nav_tween = new TweenMax.to($("#navbar"), 0, {css:{"color":"white", "box-shadow":"0 0.2em 1em black"}, ease:Power1.easeInOut});
 
   var nav_links_tween = TweenMax.to($("#navbar a"), 0, {css:{"color":"white"}, ease:Power1.easeInOut});
 

@@ -8,6 +8,10 @@ class ChargesController < ApplicationController
   end
 
   def new
+    if session["order_items"].empty?
+      return redirect_to "/home"
+    end
+
     @back_arrow_info = { :name => "cart", :link => flash_exec_path(:exec => "scroll_to_cart", :url => URI((!request.referer.nil? && !request.referer.include?("team_members")) ? request.referer : '/home').path) }
   end
 

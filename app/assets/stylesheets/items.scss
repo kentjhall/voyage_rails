@@ -196,7 +196,7 @@ html {
   margin-top: 0rem;
 }
 
-#item #item_info #size_radio_buttons [type="radio"]:hover + span {
+#item #item_info #size_radio_buttons .radio_button_span:hover {
   cursor: pointer;
   background: ghostwhite;
 }
@@ -297,6 +297,8 @@ html {
 
   background: white;
   color: lightblue;
+  appearance: none;
+  -webkit-appearance: none;
 
   font-size: 1.5rem;
 
