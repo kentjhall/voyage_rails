@@ -28,3 +28,4 @@ $(function () {
   .setTween(down_arrow_tween)
   .addTo(controller);
 })
+;

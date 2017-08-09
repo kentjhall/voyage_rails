@@ -1,0 +1,83 @@
+/* line 5, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+h1 {
+  font-size: 2rem;
+}
+
+/* line 9, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+h2 {
+  font-size: 2rem;
+}
+
+/* line 13, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+.colored_section.top {
+  margin-top: 4rem;
+}
+
+/* line 17, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+.colored_section h2 {
+  left: 5%;
+  line-height: 9rem;
+}
+
+/* line 23, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+.store {
+  padding-top: 9rem;
+}
+
+/* line 27, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+.error_message {
+  top: 4rem;
+}
+
+/* line 31, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+.trigger {
+  top: 49.9vh;
+}
+
+/* line 35, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+#navbar {
+  height: 4rem;
+  line-height: 4rem;
+}
+
+/* line 40, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+#navbar h1 {
+  left: 5%;
+}
+
+/* line 44, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+#navlinks {
+  right: 5%;
+  font-size: 0.9rem;
+}
+
+/* line 50, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+#cart_link {
+  padding-left: 0;
+}
+
+/* line 54, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+#cart {
+  padding: 9rem 0rem 5rem;
+}
+
+/* line 58, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+#contact {
+  padding: 9rem 0rem;
+}
+
+/* line 64, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+#down_arrow, #down_arrow_text {
+  position: fixed;
+}
+
+/* line 68, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+#flowers img {
+  width: 4rem;
+  height: auto;
+}
+
+/* line 75, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+#payment_success #payment_success_content {
+  height: calc(100%-($nav_height + 5rem));
+}

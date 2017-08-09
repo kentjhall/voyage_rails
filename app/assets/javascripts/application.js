@@ -17,7 +17,6 @@
 //= require scrollmagic/scrollmagic/minified/ScrollMagic.min
 //= require scrollmagic/scrollmagic/minified/plugins/animation.gsap.min
 //= require gsap/TweenMax
-//= require gsap/BezierPlugin
 
 // 'require turbolinks' (disabled)
 

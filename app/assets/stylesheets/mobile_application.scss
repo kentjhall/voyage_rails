@@ -1,0 +1,77 @@
+$nav_height: 4rem;
+
+// application
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+.colored_section.top {
+  margin-top: $nav_height;
+}
+
+.colored_section h2 {
+  left: 5%;
+
+  line-height: $nav_height + 5rem;
+}
+
+.store {
+  padding-top: $nav_height + 5rem;
+}
+
+.error_message {
+  top: $nav_height;
+}
+
+.trigger {
+  top: 49.9vh;
+}
+
+#navbar {
+  height: $nav_height;
+  line-height: $nav_height;
+}
+
+#navbar h1 {
+  left: 5%;
+}
+
+#navlinks {
+  right: 5%;
+
+  font-size: 0.9rem;
+}
+
+#cart_link {
+  padding-left: 0;
+}
+
+#cart {
+  padding: ($nav_height + 5rem) 0rem 5rem;
+}
+
+#contact {
+  padding: ($nav_height + 5rem) 0rem;
+}
+
+// pages
+
+  #down_arrow, #down_arrow_text {
+    position: fixed;
+  }
+
+  #flowers img {
+    width: 4rem;
+    height: auto;
+  }
+
+// charges
+
+#payment_success #payment_success_content {
+  height: calc(100%-($nav_height + 5rem));
+}
