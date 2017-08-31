@@ -1,0 +1,230 @@
+/* line 5, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+h1 {
+  font-size: 2rem;
+}
+
+/* line 9, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+h2 {
+  font-size: 1.9rem;
+  width: 50vw;
+}
+
+/* line 14, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+.colored_section.top {
+  margin-top: 4rem;
+}
+
+/* line 18, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+.colored_section h2 {
+  width: 100%;
+  left: 0;
+  text-align: center;
+  line-height: 9rem;
+}
+
+/* line 27, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+.colored_section .img_wrapper .img_text.main {
+  bottom: 2rem;
+  font-size: 1.5rem;
+}
+
+/* line 33, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+.colored_section .img_wrapper .img_text.sub {
+  bottom: 0.7rem;
+  font-size: 1rem;
+}
+
+/* line 39, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+.store {
+  padding-top: 9rem;
+}
+
+/* line 43, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+.error_message {
+  top: 4rem;
+}
+
+/* line 47, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+#navbar {
+  height: 4rem;
+  line-height: 4rem;
+  text-align: center;
+}
+
+/* line 54, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+#navbar h1 {
+  position: static;
+  display: inline-block;
+  left: 0;
+  margin: 0 auto;
+}
+
+/* line 63, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+#navlinks {
+  right: 7%;
+  font-size: 1.1rem;
+}
+
+/* line 69, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+#back_arrow_wrapper {
+  opacity: 0;
+}
+
+/* line 73, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+#back_arrow_nav_wrapper {
+  width: 4rem;
+  height: 2rem;
+  opacity: 1;
+  margin-left: 0.5rem;
+}
+
+/* line 82, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+.arrow_text {
+  position: absolute;
+  white-space: nowrap;
+  text-align: left;
+  line-height: 2rem;
+  font-size: 1.1rem;
+  transition-property: all .2s linear;
+}
+
+/* line 93, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+#back_arrow_wrapper .arrow_text, #back_arrow_nav_wrapper .arrow_text {
+  left: 2rem;
+  transform: none;
+}
+
+/* line 99, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+#back_arrow_wrapper:hover .arrow_text, #back_arrow_nav_wrapper:hover .arrow_text {
+  left: 1.5rem;
+  text-transform: lowercase;
+  transform: none;
+}
+
+/* line 106, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+#back_arrow_wrapper {
+  top: 3.4125rem;
+}
+
+/* line 110, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+#about_us_link, #contact_link {
+  display: none;
+}
+
+/* line 114, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+#about_us {
+  padding-top: 9rem;
+}
+
+/* line 118, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+#cart {
+  padding: 9rem 0rem 5rem;
+}
+
+/* line 122, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+#cart #cart_content {
+  width: 90%;
+}
+
+/* line 126, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+#cart #cart_content_stuff {
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+}
+
+/* line 131, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+#cart_link {
+  padding-left: 0.7rem;
+}
+
+/* line 135, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+#cart #cart_content_stuff #cart_bottom_links a {
+  font-size: 1.25rem;
+}
+
+/* line 139, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+#cart th, #cart td {
+  padding-right: 1vw;
+}
+
+/* line 143, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+#cart th {
+  font-size: 1.25rem;
+}
+
+/* line 147, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+#cart td {
+  font-size: 1rem;
+}
+
+/* line 151, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+#cart table select {
+  font-size: 1.2rem;
+}
+
+/* line 155, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+#cart .product_col {
+  text-align: left;
+  padding-right: 2.5vw;
+}
+
+/* line 161, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+#cart td.product_col {
+  font-size: 1rem;
+}
+
+/* line 165, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+#contact {
+  padding: 9rem 0rem;
+}
+
+/* line 169, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+.special_link {
+  left: 5%;
+  right: 5%;
+  font-size: 1.7rem;
+}
+
+/* line 176, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+#email_link {
+  font-size: 1.5rem;
+}
+
+/* line 180, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+#navbar #loading_wheel {
+  right: 20%;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* line 189, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+#down_arrow, #down_arrow_text {
+  bottom: 2rem;
+}
+
+/* line 193, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+#down_arrow_text {
+  bottom: 3.7rem;
+}
+
+/* line 197, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+#flowers img {
+  width: 4rem;
+  height: auto;
+}
+
+/* line 204, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+#banner_img_wrapper {
+  height: 10rem;
+  margin-top: 3.5rem;
+}
+
+/* line 212, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+#imgs_wrapper #img_previews [type="radio"]:checked + .img_preview img {
+  border: solid white medium;
+}
+
+/* line 218, /Users/kenthall/voyage/app/assets/stylesheets/mobile_application.scss */
+#payment_success #payment_success_content {
+  height: calc(100%-($nav_height + 5rem));
+}
