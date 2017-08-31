@@ -1,0 +1,137 @@
+/* line 5, /Users/kenthall/voyage/app/assets/stylesheets/charges.scss */
+html {
+  background: lightgreen;
+}
+
+/* line 9, /Users/kenthall/voyage/app/assets/stylesheets/charges.scss */
+#navbar {
+  background: lightgreen;
+  box-shadow: 0 0.2em 1em black !important;
+  color: white !important;
+}
+
+/* line 15, /Users/kenthall/voyage/app/assets/stylesheets/charges.scss */
+#navbar a {
+  color: white !important;
+}
+
+/* line 19, /Users/kenthall/voyage/app/assets/stylesheets/charges.scss */
+#checkout, #payment_success {
+  background: lightgreen;
+  height: auto;
+  padding-top: 0;
+}
+
+/* line 27, /Users/kenthall/voyage/app/assets/stylesheets/charges.scss */
+#payment_success {
+  height: 20rem;
+}
+
+/* line 31, /Users/kenthall/voyage/app/assets/stylesheets/charges.scss */
+#payment_success #payment_success_content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 80%;
+  height: calc(100%-($nav_height + 5rem));
+  margin: auto;
+}
+
+/* line 43, /Users/kenthall/voyage/app/assets/stylesheets/charges.scss */
+#payment_success_content p {
+  text-align: center;
+  font-size: 1.5rem;
+  background: white;
+  color: lightgreen;
+  border-radius: 1rem;
+  line-height: normal;
+  margin-bottom: 3rem;
+  padding: 1rem;
+}
+
+/* line 57, /Users/kenthall/voyage/app/assets/stylesheets/charges.scss */
+#cart {
+  background: none;
+}
+
+/* line 61, /Users/kenthall/voyage/app/assets/stylesheets/charges.scss */
+#cart #cart_content_stuff {
+  padding: 2rem;
+  padding-bottom: 1rem;
+}
+
+/* line 66, /Users/kenthall/voyage/app/assets/stylesheets/charges.scss */
+#cart #cart_bottom_links {
+  display: none;
+}
+
+/* line 70, /Users/kenthall/voyage/app/assets/stylesheets/charges.scss */
+#cart .remove_col {
+  display: none;
+}
+
+/* line 74, /Users/kenthall/voyage/app/assets/stylesheets/charges.scss */
+#pay_buttons {
+  width: 100%;
+  height: auto;
+  margin-top: 1rem;
+}
+
+/* line 81, /Users/kenthall/voyage/app/assets/stylesheets/charges.scss */
+#pay_buttons #apple-pay-button {
+  width: 100%;
+  height: 3rem;
+  display: none;
+  border: none;
+  border-radius: 1rem;
+  background: white;
+  color: lightgreen;
+  font-family: 'Cabin', sans-serif;
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-transform: lowercase;
+  line-height: 3rem;
+  margin-top: 1rem;
+}
+
+/* line 102, /Users/kenthall/voyage/app/assets/stylesheets/charges.scss */
+#pay_buttons #apple-pay-button:hover {
+  cursor: pointer;
+  background: limegreen;
+  color: white;
+}
+
+/* line 109, /Users/kenthall/voyage/app/assets/stylesheets/charges.scss */
+#pay_buttons .stripe-button-el {
+  width: 100% !important;
+  height: 3rem !important;
+  border: none !important;
+  border-radius: 1rem !important;
+  background: none !important;
+  padding: 0 !important;
+}
+
+/* line 120, /Users/kenthall/voyage/app/assets/stylesheets/charges.scss */
+#pay_buttons .stripe-button-el span {
+  width: 100% !important;
+  height: inherit !important;
+  background: white !important;
+  color: lightgreen !important;
+  font-family: 'Cabin', sans-serif !important;
+  font-weight: bold !important;
+  font-size: 1.5rem !important;
+  text-shadow: none !important;
+  text-transform: lowercase !important;
+  line-height: 3rem !important;
+  box-shadow: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+}
+
+/* line 141, /Users/kenthall/voyage/app/assets/stylesheets/charges.scss */
+#pay_buttons .stripe-button-el:hover span {
+  background: limegreen !important;
+  color: white !important;
+}
