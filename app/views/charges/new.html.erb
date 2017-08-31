@@ -18,7 +18,7 @@
                       data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
                       data-description="Voyage Store purchase"
                       data-image=<%= asset_path("icon.png") %>
-                      data-label="pay with credit card or bitcoin"
+                      data-label="pay"
                       data-amount="<%= @amount %>"
                       data-locale="auto"
                       data-shipping-address="true"
@@ -39,7 +39,7 @@
   //     document.getElementById('apple-pay-button').style.display = 'block';
   //   }
   // });
-  // 
+  //
   // document.getElementById('apple-pay-button').addEventListener('click', beginApplePay);
   // function beginApplePay() {
   //   var paymentRequest = {

@@ -19,6 +19,8 @@ html {
 #team_member {
   height: auto;
 
+  overflow: hidden;
+
   background: lightpink;
 }
 
@@ -31,11 +33,11 @@ html {
   justify-content: space-around;
 
   padding-top: 0;
-  padding-left: 3rem;
+  padding-left: 2rem;
 }
 
 #team_member_content #team_member_info, #team_member_content #img_main {
-  margin-right: 3rem;
+  margin-right: 2rem;
   margin-bottom: 5rem;
 }
 
@@ -51,7 +53,8 @@ html {
 }
 
 #team_member_info {
-  width: auto;
+  width: 75%;
+  max-width: 45rem;
   height: auto;
 
   display: flex;
@@ -60,6 +63,7 @@ html {
 
   overflow: hidden;
 
+  text-align: center;
   background: white;
   border-radius: 1rem;
 
@@ -67,22 +71,19 @@ html {
   padding-left: 3rem;
 }
 
-#team_member_info.with_artwork {
-  min-width: 50%;
-}
-
-#team_member_info.no_artwork {
-  width: 50%;
-}
-
 #team_member_info h3, #team_member_info p {
   width: 100%;
 
-  text-align: left;
-  line-height: 2rem;
+  text-align: center;
+  line-height: 1.9rem;
   color: lightpink;
 
   margin: 0;
+}
+
+#team_member_info p {
+  white-space: pre-wrap;
+  line-height: 1.5rem;
 }
 
 #team_member_info.no_artwork h3, #team_member_info.no_artwork p {
@@ -122,7 +123,8 @@ html {
 }
 
 #team_member_info #works {
-  width: 25rem;
+  width: 100%;
+  max-width: 25rem;
   height: auto;
 }
 

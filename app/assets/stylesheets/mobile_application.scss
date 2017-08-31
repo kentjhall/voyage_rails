@@ -7,7 +7,8 @@ h1 {
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 1.9rem;
+  width: 50vw;
 }
 
 .colored_section.top {
@@ -15,9 +16,24 @@ h2 {
 }
 
 .colored_section h2 {
-  left: 5%;
+  width: 100%;
 
+  left: 0;
+
+  text-align: center;
   line-height: $nav_height + 5rem;
+}
+
+.colored_section .img_wrapper .img_text.main {
+  bottom: 2rem;
+
+  font-size: 1.5rem;
+}
+
+.colored_section .img_wrapper .img_text.sub {
+  bottom: 0.7rem;
+
+  font-size: 1rem;
 }
 
 .store {
@@ -28,47 +44,166 @@ h2 {
   top: $nav_height;
 }
 
-.trigger {
-  top: 49.9vh;
-}
-
 #navbar {
   height: $nav_height;
   line-height: $nav_height;
+
+  text-align: center;
 }
 
 #navbar h1 {
-  left: 5%;
+  position: static;
+
+  display: inline-block;
+  left: 0;
+
+  margin: 0 auto;
 }
 
 #navlinks {
-  right: 5%;
+  right: 7%;
 
-  font-size: 0.9rem;
+  font-size: 1.1rem;
 }
 
-#cart_link {
-  padding-left: 0;
+#back_arrow_wrapper {
+  opacity: 0;
+}
+
+#back_arrow_nav_wrapper {
+  width: $nav_height;
+  height: $nav_height/2;
+
+  opacity: 1;
+
+  margin-left: 0.5rem;
+}
+
+.arrow_text {
+  position: absolute;
+
+  white-space:nowrap;
+
+  text-align: left;
+  line-height: 2rem;
+  font-size: 1.1rem;
+  transition-property: all .2s linear;
+}
+
+#back_arrow_wrapper .arrow_text, #back_arrow_nav_wrapper .arrow_text {
+  left: 2rem;
+
+  transform: none;
+}
+
+#back_arrow_wrapper:hover .arrow_text, #back_arrow_nav_wrapper:hover .arrow_text {
+  left: 1.5rem;
+
+  text-transform: lowercase;
+  transform: none;
+}
+
+#back_arrow_wrapper {
+  top: ($nav_height + 5rem)/2.6373626374;
+}
+
+#about_us_link, #contact_link {
+  display: none;
+}
+
+#about_us {
+  padding-top: $nav_height + 5rem;
 }
 
 #cart {
   padding: ($nav_height + 5rem) 0rem 5rem;
 }
 
+#cart #cart_content {
+  width: 90%;
+}
+
+#cart #cart_content_stuff {
+  padding: 2rem 0.8rem 6rem;
+}
+
+#cart_link {
+  padding-left: 0.7rem;
+}
+
+#cart #cart_content_stuff #cart_bottom_links a {
+  font-size: 1.25rem;
+}
+
+#cart th, #cart td {
+  padding-right: 1vw;
+}
+
+#cart th {
+  font-size: 1.25rem;
+}
+
+#cart td {
+  font-size: 1rem;
+}
+
+#cart table select {
+  font-size: 1.2rem;
+}
+
+#cart .product_col {
+  text-align: left;
+
+  padding-right: 2.5vw;
+}
+
+#cart td.product_col {
+  font-size: 1rem;
+}
+
 #contact {
   padding: ($nav_height + 5rem) 0rem;
+}
+
+.special_link {
+  left: 5%;
+  right: 5%;
+
+  font-size: 1.7rem;
+}
+
+#email_link {
+  font-size: 1.5rem;
 }
 
 // pages
 
   #down_arrow, #down_arrow_text {
-    position: fixed;
+    bottom: 2rem;
+  }
+
+  #down_arrow_text {
+    bottom: 3.7rem;
   }
 
   #flowers img {
     width: 4rem;
     height: auto;
   }
+
+// clothing_lines
+
+#banner_img_wrapper {
+  height: 10rem;
+
+  margin-top: $nav_height - 0.5rem;
+}
+
+// items
+
+#imgs_wrapper #img_previews [type="radio"]:checked + .img_preview img {
+  border: solid white medium;
+}
 
 // charges
 

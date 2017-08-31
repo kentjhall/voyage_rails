@@ -36,7 +36,7 @@
 }
 
 #down_arrow, #down_arrow_text {
-  position: absolute;
+  position: fixed;
   bottom: 3em;
   left: 0;
   right: 0;
@@ -60,8 +60,10 @@
 }
 
 #clothing_lines .img_wrapper {
-  width: 38.25em;
-  height: 25.5em;
+  width: 75vw;
+  max-width: 35.25rem;
+  height: 59.3vw;
+  max-height: 25.5rem;
 
   border-radius: 2em;
 }

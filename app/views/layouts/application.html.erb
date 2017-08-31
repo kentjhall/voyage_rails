@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Voyage</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=1">
     <%= csrf_meta_tags %>
 
     <% if error_present %>
@@ -98,6 +98,27 @@
     <script>
       AOS.init();
 
+      var touch = 'ontouchstart' in document.documentElement
+            || navigator.maxTouchPoints > 0
+            || navigator.msMaxTouchPoints > 0;
+
+      if (touch) { // remove all :hover stylesheets
+          try { // prevent exception on browsers not supporting DOM styleSheets properly
+              for (var si in document.styleSheets) {
+                  var styleSheet = document.styleSheets[si];
+                  if (!styleSheet.rules) continue;
+
+                  for (var ri = styleSheet.rules.length - 1; ri >= 0; ri--) {
+                      if (!styleSheet.rules[ri].selectorText) continue;
+
+                      if (styleSheet.rules[ri].selectorText.match(':hover')) {
+                          styleSheet.deleteRule(ri);
+                      }
+                  }
+              }
+          } catch (ex) {}
+      }
+
       var loading_wheel_timer;
 
       function show_loading_wheel() {
@@ -111,15 +132,20 @@
         document.getElementById('loading_wheel').style.display = "none";
       }
 
+      var userAgent = window.navigator.userAgent
+      var isSafari = /iP(ad|hone|od).+Version\/[\d\.]+.*Safari/i.test(navigator.userAgent)
+
       function scroll_to_element(element, time) {
+        var distance = $(element).offset().top + ((userAgent.match(/iPhone/i) || userAgent.match(/iPad/i)) && isSafari ? 38 : 0)
         $('html, body').stop().animate({
-           scrollTop: $(element).offset().top
+           scrollTop: distance
         }, time == null ? 500 : time);
       }
 
       function scroll_to_store() {
+        var distance = $('.store').offset().top + (userAgent.match(/iPhone/i) || userAgent.match(/iPad/i) && isSafari ? 38 : 0)
         $('html, body').stop().animate({
-           scrollTop: $('.store').offset().top
+           scrollTop: distance
         }, 500);
       }
     </script>

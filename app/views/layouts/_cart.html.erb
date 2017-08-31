@@ -38,7 +38,7 @@
     <p id="total"><%= number_to_currency @amount/100 %></p>
   <% end %>
   <div id="cart_bottom_links">
-    <%= link_to("empty cart", "javascript:void(0);", :id => "empty_cart_link", :onclick => "remove_all_order_items();", :remote => true) %>
+    <%= link_to("empty", "javascript:void(0);", :id => "empty_cart_link", :onclick => "remove_all_order_items();", :remote => true) %>
     <%= link_to("checkout", checkout_path, :id => "checkout_link") %>
   </div>
 </div>
