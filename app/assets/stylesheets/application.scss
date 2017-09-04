@@ -411,7 +411,7 @@
    overflow-y: hidden;
 
    margin: auto;
-   padding: 2rem 2rem 6rem;
+   padding: 3rem 2rem 6rem;
  }
 
  #cart #cart_content_stuff #total {
@@ -426,6 +426,34 @@
    padding-top: 1rem;
    margin: 0;
    margin-top: 2rem;
+ }
+
+ #cart #ma_student_link {
+   position: absolute;
+   top: 0;
+   right: 0;
+
+   width: 20%;
+   height: 2rem;
+
+   background: white;
+   color: lightgreen;
+   border-bottom: solid lightgreen medium;
+   border-left: solid lightgreen medium;
+   border-radius: 1rem;
+   border-top-left-radius: 0;
+   border-bottom-right-radius: 0;
+
+   font-size: 1vw;
+   text-align: center;
+   line-height: 2rem;
+   white-space: nowrap;
+ }
+
+ #cart #ma_student_link.selected {
+   border-color: cornflowerblue;
+   background: cornflowerblue;
+   color: white;
  }
 
  #cart #cart_content_stuff #cart_bottom_links a {
@@ -471,6 +499,10 @@
    border-bottom-left-radius: 0;
 
    z-index: 5;
+ }
+
+ #cart #cart_content_stuff #ma_student_link:hover {
+   text-transform: none;
  }
 
  #cart #cart_content_stuff #empty_cart_link:hover {
@@ -625,6 +657,10 @@
 
  #cart td.size_col {
    text-transform: uppercase;
+ }
+
+ #cart #shipping {
+   font-weight: bold;
  }
 
  #cart #empty_text {

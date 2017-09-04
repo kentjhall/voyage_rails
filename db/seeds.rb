@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+# Team Members
+
 TeamMember.destroy_all
 
 TeamMember.create(:name => "Daniel Zeballos",
@@ -39,3 +41,10 @@ TeamMember.create(:name => "Kent Hall",
                   :num_works_imgs => 0,
                   :img_path => "kent",
                   :index => 3)
+
+# Shipping Methods
+
+ShippingMethod.destroy_all
+
+ShippingMethod.create( :name => "Flat-Rate Shipping", :cost => 6 )
+ShippingMethod.create( :name => "Mercersburg Academy Delivery", :cost => 0 )

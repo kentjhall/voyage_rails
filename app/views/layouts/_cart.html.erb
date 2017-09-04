@@ -10,6 +10,7 @@
 <% end %>
 <p <%= !@order_items.nil? && !@order_items.empty? ? "hidden" : "" %> id="empty_text">there's nothing here, go get some <%= link_to("stuff", "javascript:void(0);", :onclick => "scroll_to_store();") %>!</p>
 <div <%= @order_items.nil? || @order_items.empty? ? "hidden" : "" %> id="cart_content_stuff">
+  <%= link_to("mercersburg academy#{@ma_student ? "!" : "?"}", "javascript:void(0);", :id => "ma_student_link", :class => @ma_student ? "selected" : "", :onclick => "set_ma_student();", :remote => true) if params[:controller] != "charges" %>
   <table id="order_items_table">
     <tr>
       <th class="product_col">Product</th>
@@ -33,6 +34,14 @@
         </tr>
       <% end %>
     <% end %>
+    <% if params[:controller] == "charges" %>
+      <tr id="shipping">
+        <td class="product_col"><%= session[:shipping_method]['name'] %></td>
+        <td class="size_col"></td>
+        <td class="qty_col"></td>
+        <td class="price_col"><%= number_to_currency(session[:shipping_method]['cost']) %></td>
+      </tr>
+    <% end %>
   </table>
   <% if params[:controller] == "charges" %>
     <p id="total"><%= number_to_currency @amount/100 %></p>
@@ -46,6 +55,36 @@
 <script>
   var checkout_link = document.getElementById('checkout_link')
   var ogHref = checkout_link.href
+  var ma_student_link = document.getElementById('ma_student_link')
+
+  function set_ma_student() {
+    var data = ""
+
+    checkout_link.href = "javascript:void(0);"
+    checkout_link.className = "disabled_link"
+
+    show_loading_wheel()
+
+    $.ajax({
+      url: '/set_ma_student',
+      data: data,
+      type: 'get'
+    })
+    .done(function(data) {
+      if (ma_student_link.className.includes("selected")) {
+        ma_student_link.className = "";
+        ma_student_link.innerHTML = "mercersburg academy?"
+      }
+      else {
+        ma_student_link.className = "selected";
+        ma_student_link.innerHTML = "mercersburg academy!"
+      }
+
+      checkout_link.href = ogHref
+      checkout_link.className = ""
+      hide_loading_wheel()
+    })
+  }
 
   function remove_all_order_items() {
     var data = ""
@@ -92,8 +131,6 @@
     var quantity = e.options[e.selectedIndex].text;
     var data = "index=" + index + "&quantity=" + quantity;
 
-    var checkout_link = document.getElementById('checkout_link');
-    var ogHref = checkout_link.href
     checkout_link.href = "javascript:void(0);"
     checkout_link.className = "disabled_link"
 

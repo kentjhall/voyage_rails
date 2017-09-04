@@ -5,11 +5,6 @@ class ApplicationController < ActionController::Base
   before_action :set_cache_headers
   before_action :set_cart
 
-  def flash_exec
-    flash[:exec] = params[:exec]
-    redirect_to params[:url]
-  end
-
   def check_for_mobile
     session[:mobile_override] = params[:mobile] if params[:mobile]
     prepare_for_mobile if mobile_device?
@@ -36,7 +31,28 @@ class ApplicationController < ActionController::Base
     response.headers["Expires"] = "Fri, 01 Jan 1990 00:00:00 GMT"
   end
 
+  def flash_exec
+    flash[:exec] = params[:exec]
+    redirect_to params[:url]
+  end
+
+  def set_ma_student
+    if session[:shipping_method]['name'] != "Mercersburg Academy Delivery"
+      session[:shipping_method] = ShippingMethod.where(:name => "Mercersburg Academy Delivery").first
+    else
+      session[:shipping_method] = ShippingMethod.where(:name => "Flat-Rate Shipping").first
+    end
+  end
+
   def set_cart
+    if session[:shipping_method].nil?
+      session[:shipping_method] = ShippingMethod.where(:name => "Flat-Rate Shipping").first
+    end
+
+    if session[:shipping_method]['name'] == "Mercersburg Academy Delivery"
+      @ma_student = true
+    end
+
     order_item_properties = [ 'item_id', 'product_id', 'name', 'sku_id', 'price', 'size', 'quantity' ]
 
     if session[:order_items].nil?
@@ -49,6 +65,7 @@ class ApplicationController < ActionController::Base
     session[:order_items].each do |order_item|
       @amount += order_item['price'].to_i * order_item['quantity'].to_i
     end
+    @amount += session[:shipping_method]['cost']*100
 
     @order_items = session[:order_items]
   end

@@ -43,7 +43,10 @@ class ChargesController < ApplicationController
     order = Stripe::Order.create(
       :currency => 'usd',
       :items => items,
-      :customer => customer.id
+      :customer => customer.id,
+      :metadata => {
+        :shipping_method => session[:shipping_method]['name']
+      }
     )
 
     order.pay(
@@ -58,6 +61,7 @@ class ChargesController < ApplicationController
     @back_arrow_info = { :name => "home", :link => '/home' }
 
     session[:order_items] = nil
+    session[:shipping_method] = nil
 
     rescue Stripe::CardError => e
       flash[:error] = e.message

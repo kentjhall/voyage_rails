@@ -42,6 +42,7 @@ class OrderItemsController < ApplicationController
 
   def remove_all
     session[:order_items] = []
+    session[:shipping_method] = nil
 
     @order_items = session[:order_items]
     respond_to do |format|
