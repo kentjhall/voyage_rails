@@ -401,6 +401,8 @@
  }
 
  #cart #cart_content_stuff {
+   position: relative;
+
    width: auto;
    height: auto;
 
@@ -428,7 +430,7 @@
    margin-top: 2rem;
  }
 
- #cart #ma_student_link {
+ #cart_content_stuff #ma_student_link {
    position: absolute;
    top: 0;
    right: 0;
@@ -450,7 +452,7 @@
    white-space: nowrap;
  }
 
- #cart #ma_student_link.selected {
+ #cart_content_stuff #ma_student_link.selected {
    border-color: cornflowerblue;
    background: cornflowerblue;
    color: white;
