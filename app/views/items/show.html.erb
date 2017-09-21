@@ -33,7 +33,7 @@
       <div id="size_radio_buttons">
         <% @product.skus.data.each_with_index do |sku, i| %>
           <label for=<%= "size_radio_button_#{i}" %>>
-            <%= radio_button_tag(:sku_info, {:id => sku.id, :quantity_available => sku.inventory.quantity, :price => sku.price, :size => sku.attributes.size}, sku.attributes.size == 's', :id => "size_radio_button_#{i}") %>
+            <%= radio_button_tag(:sku_info, {:id => sku.id, :quantity_available => sku.inventory.quantity, :price => sku.price, :size => sku.attributes.size}, sku == @product.skus.data.first, :id => "size_radio_button_#{i}") %>
             <span class="radio_button_span"><p><%= sku.attributes.size %></p></span>
             <% unless sku.inventory.quantity.nil? %>
               <%= label_tag(:sku_id, "#{sku.inventory.quantity} in stock", :class => "quantity_available_label") %>
