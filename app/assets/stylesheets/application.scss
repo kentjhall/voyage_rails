@@ -165,7 +165,7 @@
 
    color: white;
    font-size: 2em;
-   font-weight: bolder;
+   font-weight: 900;
    text-align: center;
    text-transform: none;
 
@@ -746,6 +746,7 @@
    line-height: 3rem;
    font-size: 1rem;
    transition-property: all .2s linear;
+   white-space: nowrap;
  }
 
  #back_arrow_wrapper .arrow_text, #back_arrow_nav_wrapper .arrow_text {

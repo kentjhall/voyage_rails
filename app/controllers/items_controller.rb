@@ -30,7 +30,7 @@ class ItemsController < ApplicationController
       end
     end
 
-    @back_arrow_info = { :name => @clothing_line.name, :link => flash_exec_path(:exec => "scroll_to_store", :url => clothing_line_path(@clothing_line)) }
+    @back_arrow_info = { :name => @clothing_line.name.length>8 ? @clothing_line.name.truncate(11) : @clothing_line.name, :link => flash_exec_path(:exec => "scroll_to_store", :url => clothing_line_path(@clothing_line)) }
   end
 
   private
