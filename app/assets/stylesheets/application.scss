@@ -81,10 +81,13 @@
    top: 0;
    left: 20%;
 
+   width: 80%;
+
    color: white;
    line-height: $nav_height + 5rem;
-   text-align: center;
+   text-align: left;
    text-transform: uppercase;
+   text-overflow: ellipsis;
    white-space: nowrap;
    overflow: hidden;
 
