@@ -50,6 +50,9 @@ gem 'figaro'
 # New Relic for monitoring and pinging to prevent sleep
 gem 'newrelic_rpm'
 
+# FriendlyId
+gem "friendly_id"
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri

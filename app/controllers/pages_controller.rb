@@ -6,6 +6,8 @@ class PagesController < ApplicationController
 
   def home
     @clothing_lines = ClothingLine.all
+
+    @meta_description = 'Voyage clothing and apparel'
   end
 
   def art

@@ -1,8 +1,15 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
+  BRAND_NAME = 'Voyage'.freeze
+  DEF_DESC = 'Voyage clothing and apparel'
+
   before_action :set_cache_headers
   before_action :set_cart
+
+  def meta_title(title)
+    [BRAND_NAME, title].reject(&:empty?).join(' | ')
+  end
 
   def check_for_mobile
     session[:mobile_override] = params[:mobile] if params[:mobile]

@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Voyage</title>
+    <title><%= @meta_title ? @meta_title : ApplicationController::BRAND_NAME %></title>
+    <% if @meta_description.present? %>
+      <meta name="description" content="<%= @meta_description %>">
+    <% end %>
+
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=1">
     <%= csrf_meta_tags %>
 
@@ -84,13 +88,13 @@
                 <%= link_to(team_member.role.downcase, team_member_path(team_member), :class => "img_text sub") %>
               </div>
             <% end %>
-            <a href="https://www.instagram.com/voyagegang/" id="insta_link" class="special_link" target="_blank" data-aos="fade-up">@voyagegang</a>
+            <a href="https://www.instagram.com/voyagegang/" id="insta_link" class="special_link" target="_blank" rel="nofollow", data-aos="fade-up">@voyagegang</a>
           </div>
         <% end %>
         <div id="contact" class="colored_section">
           <div class="trigger" id="contact_trigger"></div>
           <h2 id="contact_title">contact</h2>
-          <a href="mailto:support@voyagealone.com" id="email_link" class="special_link" data-aos="fade-up">support@voyagealone.com</a>
+          <a href="mailto:support@voyagealone.com" id="email_link" class="special_link" rel="nofollow", data-aos="fade-up">support@voyagealone.com</a>
         </div>
       </div>
     <% end %>

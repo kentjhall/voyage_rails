@@ -13,6 +13,8 @@ class ChargesController < ApplicationController
     end
 
     @back_arrow_info = { :name => "cart", :link => flash_exec_path(:exec => "scroll_to_cart", :url => URI((!request.referer.nil? && !request.referer.include?("team_members")) ? request.referer : '/home').path) }
+
+    @meta_title = meta_title "Checkout"
   end
 
   def create
@@ -62,6 +64,8 @@ class ChargesController < ApplicationController
 
     session[:order_items] = nil
     session[:shipping_method] = nil
+
+    @meta_title = meta_title "Payment Success"
 
     rescue Stripe::CardError => e
       flash[:error] = e.message

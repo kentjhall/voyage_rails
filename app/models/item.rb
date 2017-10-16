@@ -1,5 +1,8 @@
 class Item < ApplicationRecord
 
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
   belongs_to :clothing_line
 
   validates_presence_of :product_id
