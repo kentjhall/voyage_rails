@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  root 'pages#myst'
+  root 'pages#home'
 
   get 'flash_exec', :to => 'application#flash_exec'
 

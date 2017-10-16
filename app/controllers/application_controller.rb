@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  http_basic_authenticate_with :name => ENV['DEV_USER'], :password => ENV['DEV_PASS'], except: :myst
 
   before_action :set_cache_headers
   before_action :set_cart
