@@ -50,8 +50,11 @@ gem 'figaro'
 # New Relic for monitoring and pinging to prevent sleep
 gem 'newrelic_rpm'
 
-# FriendlyId
+# FriendlyId for nicer URLs
 gem "friendly_id"
+
+# SitemapGenerator for sitemap generation
+gem "sitemap_generator"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
