@@ -18,6 +18,3 @@
 
 # Ignore application configuration
 /config/application.yml
-
-# Ignore Sitemap file
-/public/sitemap.xml.gz
